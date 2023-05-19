@@ -1,2 +1,2 @@
 <hr>
-<h1>FOOTER</h1>
+<h1 style="text-align:center">Powered by PHP</h1>

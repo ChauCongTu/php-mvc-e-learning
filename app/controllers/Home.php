@@ -7,23 +7,23 @@ class Home extends Controller{
         $this->model_home = $this->model('HomeModel');
     }
     public function index(){
-        $check = Session::data('user', [
-            'name' => 'Châu Quế Nhơn',
-            'email' => 'admin@chaucongtu.site',
-            'username' => 'admin',
-            'password' => '123456'
-        ]);
-        $user = Session::data('user');
+        // $check = Session::data('user', [
+        //     'name' => 'Châu Quế Nhơn',
+        //     'email' => 'admin@chaucongtu.site',
+        //     'username' => 'admin',
+        //     'password' => '123456'
+        // ]);
+        // $user = Session::data('user');
 
-        foreach($user as $key => $values){
-            echo $key .': '. $values.'</br>';
-        }
+        // foreach($user as $key => $values){
+        //     echo $key .': '. $values.'</br>';
+        // }
 
-        // $this->data['page_title'] = 'Shopping Online | Trang mua bán online';
-        // $this->data['content'] = 'home/index';
-        // $arr = $this->db->table('product_type')->get();
-        // $this->data['sub_content']['arr'] = $arr;
-        // $this->render('layouts/client-layout', $this->data);
+        $this->data['page_title'] = 'Shopping Online | Trang mua bán online';
+        $this->data['content'] = 'home/index';
+        $arr = $this->db->table('product_type')->get();
+        $this->data['sub_content']['arr'] = $arr;
+        $this->render('layouts/client-layout', $this->data);
     }
     public function logout(){
         var_dump(Session::delete('user'));
