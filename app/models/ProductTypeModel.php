@@ -1,6 +1,6 @@
 <?php
 class HomeModel extends Model{
-    private $_table = '';
+    private $_table = 'product_type';
     function tableFill(){
         return $this->_table;
     }

@@ -78,6 +78,7 @@ class Request{
                     if(count($ruleArr) > 1){
                         $ruleValue = end($ruleArr);
                     }
+                    
                     if($ruleName == 'required'){
                         if(empty($dataFields[$fieldName])){
                             $this->setErrors($fieldName, $ruleName);
@@ -134,7 +135,7 @@ class Request{
                             }
                         }
                     }
-                    //Callback validate
+                    // Callback validate
                     if(preg_match('~^callback_(.+)~is', $ruleName, $callbackArr)){
                         if(!empty($callbackArr[1])){
                             $callbackName = $callbackArr[1];

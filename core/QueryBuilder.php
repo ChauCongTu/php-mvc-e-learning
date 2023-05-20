@@ -87,6 +87,12 @@ trait QueryBuilder{
         }
         return false;
     }
+    
+    /// <summary>
+    /// Insert data to database
+    /// </summary>
+    /// <param name="data">Object data: $data = array( key => value)</param>
+    /// <returns>Insert status</returns>
     public function insert($data){
         $tableName = $this->tableName;
         $insertStatus = $this->insertData($tableName, $data);

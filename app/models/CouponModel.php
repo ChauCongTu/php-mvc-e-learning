@@ -1,6 +1,10 @@
 <?php
-class HomeModel extends Model{
-    private $_table = '';
+
+class CouponModel extends Model{
+    private $_table = 'coupon';
+    function __construct(){
+
+    }
     function tableFill(){
         return $this->_table;
     }
@@ -9,10 +13,10 @@ class HomeModel extends Model{
     }
     function primaryKey()
     {
-        return 'home';
+        return 'coupon';
     }
     public function getList(){
-        $data = $this->db->query("SELECT * FROM $this->_table")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->table($this->_table)->get();
         return $data;
     }
 }
