@@ -1,10 +1,6 @@
 <?php
-
 class CouponModel extends Model{
     private $_table = 'coupon';
-    function __construct(){
-
-    }
     function tableFill(){
         return $this->_table;
     }
