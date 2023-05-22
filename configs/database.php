@@ -3,7 +3,7 @@ $config['database'] = [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'ecommerce'
+    'dbname' => 'elearning'
 ];
 
 ?>

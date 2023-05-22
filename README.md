@@ -16,7 +16,7 @@ Xampp is a complete distribution of Apache, PHP, MySQL, and Perl, allowing you t
 
  You can clone the project to your computer by using the following command: 
  ``` 
- git clone https://github.com/ChauCongTu/php-mvc-e-commerce.git 
+ git clone https://github.com/ChauCongTu/php-mvc-e-learning.git 
  ```
 
  Alternatively, you can download the project as a zip file and extract it into the Xampp folder.
@@ -39,14 +39,10 @@ Xampp is a complete distribution of Apache, PHP, MySQL, and Perl, allowing you t
 
 ## Features
 - User Authentication (Registration/Login)
-- Selling Product
-- Product Listing
-- Product Details
-- Add to Cart
-- Checkout
-- Order History
-- Dashboard for Admin Users (View/Edit Products, Orders, etc.)
-- ...
+- Communicate with others thought forum
+- Learning lessons
+- 
+  
 ## Contributors
 
 Chau Que Nhon (quenhon2002@gmail.com)
