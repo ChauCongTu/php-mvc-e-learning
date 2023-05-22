@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="/public/assets/css/app.css" />
 </head>
 <?php $this->render('blocks/header'); ?>
-<body>
+<body class="bg-gray">
     <?php
         if (!empty($sub_content)) {
             $this->render($content, $sub_content);

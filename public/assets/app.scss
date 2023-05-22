@@ -1,5 +1,12 @@
-$theme_color: #2ecc71;
+$theme_color: #2980B9;
 $gray_f3: #f3f3f3;
+$primary: #0d6efd;
+$success: #198754;
+$info: #0dcaf0;
+$danger: #dc3545;
+$pink: #d63384;
+$purple: #6f42c1;
+$secondary: #6c757d;
 $phone: 600px;
 $tab-port: 800px;
 $tab-land: 1000px;
@@ -45,6 +52,10 @@ li {
 
 .bg-theme {
     background-color: $theme_color;
+}
+
+.bg-gray {
+    background-color: #f3f3f3;
 }
 
 .text-theme {
@@ -175,7 +186,6 @@ header {
 
 nav {
     padding: 10px 0;
-
     ul {
         display: block;
         text-align: center;
@@ -185,7 +195,7 @@ nav {
             line-height: 1.5;
             text-transform: uppercase;
             text-decoration: none;
-
+            
             :hover {
                 background-color: $theme_color;
                 color: #fff;
@@ -195,7 +205,7 @@ nav {
                 padding: 10px 20px;
                 border: 1px solid $theme_color;
                 font-weight: 600;
-
+                background-color: #fff;
                 @include tab-port {
                     display: block;
                 }
@@ -213,7 +223,6 @@ nav {
         position: fixed;
         width: 100%;
         z-index: 1;
-        background-color: #fff;
         transition: .5s;
         ul{
             a{
@@ -243,6 +252,32 @@ nav {
                     top: 50%;
                     transform: translateY(-50%);
                 }
+            }
+        }
+    }
+}
+
+
+footer {
+    color: #999;
+    .footer-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px 0;
+        padding-top: 20px;
+        border-bottom: 5px solid $pink;
+    }
+    .faqs {
+        a {
+            color: #fff;
+            text-decoration: none;
+            :hover {
+                text-decoration: underline;
+            }
+            li {
+                display: block;
+                margin-bottom: 10px;
             }
         }
     }
