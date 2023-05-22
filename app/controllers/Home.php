@@ -16,12 +16,5 @@ class Home extends Controller{
         $this->data['sub_content']['arr'] = $arr;
         $this->render('layouts/client-layout', $this->data);
     }
-    public function logout(){
-        var_dump(Session::delete('user'));
-    }
-
-    public function login(){
-        
-    }
 }
 ?>
