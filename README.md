@@ -12,9 +12,12 @@ This is a web application for high school students to learn English, which provi
 - Integration with Google Translate's text translation API.
 
 ## Requirements
-PHP 7+
-MySQL 5.7+
-Apache/Nginx server
+
+- PHP 7+
+
+- MySQL 5.7+
+
+- Apache/Nginx server
 
 ## Installation
 
