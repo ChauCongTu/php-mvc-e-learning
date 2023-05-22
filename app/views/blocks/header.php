@@ -1,29 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-    <title><?php echo ($page_title != null)?"NShop - " . $page_title:"NShop - Trang không có tiêu đề"; ?></title>
-    <meta name="description" content="Mua sắm trực tuyến với đa dạng sản phẩm, từ quần áo đến thiết bị điện tử. Mua bán trực tuyến tiện lợi và an toàn với NShop">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="NShop, Mua bán trực tuyến, Giá rẻ, Deal giá shock, Thời trang, Điện tử, Nội thất">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="JoshCQN Team">
-    <meta name="generator" content="PHP MVC">
-    
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="NShop - Mua sắm trực tuyến với giá ưu đãi">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg">
-    <meta property="og:description" content="Mua sắm trực tuyến với đa dạng sản phẩm, từ quần áo đến thiết bị điện tử. Mua bán trực tuyến tiện lợi và an toàn với NShop">
-    
-    <link rel="icon" type="image/x-icon" href="~/Content/Images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/app.css" />
-</head>
-<body>
-    <header>
-        <div class="container bg-primary text-white">E-Learn</div>
-    </header>
+<header class="bg-theme">
+    <div class="container header">
+        <div class="logo"><a href="">E-Learning</a></div>
+        <div class="search-bar">
+            <form action="" method="GET">
+                <input type="text" name="key" placeholder="Tìm kiếm ...">
+                <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="authen">
+            <a href=""><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a> |
+            <a href=""><i class="fa-solid fa-user"></i> Đăng ký</a>
+        </div>
+    </div>
+    <div class="container header-mobile">
+        <div class="logo"><a href="">E-Learning</a></div>
+        <div class="authen">
+            <a href=""><i class="fa-solid fa-user"></i> Tài khoản</a>
+        </div>
+        <div class="toogle">
+            <i class="fa-solid fa-bars" id="open-menu"></i>
+        </div>
+    </div>
+</header>
+<nav class="nav-bar-home">
+    <ul class="container">
+        <a href="">
+            <li>trang chủ</li>
+        </a>
+        <a href="">
+            <li>bài học</li>
+        </a>
+        <a href="">
+            <li>diễn đàn</li>
+        </a>
+        <a href="">
+            <li>thi thử</li>
+        </a>
+        <a href="">
+            <li>bảng xếp hạng</li>
+        </a>
+        <form method="get" action="">
+            <input type="text" name="key" placeholder="Tìm kiếm ...">
+            <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </ul>
+</nav>

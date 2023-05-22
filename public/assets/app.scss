@@ -1,10 +1,249 @@
-$theme_color: #34ace0;
-body {
-    font-family: 'Varta','Segoe UI','Helvetica Neue',Helvetica,Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans',sans-serif;
+$theme_color: #2ecc71;
+$gray_f3: #f3f3f3;
+$phone: 600px;
+$tab-port: 800px;
+$tab-land: 1000px;
+$desktop: 1400px;
+
+@mixin phone {
+    @media only screen and (max-width: $phone) {
+        @content;
+    }
 }
+
+@mixin tab-port {
+    @media only screen and (max-width: $tab-port) {
+        @content;
+    }
+}
+
+@mixin tab-land {
+    @media only screen and (max-width: $tab-land) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (max-width: $desktop) {
+        @content;
+    }
+}
+
+body {
+    font-family: 'Varta', 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
 .bg-theme {
     background-color: $theme_color;
 }
+
 .text-theme {
     color: $theme_color;
+}
+
+// Header style
+header {
+    padding: 20px 0;
+
+    .header {
+        align-items: center;
+        display: flex;
+        width: 100%;
+
+        .logo {
+            width: 20%;
+
+            a {
+                color: #fff;
+                font-weight: 700;
+                font-size: 32px;
+                text-decoration: none;
+            }
+            @include tab-land {
+                width: 30%;
+            }
+        }
+
+        .search-bar {
+            width: 60%;
+            display: block;
+            text-align: center;
+
+            form {
+                width: 100%;
+                position: relative;
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding-left: 10px;
+                    background-color: transparent;
+                    color: #fff;
+                    border: 1px solid #fff;
+                    border-radius: 15px;
+                }
+
+                input::placeholder {
+                    color: #fff;
+                }
+
+                button {
+                    position: absolute;
+                    background-color: transparent;
+                    color: #fff;
+                    border: none;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            @include desktop {
+                width: 55%;
+            }
+            @include tab-land {
+                width: 35%;
+            }
+        }
+
+        .authen {
+            width: 20%;
+            display: block;
+            text-align: right;
+
+            a {
+                font-weight: 600;
+                color: #fff;
+                text-decoration: none;
+                padding: 10px;
+            }
+            @include desktop {
+                width: 25%;
+            }
+            @include tab-land {
+                width: 35%;
+            }
+        }
+        @include tab-port {
+            display: none;
+        }
+    }
+    .header-mobile {
+        display: none;
+        align-items: center;
+        @include tab-port {
+            display: flex;
+            .logo {
+                width: 40%;
+                font-size: 24px;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+            .authen {
+                width: 50%;
+                display: block;
+                text-align: right;
+                a{
+                    font-size: 16px;
+                    color: #fff;
+                    text-decoration: none;
+                }
+                
+            }
+            .toogle {
+                width: 10%;
+                display: block;
+                text-align: right;
+                font-size: 24px;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+nav {
+    padding: 10px 0;
+
+    ul {
+        display: block;
+        text-align: center;
+
+        a {
+            color: $theme_color;
+            line-height: 1.5;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            :hover {
+                background-color: $theme_color;
+                color: #fff;
+            }
+
+            li {
+                padding: 10px 20px;
+                border: 1px solid $theme_color;
+                font-weight: 600;
+
+                @include tab-port {
+                    display: block;
+                }
+            }
+        }
+        form {
+            display: none;
+        }
+    }
+    @include tab-port {
+        display: none;
+        top: 85px;
+        padding: 0;
+        right: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        background-color: #fff;
+        transition: .5s;
+        ul{
+            a{
+                li {
+                    border-bottom: none;
+                }
+            }
+            form {
+                display: block;
+                position: relative;
+                input {
+                    width: 100%;
+                    height: 45px;
+                    border: 1px solid $theme_color;
+                    padding-left: 10px;
+                    ::placeholder {
+                        color: $theme_color;
+                    }
+                }
+                button {
+                    position: absolute;
+                    right: 0;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 18px;
+                    color: $theme_color;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
 }
