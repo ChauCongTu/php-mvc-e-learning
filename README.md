@@ -1,10 +1,23 @@
-## Introduction
-This is an e-commerce website project built using PHP and MVC architecture for B2B model.
+## English Learning Website
+This is a web application for high school students to learn English, which provides the following features:
+
+- Basic English lessons such as vocabulary, grammar, etc.
+
+- A forum for users to help and exchange with each other.
+
+- Practice tests for high school exams and national exams.
+
+- Leaderboard for users' practice exam results.
+
+- Integration with Google Translate's text translation API.
 
 ## Requirements
-PHP 7.1.3 or higher
 
-MySQL 5.6 or higher
+- PHP 7+
+
+- MySQL 5.7+
+
+- Apache/Nginx server
 
 ## Installation
 
@@ -37,12 +50,6 @@ Xampp is a complete distribution of Apache, PHP, MySQL, and Perl, allowing you t
 
 - Access the `http://localhost/your-path-to-project-folder` address in the browser to open the website.
 
-## Features
-- User Authentication (Registration/Login)
-- Communicate with others thought forum
-- Learning lessons
-- 
-  
 ## Contributors
 
 Chau Que Nhon (quenhon2002@gmail.com)
