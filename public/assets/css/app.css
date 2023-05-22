@@ -1,0 +1,13 @@
+body {
+  font-family: "Varta", "Segoe UI", "Helvetica Neue", Helvetica, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", sans-serif;
+}
+
+.bg-theme {
+  background-color: #34ace0;
+}
+
+.text-theme {
+  color: #34ace0;
+}
+
+/*# sourceMappingURL=app.css.map */

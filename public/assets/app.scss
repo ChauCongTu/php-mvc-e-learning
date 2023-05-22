@@ -1,0 +1,10 @@
+$theme_color: #34ace0;
+body {
+    font-family: 'Varta','Segoe UI','Helvetica Neue',Helvetica,Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans',sans-serif;
+}
+.bg-theme {
+    background-color: $theme_color;
+}
+.text-theme {
+    color: $theme_color;
+}
