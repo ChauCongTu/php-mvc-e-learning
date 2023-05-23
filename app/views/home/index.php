@@ -62,7 +62,7 @@
     </div>
 </section>
 
-<section class="container course">
+<section class="container course pb-2">
     <div class="course-title">Liên kết khóa học</div>
     <div class="course-list">
         <div class="course-item p-2">
@@ -98,9 +98,30 @@
     </div>
 </section>
 
-<section class="container forum">
+<section class="word-of-day mt-3 mb-3">
+    <div class="text-word">
+        <div class="title">Mỗi ngày một từ vựng</div>
+        <div class="word">
+            <div class="forum-word">
+                <div class="_word">Benefit</div>
+                <div class="_spell">/ˈben.ə.fɪt/</div>
+                <div class="_meaning">(n) lợi ích, sự thuận lợi, sự hưởng lợi <br /> (v) làm tốt cho, giúp ích cho hoặc mang lại lợi ích cho ai đó.</div>
+            </div>
+            <div class="_example">
+                <div class="_title"><strong> Example:</strong></div>
+                <div>
+                    <b>(Noun):</b> The new job comes with a lot of benefits, including health insurance and a retirement plan. (Công việc mới đi kèm với nhiều lợi ích, bao gồm bảo hiểm y tế và kế hoạch nghỉ hưu.)<br /><br />
+                    <b>(Verb):</b> A healthy diet and exercise can benefit your overall health. (Một chế độ ăn uống lành mạnh và tập thể dục có thể giúp ích cho sức khỏe tổng thể của bạn.)
+                </div>
+            </div>
+            <div class="_synonyms mt-3"><strong>Từ đồng nghĩa: </strong>Advantage, Gain, Profit, Good, Reward, Perk.</div>
+            <div class="_synonyms"><strong>Từ trái nghĩa: </strong>Disadvantage, Loss, Drawback, Deficit, Harm, Detriment.</div>
+        </div>
+    </div>
+</section>
+<section class="container forum pb-3">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="forum-title">Chủ đề mới nhất</div>
             <article class="forum-list">
                 <div class="forum-item">
@@ -117,26 +138,26 @@
                 </div>
             </article>
         </div>
-        <div class="col-md-7">
-            <div class="forum-title text-center">Mỗi ngày một từ vựng</div>
-            <div class="word">
-                <div class="forum-word">
-                    <div class="_word">Benefit</div>
-                    <div class="_spell">/ˈben.ə.fɪt/</div>
-                    <div class="_meaning">(n) lợi ích, sự thuận lợi, sự hưởng lợi <br /> (v) làm tốt cho, giúp ích cho hoặc mang lại lợi ích cho ai đó.</div>
+        <div class="col-md-6">
+            <div class="forum-title">Thảo luận nhiều nhất</div>
+            <article class="forum-list">
+                <div class="forum-item">
+                    <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
                 </div>
-                <div class="_example">
-                    <div class="title"><strong> Example:</strong></div>
-                    <div>
-                        <b>(Noun):</b> The new job comes with a lot of benefits, including health insurance and a retirement plan. (Công việc mới đi kèm với nhiều lợi ích, bao gồm bảo hiểm y tế và kế hoạch nghỉ hưu.)<br /><br />
-                        <b>(Verb):</b> A healthy diet and exercise can benefit your overall health. (Một chế độ ăn uống lành mạnh và tập thể dục có thể giúp ích cho sức khỏe tổng thể của bạn.)
-                    </div>
+                <div class="forum-item">
+                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
                 </div>
-                <div class="_synonyms mt-3"><strong>Từ đồng nghĩa: </strong>Advantage, Gain, Profit, Good, Reward, Perk.</div>
-                <div class="_synonyms"><strong>Từ trái nghĩa: </strong>Disadvantage, Loss, Drawback, Deficit, Harm, Detriment.</div>
-            </div>
+                <div class="forum-item">
+                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                </div>
+            </article>
         </div>
     </div>
+</section>
+<section class="container forum">
     <div class="forum-title">Danh mục diễn đàn</div>
     <div class="forum-sub-title">Thông báo diễn đàn</div>
     <article class="forum-list">
@@ -170,7 +191,6 @@
         </div>
     </article>
 </section>
-<br />
 <section class="container statistical pb-2">
     <div class="title">Thống kê diễn đàn</div>
     <p><strong><i class="fa-solid fa-user"></i> Thành viên:</strong> 12,039</p>

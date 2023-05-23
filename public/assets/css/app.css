@@ -395,6 +395,41 @@ nav ul form {
   color: #da1416;
 }
 
+.word-of-day {
+  padding: 40px 0;
+  background-image: url(http://bizweb.dktcdn.net/100/328/362/themes/894751/assets/bg_subscribe.jpg?1664350964800);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: auto;
+  display: block;
+  text-align: center;
+  color: #fff;
+}
+.word-of-day .text-word {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+.word-of-day .text-word .title {
+  font-size: 28px;
+  font-weight: 700;
+}
+.word-of-day .text-word .forum-word {
+  display: block;
+  text-align: center;
+}
+.word-of-day .text-word .forum-word ._word {
+  font-size: 28px;
+  font-weight: 700;
+  color: #da1416;
+}
+@media only screen and (max-width: 800px) {
+  .word-of-day .text-word {
+    width: 95%;
+  }
+}
+
 .forum {
   background-color: #fff;
 }
@@ -430,15 +465,6 @@ nav ul form {
 .forum .forum-list .forum-item:first-child {
   border-top: 1px solid #ccc;
   padding-top: 10px;
-}
-.forum .forum-word {
-  display: block;
-  text-align: center;
-}
-.forum .forum-word ._word {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2980B9;
 }
 
 .statistical {
