@@ -63,4 +63,3 @@
         <p class="text-center pb-3">Copyright &copy; <?php echo date('Y'); ?> - Code by <a href="mailto:quenhon2002@gmail.com" class="text-white">Chau Que Nhon</a></p>
     </div>
 </footer>
-<script src="/public/assets/js/app.js"></script>

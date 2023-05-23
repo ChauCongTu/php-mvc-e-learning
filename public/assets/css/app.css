@@ -20,8 +20,24 @@ li {
   background-color: #f3f3f3;
 }
 
+.bg-img {
+  background-image: url(http://mauweb.monamedia.net/newyork/wp-content/uploads/2018/05/banner-top-img.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 550px;
+}
+
 .text-theme {
   color: #2980B9;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a :hover {
+  color: #da1416;
 }
 
 header {
@@ -150,26 +166,26 @@ header .header-mobile {
 
 nav {
   padding: 10px 0;
+  background-color: #2980B9;
 }
 nav ul {
   display: block;
   text-align: center;
 }
 nav ul a {
-  color: #2980B9;
+  color: #fff;
   line-height: 1.5;
   text-transform: uppercase;
   text-decoration: none;
 }
 nav ul a :hover {
   background-color: #2980B9;
-  color: #fff;
+  color: #da1416;
 }
 nav ul a li {
   padding: 10px 20px;
   border: 1px solid #2980B9;
   font-weight: 600;
-  background-color: #fff;
 }
 @media only screen and (max-width: 800px) {
   nav ul a li {
@@ -181,14 +197,19 @@ nav ul form {
 }
 @media only screen and (max-width: 800px) {
   nav {
+    background-color: #fff;
     display: none;
-    top: 85px;
-    padding: 0;
+    top: 75px;
+    padding: 10px 0;
     right: 0;
     position: fixed;
     width: 100%;
     z-index: 1;
     transition: 0.5s;
+  }
+  nav ul a {
+    color: #2980B9;
+    text-align: left;
   }
   nav ul a li {
     border-bottom: none;
@@ -216,6 +237,217 @@ nav ul form {
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.main-head {
+  position: relative;
+}
+.main-head .label-post {
+  position: absolute;
+  width: 30%;
+  background-color: #da1416;
+  height: 500px;
+}
+.main-head .label-post h4 {
+  margin-top: 40px;
+  font-size: 30px;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 800px) {
+  .main-head .label-post h4 {
+    margin-top: 0;
+  }
+}
+.main-head .label-post .label-content {
+  font-family: "Montserrat", sans-serif;
+  display: block;
+  color: #f1f1f1;
+  line-height: 1.5;
+}
+.main-head .label-post a {
+  font-size: 18px;
+}
+.main-head .label-post a :hover {
+  color: #0d6efd;
+}
+@media only screen and (max-width: 1400px) {
+  .main-head .label-post {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .main-head .label-post {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .main-head .label-post {
+    width: 100%;
+  }
+}
+
+.banner-fill {
+  margin-top: -50px;
+}
+.banner-fill .banner_fill {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 20px;
+}
+.banner-fill .banner_fill .banner_fill-img {
+  width: 50%;
+  padding: 20px;
+  padding-bottom: 0;
+}
+.banner-fill .banner_fill .banner_fill-img img {
+  width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .banner-fill .banner_fill .banner_fill-img {
+    width: 100%;
+    order: 2;
+  }
+}
+.banner-fill .banner_fill .banner_fill-text {
+  width: 50%;
+  padding: 20px;
+  display: block;
+  text-align: right;
+}
+.banner-fill .banner_fill .banner_fill-text .banner_fill-text-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+.banner-fill .banner_fill .banner_fill-text .banner_fill-text-title h3 {
+  font-size: 30px;
+  color: #da1416;
+}
+.banner-fill .banner_fill .banner_fill-text .banner_fill-text-action a {
+  color: #da1416;
+  font-weight: 700;
+}
+@media only screen and (max-width: 800px) {
+  .banner-fill .banner_fill .banner_fill-text {
+    width: 100%;
+    order: 1;
+  }
+}
+.banner-fill .row .col-md-4 {
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.course {
+  background-color: #fff;
+  font-weight: 600;
+}
+.course .course-title {
+  font-size: 28px;
+  padding: 50px 0 30px 0;
+  font-weight: 700;
+}
+.course .course-list .slick-arrow {
+  background-color: transparent;
+  border: none;
+  color: #2980B9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+}
+.course .course-list .slick-arrow :hover {
+  color: #da1416;
+}
+.course .course-list .slick-prev {
+  left: -40px;
+}
+.course .course-list .slick-next {
+  right: -40px;
+}
+.course .course-list .course-item {
+  border: 1px solid #ccc;
+}
+.course .course-list .course-item p {
+  font-size: 14px;
+  overflow: hidden;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.course .course-list .course-item .title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 10px;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.course .course-list .course-item a {
+  color: #2980B9;
+  font-weight: 600;
+  display: block;
+  text-align: right;
+}
+.course .course-list .course-item a:hover {
+  color: #da1416;
+}
+
+.forum {
+  background-color: #fff;
+}
+.forum .forum-title {
+  font-size: 28px;
+  padding: 50px 0 10px 0;
+  font-weight: 700;
+}
+.forum .forum-sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.forum .forum-list .forum-item {
+  border-bottom: 1px solid #ccc;
+  margin-top: 10px;
+}
+.forum .forum-list .forum-item .title {
+  color: #2980B9;
+  font-weight: 600;
+  padding: 10px 0;
+}
+.forum .forum-list .forum-item .title:hover {
+  color: #da1416;
+}
+.forum .forum-list .forum-item p {
+  font-size: 14px;
+  color: #444;
+}
+.forum .forum-list .forum-item p .date {
+  float: right;
+}
+.forum .forum-list .forum-item:first-child {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.forum .forum-word {
+  display: block;
+  text-align: center;
+}
+.forum .forum-word ._word {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2980B9;
+}
+
+.statistical {
+  background-color: #fff;
+}
+.statistical .title {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 30px 0;
 }
 
 footer {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title><?php echo ($page_title != null) ? "E-Learning - " . $page_title : "NShop - Trang không có tiêu đề"; ?></title>
@@ -19,20 +20,26 @@
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="/public/assets/css/app.css" />
 </head>
 <?php $this->render('blocks/header'); ?>
+
 <body class="bg-gray">
     <?php
-        if (!empty($sub_content)) {
-            $this->render($content, $sub_content);
-        } else {
-            $this->render($content);
-        }
+    if (!empty($sub_content)) {
+        $this->render($content, $sub_content);
+    } else {
+        $this->render($content);
+    }
     ?>
 </body>
 
 <?php $this->render('blocks/footer'); ?>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="/public/assets/js/app.js"></script>

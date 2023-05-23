@@ -3,7 +3,7 @@ $gray_f3: #f3f3f3;
 $primary: #0d6efd;
 $success: #198754;
 $info: #0dcaf0;
-$danger: #dc3545;
+$danger: #da1416;
 $pink: #d63384;
 $purple: #6f42c1;
 $secondary: #6c757d;
@@ -58,8 +58,24 @@ li {
     background-color: #f3f3f3;
 }
 
+.bg-img {
+    background-image: url(http://mauweb.monamedia.net/newyork/wp-content/uploads/2018/05/banner-top-img.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 550px;
+}
+
 .text-theme {
     color: $theme_color;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    :hover {
+        color: $danger;
+    }
 }
 
 // Header style
@@ -186,26 +202,26 @@ header {
 
 nav {
     padding: 10px 0;
+    background-color: $theme_color;
     ul {
         display: block;
         text-align: center;
 
         a {
-            color: $theme_color;
+            color: #fff;
             line-height: 1.5;
             text-transform: uppercase;
             text-decoration: none;
             
             :hover {
                 background-color: $theme_color;
-                color: #fff;
+                color: $danger;
             }
 
             li {
                 padding: 10px 20px;
                 border: 1px solid $theme_color;
                 font-weight: 600;
-                background-color: #fff;
                 @include tab-port {
                     display: block;
                 }
@@ -216,9 +232,10 @@ nav {
         }
     }
     @include tab-port {
+        background-color: #fff;
         display: none;
-        top: 85px;
-        padding: 0;
+        top: 75px;
+        padding: 10px 0;
         right: 0;
         position: fixed;
         width: 100%;
@@ -226,6 +243,8 @@ nav {
         transition: .5s;
         ul{
             a{
+                color: $theme_color;
+                text-align: left;
                 li {
                     border-bottom: none;
                 }
@@ -257,6 +276,216 @@ nav {
     }
 }
 
+// Index style
+.main-head {
+    position: relative;
+    .label-post {
+        position: absolute;
+        width: 30%;
+        background-color: $danger;
+        height: 500px;
+        h4 {
+            margin-top: 40px;
+            font-size: 30px;
+            line-height: 1.5;
+            @include tab-port {
+                margin-top: 0;
+            }
+        }
+        .label-content {
+            font-family: "Montserrat", sans-serif;
+            display: block;
+            color: #f1f1f1;
+            line-height: 1.5;
+        }
+        a {
+            font-size: 18px;
+            :hover {
+                color: #0d6efd;
+            }
+        }
+        @include desktop {
+            width: 40%;
+        }
+        @include tab-land {
+            width: 60%;
+        }
+        @include tab-port {
+            width: 100%;
+        }
+    }
+}
+
+.banner-fill {
+    margin-top: -50px;
+    .banner_fill {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 20px;
+        .banner_fill-img {
+            width: 50%;
+            padding: 20px;
+            padding-bottom: 0;
+            img {
+                width: 100%;
+            }
+            @include tab-port {
+                width: 100%;
+                order: 2;
+            }
+        }
+        .banner_fill-text {
+            width: 50%;
+            padding: 20px;
+            display: block;
+            text-align: right;
+            .banner_fill-text-title {
+                font-size: 28px;
+                font-weight: 600;
+                h3 {
+                    font-size: 30px;
+                    color: $danger;
+                }
+            }
+            .banner_fill-text-content {
+                
+            }
+            .banner_fill-text-action {
+                a {
+                    color: $danger;
+                    font-weight: 700;
+                }
+            }
+            @include tab-port {
+                width: 100%;
+                order: 1;
+            }
+        }
+    }
+    .row {
+        .col-md-4 {
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    }
+}
+
+.course {
+    background-color: #fff;
+    font-weight: 600;
+    .course-title {
+        font-size: 28px;
+        padding: 50px 0 30px 0;
+        font-weight: 700;
+    }
+    .course-list {
+        .slick-arrow {
+            background-color: transparent;
+            border: none;
+            color: $theme_color;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            :hover {
+                color: $danger;
+            }
+        }
+        .slick-prev {
+            left: -40px;
+        }
+        .slick-next {
+            right: -40px;
+        }
+        .course-item {
+            border: 1px solid #ccc;
+            p {
+                font-size: 14px;
+                overflow: hidden;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            .title {
+                font-weight: 700;
+                font-size: 16px;
+                margin-top: 10px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+            }
+            a {
+                color: $theme_color;
+                font-weight: 600;
+                display: block;
+                text-align: right;
+            }
+            a:hover {
+                color: $danger;
+            }
+        }
+    }
+}
+
+.forum {
+    background-color: #fff;
+    .forum-title {
+        font-size: 28px;
+        padding: 50px 0 10px 0;
+        font-weight: 700;
+    }
+    .forum-sub-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    .forum-list {
+        .forum-item {
+            border-bottom: 1px solid #ccc;
+            margin-top: 10px;
+            .title {
+                color: $theme_color;
+                font-weight: 600;
+                padding: 10px 0;
+            }
+            .title:hover {
+                color: $danger;
+            }
+            p {
+                font-size: 14px;
+                color: #444;
+                .date {
+                    float: right;
+                }
+            }
+        }
+        .forum-item:first-child {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    }
+    .forum-word {
+        display: block;
+        text-align: center;
+        ._word {
+            font-size: 24px;
+            font-weight: 700;
+            color: $theme_color;
+        }
+    }
+}
+
+.statistical {
+    background-color: #fff;
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+        padding: 30px 0;
+    }
+}
 
 footer {
     color: #999;
