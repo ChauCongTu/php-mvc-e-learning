@@ -107,7 +107,7 @@
                 <div class="_spell">/ˈben.ə.fɪt/</div>
                 <div class="_meaning">(n) lợi ích, sự thuận lợi, sự hưởng lợi <br /> (v) làm tốt cho, giúp ích cho hoặc mang lại lợi ích cho ai đó.</div>
             </div>
-            <div class="_example">
+            <div class="_example mt-3">
                 <div class="_title"><strong> Example:</strong></div>
                 <div>
                     <b>(Noun):</b> The new job comes with a lot of benefits, including health insurance and a retirement plan. (Công việc mới đi kèm với nhiều lợi ích, bao gồm bảo hiểm y tế và kế hoạch nghỉ hưu.)<br /><br />
@@ -175,7 +175,6 @@
         </div>
     </article>
     <div class="forum-sub-title">Hỏi đáp - thắc mắc</div>
-    <a href="" class="text-primary"><i class="fa-solid fa-plus"></i> Đăng bài viết</a>
     <article class="forum-list">
         <div class="forum-item">
             <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
