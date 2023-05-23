@@ -4,11 +4,9 @@
  */
 class User extends Controller{
     public $data = [];
-    public $model_home;
     public function index(){
-        $this->data['sub_content']['arr'] = array ();
-        $this->data['content'] = 'home/index';
-        $this->render('layouts/client-layout', $this->data);
+        $this->data['user'] = 'User 1';
+        $this->render('user/index', $this->data);
     }
     public function login(){
         $this->data['page_title'] = 'Đăng nhập diễn đàn';

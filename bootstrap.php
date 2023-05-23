@@ -40,8 +40,9 @@ if(!empty($config['database'])){
         $db = new Database();
     }
 }
-require_once 'core/Model.php';
-require_once 'core/Controller.php'; //Load controller
-require_once 'core/Request.php'; //Load Request
-require_once 'core/Response.php'; //Load Response
+require_once 'core/Model.php'; // Load Mode
+require_once 'core/Template.php'; // Load Template Engine
+require_once 'core/Controller.php'; // Load controller
+require_once 'core/Request.php'; // Load Request
+require_once 'core/Response.php'; // Load Response
 ?>

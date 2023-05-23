@@ -13,8 +13,13 @@ class Controller{
     }
     public function render($view, $data = []){
         extract($data);
+        ob_start();
         if(file_exists(_DIR_ROOT.'/app/views/'.$view.'.php')){
             require _DIR_ROOT.'/app/views/'.$view.'.php';
         }
+        $contentView = ob_get_contents();
+        ob_end_clean();
+        $template = new Template();
+        $template->run($contentView, $data);
     }
 }
