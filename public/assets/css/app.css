@@ -13,7 +13,7 @@ li {
 }
 
 .bg-theme {
-  background-color: #2980B9;
+  background-color: #fff;
 }
 
 .bg-gray {
@@ -29,11 +29,11 @@ li {
 }
 
 .text-theme {
-  color: #2980B9;
+  color: #000;
 }
 
 .action-theme {
-  color: #2980B9;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -43,12 +43,12 @@ li {
 }
 
 a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
 header {
-  padding: 20px 0;
+  padding: 20px 0 0 0;
 }
 header .header {
   align-items: center;
@@ -59,7 +59,7 @@ header .header .logo {
   width: 20%;
 }
 header .header .logo a {
-  color: #fff;
+  color: #000;
   font-weight: 700;
   font-size: 32px;
   text-decoration: none;
@@ -83,17 +83,17 @@ header .header .search-bar form input {
   height: 40px;
   padding-left: 10px;
   background-color: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #000;
+  border: 1px solid #000;
   border-radius: 15px;
 }
 header .header .search-bar form input::placeholder {
-  color: #fff;
+  color: #000;
 }
 header .header .search-bar form button {
   position: absolute;
   background-color: transparent;
-  color: #fff;
+  color: #000;
   border: none;
   right: 10px;
   top: 50%;
@@ -116,7 +116,7 @@ header .header .authen {
 }
 header .header .authen a {
   font-weight: 600;
-  color: #fff;
+  color: #000;
   text-decoration: none;
   padding: 10px;
 }
@@ -148,7 +148,7 @@ header .header-mobile {
     font-size: 24px;
   }
   header .header-mobile .logo a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
   header .header-mobile .authen {
@@ -158,7 +158,7 @@ header .header-mobile {
   }
   header .header-mobile .authen a {
     font-size: 16px;
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
   header .header-mobile .toogle {
@@ -166,33 +166,38 @@ header .header-mobile {
     display: block;
     text-align: right;
     font-size: 24px;
-    color: #fff;
+    color: #000;
     cursor: pointer;
+  }
+}
+@media only screen and (max-width: 800px) {
+  header {
+    padding: 20px 0;
   }
 }
 
 nav {
-  padding: 10px 0;
-  background-color: #2980B9;
+  padding: 0 0 10px 0;
+  background-color: #fff;
 }
 nav ul {
   display: block;
   text-align: center;
 }
 nav ul a {
-  color: #fff;
+  color: #000;
   line-height: 1.5;
   text-transform: uppercase;
   text-decoration: none;
 }
 nav ul a :hover {
-  background-color: #2980B9;
+  border-bottom: 5px solid #da1416;
   color: #da1416;
 }
 nav ul a li {
   padding: 10px 20px;
-  border: 1px solid #2980B9;
-  font-weight: 600;
+  border: 1px solid #fff;
+  font-weight: 700;
 }
 @media only screen and (max-width: 800px) {
   nav ul a li {
@@ -211,11 +216,11 @@ nav ul form {
     right: 0;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 1000;
     transition: 0.5s;
   }
   nav ul a {
-    color: #2980B9;
+    color: #000;
     text-align: left;
   }
   nav ul a li {
@@ -228,11 +233,11 @@ nav ul form {
   nav ul form input {
     width: 100%;
     height: 45px;
-    border: 1px solid #2980B9;
+    border: 1px solid #000;
     padding-left: 10px;
   }
   nav ul form input ::placeholder {
-    color: #2980B9;
+    color: #fff;
   }
   nav ul form button {
     position: absolute;
@@ -240,7 +245,7 @@ nav ul form {
     background-color: transparent;
     border: none;
     font-size: 18px;
-    color: #2980B9;
+    color: #000;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -350,14 +355,17 @@ nav ul form {
   font-weight: 600;
 }
 .course .course-title {
+  padding: 30px 10px 10px 0;
   font-size: 28px;
-  padding: 50px 0 30px 0;
   font-weight: 700;
+  color: #198754;
+  border-bottom: 5px solid #da1416;
+  margin-bottom: 10px;
 }
 .course .course-list .slick-arrow {
   background-color: transparent;
   border: none;
-  color: #2980B9;
+  color: #000;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -393,7 +401,7 @@ nav ul form {
   -webkit-line-clamp: 1;
 }
 .course .course-list .course-item a {
-  color: #2980B9;
+  color: #fff;
   font-weight: 600;
   display: block;
   text-align: right;
@@ -403,13 +411,13 @@ nav ul form {
 }
 @media only screen and (max-width: 600px) {
   .course .course-list .slick-arrow {
-    top: -15px;
+    top: -42px;
   }
   .course .course-list .slick-prev {
-    left: 40%;
+    left: 85%;
   }
   .course .course-list .slick-next {
-    right: 40%;
+    right: 0;
   }
 }
 
@@ -452,13 +460,16 @@ nav ul form {
   background-color: #fff;
 }
 .forum .forum-title {
+  padding: 30px 10px 10px 0;
   font-size: 28px;
-  padding: 50px 0 10px 0;
   font-weight: 700;
+  color: #198754;
+  border-bottom: 5px solid #da1416;
+  margin-bottom: 10px;
 }
 .forum .forum-sub-title {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   margin-top: 10px;
 }
 .forum .forum-list .forum-item {
@@ -466,7 +477,7 @@ nav ul form {
   margin-top: 10px;
 }
 .forum .forum-list .forum-item .title {
-  color: #2980B9;
+  color: #000;
   font-weight: 600;
   padding: 10px 0;
 }
@@ -489,9 +500,12 @@ nav ul form {
   background-color: #fff;
 }
 .statistical .title {
+  padding: 30px 10px 10px 0;
   font-size: 28px;
   font-weight: 700;
-  padding: 30px 0;
+  color: #198754;
+  border-bottom: 5px solid #da1416;
+  margin-bottom: 10px;
 }
 
 .login {
@@ -517,19 +531,90 @@ nav ul form {
   margin: auto;
 }
 
+.photo {
+  padding: 0;
+  background-image: url(/public/Image/icon/background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 300px;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+.photo .photo-blur {
+  position: absolute;
+  background-color: #FFF;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  z-index: 1;
+}
+.photo .text {
+  position: absolute;
+  color: #198754;
+  top: 30%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 2;
+}
+@media only screen and (max-width: 600px) {
+  .photo .text {
+    font-size: 30px;
+  }
+}
+
+.lesson {
+  padding: 10px;
+}
+.lesson .title {
+  padding: 30px 10px 10px 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #198754;
+  border-bottom: 5px solid #da1416;
+}
+.lesson .content {
+  margin-top: 20px;
+  padding: 0 10px;
+  font-weight: 600;
+  color: #333;
+}
+.lesson .content p {
+  font-size: 14px;
+}
+.lesson .content p a {
+  display: block;
+  font-size: 16px;
+}
+.lesson .content p a:hover {
+  color: #da1416;
+}
+
 footer {
-  color: #999;
+  color: #fff;
+  background-color: #da1416;
 }
 footer .footer-title {
+  color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
   padding: 10px 0;
   padding-top: 20px;
-  border-bottom: 5px solid #d63384;
+  border-bottom: 5px solid #ccc;
+}
+footer .footer-content {
+  color: #ccc;
 }
 footer .faqs a {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
 }
 footer .faqs a :hover {

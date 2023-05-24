@@ -1,6 +1,6 @@
 <header class="bg-theme">
     <div class="container header">
-        <div class="logo"><a href="/">E-Learning</a></div>
+        <div class="logo"><a href="/"><img src="/public/Image/icon/bg.png" width="80%" alt=""></a></div>
         <div class="search-bar">
             <form action="" method="GET">
                 <input type="text" name="key" placeholder="Tìm kiếm ...">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="container header-mobile">
-        <div class="logo"><a href="/">E-Learning</a></div>
+        <div class="logo"><a href="/"><img src="/public/Image/icon/bg.png" width="80%" alt=""></a></div>
         <div class="authen">
             <?php
             if (Session::data('User') == null) {

@@ -84,7 +84,7 @@ class User extends Controller
                 $this->data['sub_content']['errors'] = $request->errors();
                 $this->data['sub_content']['msg'] = 'Đã xảy ra lỗi, vui lòng kiểm tra lại!';
             } else {
-                $this->model('UserModel')->createAccount($_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
+                $this->model($this->model)->createAccount($_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
                 Helpers::redirectTo("/dang-nhap.html");
             }
         }

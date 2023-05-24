@@ -39,6 +39,13 @@ CREATE TABLE Grammars (
     FOREIGN KEY (lesson_id) REFERENCES Lessons(lesson_id)
 );
 
+CREATE TABLE Exams (
+    exam_id INT AUTO_INCREMENT PRIMARY KEY,
+    grade INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE Tests (
     test_id INT AUTO_INCREMENT PRIMARY KEY,
     grade INT NOT NULL,
@@ -50,23 +57,21 @@ CREATE TABLE Tests (
 
 CREATE TABLE Questions (
     question_id INT AUTO_INCREMENT PRIMARY KEY,
-    type INT NOT NULL,
-    grade INT NOT NULL,
-    content TEXT NOT NULL,
-    answer_1 TEXT NOT NULL,
-    answer_2 TEXT NOT NULL,
-    answer_3 TEXT NOT NULL,
-    answer_4 TEXT NOT NULL,
-    correct_answer TEXT NOT NULL
+    exam_id INT NOT NULL,
+    content VARCHAR(500) NOT NULL,
+    answer_1 VARCHAR(255) NOT NULL,
+    answer_2 VARCHAR(255) NOT NULL,
+    answer_3 VARCHAR(255) NOT NULL,
+    answer_4 VARCHAR(255) NOT NULL,
+    correct_answer INT NOT NULL,
+    FOREIGN KEY (exam_id) REFERENCES Exams(exam_id)
 );
 
 CREATE TABLE User_Answers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     test_id INT NOT NULL,
-    question_id INT NOT NULL,
-    answer VARCHAR(255) NOT NULL,
-    FOREIGN KEY (test_id) REFERENCES Tests(test_id),
-    FOREIGN KEY (question_id) REFERENCES Questions(question_id)
+    answer INT NOT NULL,
+    FOREIGN KEY (test_id) REFERENCES Tests(test_id)
 );
 
 CREATE TABLE Test_Results (
