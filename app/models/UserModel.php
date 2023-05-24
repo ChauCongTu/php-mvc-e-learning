@@ -12,22 +12,29 @@ class UserModel extends Model
     }
     function primaryKey()
     {
-        return 'home';
+        return 'user_id';
     }
     public function getList()
     {
         
+    }
+    public function accountVerification($username, $password) {
+        $username = filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = hash('sha256', $password);
+        $data = $this->db->table($this->_table)->where('username', '=', $username)->where('password', '=', $password)->first();
+        return $data;
     }
     public function createAccount($username, $password, $email, $name)
     {
         if ($username == null || $password == null || $email == null || $name == null) {
             return false;
         } else {
-            $username = addslashes($username);
-            $password = addslashes($password);
+            $username = filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
             $password = hash('sha256', $password);
-            $email = addslashes($email);
-            $name = addslashes($name);
+            $email = filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS);
+            $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = ([
                 'username' => $username,
                 'password' => $password,

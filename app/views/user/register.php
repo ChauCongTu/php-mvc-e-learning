@@ -25,11 +25,13 @@
                         <div class="text-danger"><?php echo (isset($errors['name']))?$errors['name']:false; ?></div>
                     </div>
                     <div class="mb-2">
-                        <button class="btn btn-primary form-control">Đăng nhập</button>
+                        <a href="" class="action-theme">Quy định diễn đàn</a>
+                    </div>
+                    <div class="mb-2">
+                        <button class="btn btn-primary form-control">Đăng ký</button>
                     </div>
                 </form>
-                <a href="" class="btn btn-outline-primary d-block">Tạo tài khoản</a>
-                <a href="" class="text-primary mt-2 d-block">Quên mật khẩu?</a>
+                <a href="/dang-nhap.html" class="btn btn-outline-primary d-block">Đăng nhập</a>
             </div>
         </div>
     </div>

@@ -70,6 +70,15 @@ li {
     color: $theme_color;
 }
 
+.action-theme {
+    color: $theme_color;
+    text-decoration: none;
+}
+.action-theme:hover {
+    color: $danger;
+    text-decoration: none;
+}
+
 a {
     color: #fff;
     text-decoration: none;

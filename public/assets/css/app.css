@@ -32,6 +32,16 @@ li {
   color: #2980B9;
 }
 
+.action-theme {
+  color: #2980B9;
+  text-decoration: none;
+}
+
+.action-theme:hover {
+  color: #da1416;
+  text-decoration: none;
+}
+
 a {
   color: #fff;
   text-decoration: none;

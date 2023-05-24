@@ -29,6 +29,7 @@ if(isset($config_dir)){
 }
 require_once 'core/Route.php';      //Load Route class
 require_once 'core/Session.php'; //Load Session
+require_once 'core/Helpers.php'; //Load Helpers
 require_once 'app/App.php';         //Load app
 if(!empty($config['database'])){
     $db_config = array_filter($config['database']);
