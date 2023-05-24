@@ -99,6 +99,7 @@
 </section>
 
 <section class="word-of-day mt-3 mb-3">
+    <div class="nen-mo"></div>
     <div class="text-word">
         <div class="title">Mỗi ngày một từ vựng</div>
         <div class="word">
