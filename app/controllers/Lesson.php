@@ -12,5 +12,13 @@ class Lesson extends Controller
         $this->data['content'] = 'lesson/index';
         $this->render('layouts/client-layout', $this->data);
     }
+    public function list () {
+
+    }
+    public function detail() {
+        $this->data['page_title'] = 'Unit 1: Family Life | Grade 10';
+        $this->data['content'] = 'lesson/detail';
+        $this->render('layouts/client-layout', $this->data);
+    }
 }
 ?>

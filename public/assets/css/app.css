@@ -38,7 +38,7 @@ li {
 }
 
 .action-theme:hover {
-  color: #da1416;
+  color: #d70000;
   text-decoration: none;
 }
 
@@ -191,8 +191,8 @@ nav ul a {
   text-decoration: none;
 }
 nav ul a :hover {
-  border-bottom: 5px solid #da1416;
-  color: #da1416;
+  border-bottom: 5px solid #d70000;
+  color: #d70000;
 }
 nav ul a li {
   padding: 10px 20px;
@@ -257,7 +257,7 @@ nav ul form {
 .main-head .label-post {
   position: absolute;
   width: 30%;
-  background-color: #da1416;
+  background-color: #d70000;
   height: 500px;
 }
 .main-head .label-post h4 {
@@ -333,10 +333,10 @@ nav ul form {
 }
 .banner-fill .banner_fill .banner_fill-text .banner_fill-text-title h3 {
   font-size: 30px;
-  color: #da1416;
+  color: #d70000;
 }
 .banner-fill .banner_fill .banner_fill-text .banner_fill-text-action a {
-  color: #da1416;
+  color: #d70000;
   font-weight: 700;
 }
 @media only screen and (max-width: 800px) {
@@ -359,7 +359,7 @@ nav ul form {
   font-size: 28px;
   font-weight: 700;
   color: #198754;
-  border-bottom: 5px solid #da1416;
+  border-bottom: 5px solid #d70000;
   margin-bottom: 10px;
 }
 .course .course-list .slick-arrow {
@@ -372,7 +372,7 @@ nav ul form {
   font-size: 24px;
 }
 .course .course-list .slick-arrow :hover {
-  color: #da1416;
+  color: #d70000;
 }
 .course .course-list .slick-prev {
   left: -40px;
@@ -407,7 +407,7 @@ nav ul form {
   text-align: right;
 }
 .course .course-list .course-item a:hover {
-  color: #da1416;
+  color: #d70000;
 }
 @media only screen and (max-width: 600px) {
   .course .course-list .slick-arrow {
@@ -448,7 +448,7 @@ nav ul form {
 .word-of-day .text-word .forum-word ._word {
   font-size: 28px;
   font-weight: 700;
-  color: #da1416;
+  color: #d70000;
 }
 @media only screen and (max-width: 800px) {
   .word-of-day .text-word {
@@ -464,7 +464,7 @@ nav ul form {
   font-size: 28px;
   font-weight: 700;
   color: #198754;
-  border-bottom: 5px solid #da1416;
+  border-bottom: 5px solid #d70000;
   margin-bottom: 10px;
 }
 .forum .forum-sub-title {
@@ -482,7 +482,7 @@ nav ul form {
   padding: 10px 0;
 }
 .forum .forum-list .forum-item .title:hover {
-  color: #da1416;
+  color: #d70000;
 }
 .forum .forum-list .forum-item p {
   font-size: 14px;
@@ -504,7 +504,7 @@ nav ul form {
   font-size: 28px;
   font-weight: 700;
   color: #198754;
-  border-bottom: 5px solid #da1416;
+  border-bottom: 5px solid #d70000;
   margin-bottom: 10px;
 }
 
@@ -578,7 +578,7 @@ nav ul form {
   font-size: 28px;
   font-weight: 700;
   color: #198754;
-  border-bottom: 5px solid #da1416;
+  border-bottom: 5px solid #d70000;
 }
 .lesson .content {
   margin-top: 20px;
@@ -590,16 +590,27 @@ nav ul form {
   font-size: 14px;
 }
 .lesson .content p a {
-  display: block;
+  color: #3b5998;
   font-size: 16px;
 }
 .lesson .content p a:hover {
-  color: #da1416;
+  color: #c70000;
+  border-bottom: 3px solid #c70000;
+}
+.lesson .main .sub_title {
+  padding: 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.lesson .main .sub_content a {
+  color: #3b5998;
+  font-weight: 600;
 }
 
 footer {
   color: #fff;
-  background-color: #da1416;
+  background-color: #d70000;
 }
 footer .footer-title {
   color: #fff;

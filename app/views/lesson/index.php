@@ -59,12 +59,12 @@
         <div class="col-md-7  bg-white">
             <div class="title">Đề xuất cho bạn</div>
             <div class="content">
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND02</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND02</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
             </div>
         </div>
         <div class="col-md-5">
