@@ -4,20 +4,20 @@
             <div class="label-post p-5 text-white">
                 <h4>Làm sao để luyện nói tiếng Anh giao tiếp mỗi ngày hiệu quả?</h4>
                 <p class="mt-4 label-content">Every avid independent filmmaker has dreamed about making that special interest documentary, or short film to show off their creative prowess.</p>
-                <a href="" class="mt-4">Xem thêm >></a>
+                <a href="" class="mt-4">Xem thêm <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="container bg-white banner-fill">
+<section class="container banner-fill bg-white shadow-sm">
     <div class="banner_fill">
         <div class="banner_fill-img">
             <img src="/public/Image/intro-img.png" alt="intro">
         </div>
         <div class="banner_fill-text">
             <div class="banner_fill-text-title">
-                <h3>Tiếng Anh E-Learning</h3>
+                <h3>English We Can</h3>
                 Chúng tôi là ai
             </div>
             <div class="banner_fill-text-content">
@@ -124,35 +124,95 @@
     <div class="row">
         <div class="col-md-6">
             <div class="forum-title">Chủ đề mới nhất</div>
-            <article class="forum-list">
-                <div class="forum-item">
-                    <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+            <article class="forum-list" id="list-scroll">
+            <div class="forum-item">
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="forum-item">
-                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="forum-item">
-                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
         <div class="col-md-6">
             <div class="forum-title">Thảo luận nhiều nhất</div>
-            <article class="forum-list">
+            <article class="forum-list" id="list-scroll">
                 <div class="forum-item">
-                    <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="forum-item">
-                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="forum-item">
-                    <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                    <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+                    <div class="forum-item-img">
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                    </div>
+                    <div class="forum-item-content">
+                        <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                        <br />
+                        <div class="information">
+                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
@@ -160,36 +220,80 @@
 </section>
 <section class="container forum">
     <div class="forum-title">Danh mục diễn đàn</div>
-    <div class="forum-sub-title">Thông báo diễn đàn</div>
-    <article class="forum-list">
-        <div class="forum-item">
-            <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
-        </div>
-        <div class="forum-item">
-            <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
-        </div>
-        <div class="forum-item">
-            <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
-        </div>
-    </article>
     <div class="forum-sub-title">Hỏi đáp - thắc mắc</div>
-    <article class="forum-list">
+    <article class="forum-list" id="list-scroll">
         <div class="forum-item">
-            <a href="" class="title"><i class="fa-sharp fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+            <div class="forum-item-img">
+                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            </div>
+            <div class="forum-item-content">
+                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                <br />
+                <div class="information">
+                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                </div>
+            </div>
         </div>
         <div class="forum-item">
-            <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+            <div class="forum-item-img">
+                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            </div>
+            <div class="forum-item-content">
+                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                <br />
+                <div class="information">
+                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                </div>
+            </div>
         </div>
         <div class="forum-item">
-            <a href="" class="title"><i class="fa-regular fa-page"></i> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-            <p><span class="author">Đăng bởi: Châu Quế Nhơn</span><span class="date">12:40:12, Ngày 23/05/2023</span></p>
+            <div class="forum-item-img">
+                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            </div>
+            <div class="forum-item-content">
+                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                <br />
+                <div class="information">
+                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                </div>
+            </div>
+        </div>
+        <div class="forum-item">
+            <div class="forum-item-img">
+                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            </div>
+            <div class="forum-item-content">
+                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                <br />
+                <div class="information">
+                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                </div>
+            </div>
+        </div>
+        <div class="forum-item">
+            <div class="forum-item-img">
+                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            </div>
+            <div class="forum-item-content">
+                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
+                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
+                <br />
+                <div class="information">
+                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
+                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                </div>
+            </div>
         </div>
     </article>
+    </div>
 </section>
 <section class="container statistical pb-2">
     <div class="title">Thống kê diễn đàn</div>

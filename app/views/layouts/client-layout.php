@@ -27,7 +27,7 @@
 </head>
 <?php $this->render('blocks/header'); ?>
 
-<body class="bg-gray">
+<body>
     <?php
     if (!empty($sub_content)) {
         $this->render($content, $sub_content);

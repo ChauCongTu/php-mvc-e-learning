@@ -33,7 +33,7 @@ li {
 }
 
 .action-theme {
-  color: #fff;
+  color: #3b5998;
   text-decoration: none;
 }
 
@@ -47,8 +47,40 @@ a {
   text-decoration: none;
 }
 
+.slick-arrow {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+}
+.slick-arrow :hover {
+  color: #d70000;
+}
+
+.slick-prev {
+  left: -40px;
+}
+
+.slick-next {
+  right: -40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .slick-arrow {
+    top: -42px;
+  }
+  .slick-prev {
+    left: 85%;
+  }
+  .slick-next {
+    right: 0;
+  }
+}
 header {
-  padding: 20px 0 0 0;
+  background-color: #f3f3f3;
 }
 header .header {
   align-items: center;
@@ -81,7 +113,7 @@ header .header .search-bar form {
 header .header .search-bar form input {
   width: 100%;
   height: 40px;
-  padding-left: 10px;
+  padding-left: 20px;
   background-color: transparent;
   color: #000;
   border: 1px solid #000;
@@ -138,6 +170,7 @@ header .header .authen a {
 header .header-mobile {
   display: none;
   align-items: center;
+  border-bottom: 1px solid #ccc;
 }
 @media only screen and (max-width: 800px) {
   header .header-mobile {
@@ -170,15 +203,10 @@ header .header-mobile {
     cursor: pointer;
   }
 }
-@media only screen and (max-width: 800px) {
-  header {
-    padding: 20px 0;
-  }
-}
-
 nav {
-  padding: 0 0 10px 0;
   background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 nav ul {
   display: block;
@@ -186,70 +214,60 @@ nav ul {
 }
 nav ul a {
   color: #000;
-  line-height: 1.5;
   text-transform: uppercase;
   text-decoration: none;
+  padding: 10px;
 }
 nav ul a :hover {
-  border-bottom: 5px solid #d70000;
   color: #d70000;
 }
 nav ul a li {
-  padding: 10px 20px;
-  border: 1px solid #fff;
   font-weight: 700;
+  padding: 13px 20px;
 }
 @media only screen and (max-width: 800px) {
   nav ul a li {
     display: block;
   }
+}
+nav ul a:hover {
+  border-bottom: 5px solid #d70000;
 }
 nav ul form {
   display: none;
 }
 @media only screen and (max-width: 800px) {
   nav {
-    background-color: #fff;
     display: none;
-    top: 100px;
-    padding: 10px 0;
-    right: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 1000;
-    transition: 0.5s;
-    border-top: 1px solid #000;
   }
-  nav ul a {
-    color: #000;
-    text-align: left;
-  }
-  nav ul a li {
-    border-bottom: none;
-  }
-  nav ul form {
-    display: block;
-    position: relative;
-  }
-  nav ul form input {
-    width: 100%;
-    height: 45px;
-    border: 1px solid #000;
-    padding-left: 10px;
-  }
-  nav ul form input ::placeholder {
-    color: #fff;
-  }
-  nav ul form button {
-    position: absolute;
-    right: 0;
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    color: #000;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+}
+
+.offcanvas-body a {
+  display: block;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.offcanvas-body form {
+  margin-top: 10px;
+  position: relative;
+}
+.offcanvas-body form input {
+  width: 100%;
+  height: 38px;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+.offcanvas-body form button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .main-head {
@@ -260,6 +278,7 @@ nav ul form {
   width: 30%;
   background-color: #d70000;
   height: 500px;
+  left: 0;
 }
 .main-head .label-post h4 {
   margin-top: 40px;
@@ -279,8 +298,10 @@ nav ul form {
 }
 .main-head .label-post a {
   font-size: 18px;
+  color: #ffeb56;
+  font-weight: 700;
 }
-.main-head .label-post a :hover {
+.main-head .label-post a:hover {
   color: #0d6efd;
 }
 @media only screen and (max-width: 1400px) {
@@ -402,7 +423,7 @@ nav ul form {
   -webkit-line-clamp: 1;
 }
 .course .course-list .course-item a {
-  color: #fff;
+  color: #0d6efd;
   font-weight: 600;
   display: block;
   text-align: right;
@@ -474,6 +495,9 @@ nav ul form {
 .forum {
   background-color: #fff;
 }
+.forum .badges {
+  width: 20px;
+}
 .forum .forum-title {
   padding: 30px 10px 10px 0;
   font-size: 28px;
@@ -486,29 +510,74 @@ nav ul form {
   font-size: 22px;
   font-weight: 700;
   margin-top: 10px;
+  padding-bottom: 15px;
+}
+.forum .forum-list {
+  padding-right: 10px;
+  overflow-y: scroll;
+  height: auto;
+  max-height: 400px;
 }
 .forum .forum-list .forum-item {
-  border-bottom: 1px solid #ccc;
-  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-.forum .forum-list .forum-item .title {
-  color: #000;
-  font-weight: 600;
-  padding: 10px 0;
+.forum .forum-list .forum-item .forum-item-img {
+  width: 5%;
+  text-align: center;
 }
-.forum .forum-list .forum-item .title:hover {
+.forum .forum-list .forum-item .forum-item-img img {
+  width: 70%;
+  border: 1px solid #000;
+}
+.forum .forum-list .forum-item .forum-item-content {
+  width: 95%;
+}
+.forum .forum-list .forum-item .forum-item-content .title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.forum .forum-list .forum-item .forum-item-content .title:hover {
   color: #d70000;
 }
-.forum .forum-list .forum-item p {
+.forum .forum-list .forum-item .forum-item-content .information {
+  margin-top: 5px;
   font-size: 14px;
-  color: #444;
 }
-.forum .forum-list .forum-item p .date {
+.forum .forum-list .forum-item .forum-item-content .information .information-user {
+  font-weight: 700;
+}
+.forum .forum-list .forum-item .forum-item-content .information .information-view {
+  font-weight: 700;
   float: right;
 }
+@media only screen and (max-width: 600px) {
+  .forum .forum-list .forum-item .forum-item-img {
+    width: 20%;
+  }
+  .forum .forum-list .forum-item .forum-item-content {
+    width: 80%;
+  }
+}
 .forum .forum-list .forum-item:first-child {
-  border-top: 1px solid #ccc;
   padding-top: 10px;
+}
+.forum #list-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.forum #list-scroll::-webkit-scrollbar {
+  width: 3px;
+  background-color: #ffffff;
+}
+.forum #list-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #000;
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#d63384), to(#d63384), color-stop(0.6, #d63384));
 }
 
 .statistical {
@@ -585,32 +654,66 @@ nav ul form {
   }
 }
 
-.lesson {
-  padding: 10px;
-}
 .lesson .title {
   padding: 30px 10px 10px 10px;
   font-size: 28px;
   font-weight: 700;
-  color: #198754;
+  color: #000;
   border-bottom: 5px solid #d70000;
 }
 .lesson .content {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 0 10px;
   font-weight: 600;
   color: #333;
-}
-.lesson .content p {
   font-size: 14px;
 }
-.lesson .content p a {
+.lesson .content a {
   color: #3b5998;
   font-size: 16px;
 }
-.lesson .content p a:hover {
+.lesson .content a:hover {
   color: #c70000;
   border-bottom: 3px solid #c70000;
+}
+.lesson .content p {
+  font-size: 14px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+.lesson .content .other-lesson {
+  display: flex;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.lesson .content .other-lesson .other-lesson-img {
+  width: 25%;
+}
+.lesson .content .other-lesson .other-lesson-img img {
+  width: 100%;
+  border-radius: 4px 0 0 4px;
+}
+.lesson .content .other-lesson .other-lesson-content {
+  margin-left: 10px;
+}
+.lesson .main .content .lesson-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.lesson .main .content .lesson-item img {
+  width: 100%;
+}
+.lesson .main .content .lesson-item a {
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .lesson .main .sub_title {
   padding: 10px 0;

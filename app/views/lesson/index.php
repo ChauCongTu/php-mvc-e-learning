@@ -4,51 +4,91 @@
 </div>
 <section class="container lesson  bg-white">
     <div class="main">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="title">Lớp 10</div>
-                <div class="content">
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                </div>
+        <div class="title">Bài học lớp 10 - Chương trình mới</div>
+        <div class="content slick-pane">
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
             </div>
-            <div class="col-md-4">
-                <div class="title">Lớp 11</div>
-                <div class="content">
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
             </div>
-            <div class="col-md-4">
-                <div class="title">Lớp 12</div>
-                <div class="content">
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                    <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="main">
+        <div class="title">Bài học lớp 11 - Chương trình mới</div>
+        <div class="content slick-pane">
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="title">Bài học lớp 12 - Chương trình mới</div>
+        <div class="content slick-pane">
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
+            </div>
+            <div class="lesson-item">
+                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                <a href=""> Unit 1: Family and Fun</a>
             </div>
         </div>
     </div>
@@ -59,15 +99,15 @@
         <div class="col-md-7  bg-white">
             <div class="title">Đề xuất cho bạn</div>
             <div class="content">
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND02</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br/> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND02</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 mt-4">
             <a href="https://www.facebook.com/Tienganhgiaotieplangmaster/posts/2191227677635416/">
                 <img src="/public/Image/banner/58761519_2191225317635652_2107690685808246784_n.jpg" width="100%" alt="">
             </a>

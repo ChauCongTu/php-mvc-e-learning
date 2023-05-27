@@ -13,7 +13,7 @@
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a> |
                       <a href="/dang-ky.html"><i class="fa-solid fa-user"></i> Đăng ký</a>';
             } else {
-                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a href="/dang-xuat.html">(Đăng xuất)</a>';
+                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a href="/dang-xuat.html"><i class="fa-solid fa-right-from-bracket"></i></a>';
             }
             ?>
         </div>
@@ -25,12 +25,12 @@
             if (Session::data('User') == null) {
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-user"></i> Tài khoản</a>';
             } else {
-                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a href="/dang-xuat.html">(Thoát)</a>';
+                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a href="/dang-xuat.html"> <i class="fa-solid fa-right-from-bracket"></i></a>';
             }
             ?>
         </div>
-        <div class="toogle">
-            <i class="fa-solid fa-bars" id="open-menu"></i>
+        <div class="toogle" data-bs-toggle="offcanvas" data-bs-target="#menu-offcanvas">
+            <i class="fa-solid fa-bars"></i>
         </div>
     </div>
 </header>
@@ -39,7 +39,7 @@
         <a href="">
             <li>trang chủ</li>
         </a>
-        <a href="">
+        <a href="/lesson">
             <li>bài học</li>
         </a>
         <a href="">
@@ -57,3 +57,30 @@
         </form>
     </ul>
 </nav>
+<div class="offcanvas offcanvas-start" id="menu-offcanvas">
+    <div class="offcanvas-header">
+        <h1 class="offcanvas-title"><strong><span style="color:red">English</span> <span style="color:blue">We Can</span></strong></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <a href="">
+            <li><i class="fa-solid fa-house"></i> trang chủ</li>
+        </a>
+        <a href="/lesson">
+            <li><i class="fa-solid fa-book-open"></i> bài học</li>
+        </a>
+        <a href="">
+            <li><i class="fa-solid fa-users"></i> diễn đàn</li>
+        </a>
+        <a href="">
+            <li><i class="fa-solid fa-file-pen"></i> thi thử</li>
+        </a>
+        <a href="">
+            <li><i class="fa-solid fa-ranking-star"></i> bảng xếp hạng</li>
+        </a>
+        <form method="get" action="" class="container">
+            <input type="text" name="key" placeholder="Tìm kiếm ...">
+            <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+</div>

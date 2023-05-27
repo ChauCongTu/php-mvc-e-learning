@@ -45,24 +45,6 @@
                 </div>
                 <hr />
             </div>
-        </div>
-        <div class="col-md-4 bg-white">
-            <div class="title">Cùng khối lớp</div>
-            <article class="content">
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 1: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 2: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 3: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 4: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 5: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 6: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 7: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 8: Family and Fun</a></p>
-                <p><a href=""><i class="fa-solid fa-file"></i> Unit 9: Family and Fun</a></p>
-            </article>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 bg-white mt-2">
             <div class="main">
                 <div class="sub_title text-center p-3">Bài tập áp dụng</div>
                 <div class="sub_content">
@@ -70,6 +52,62 @@
                     Bài tập
                 </div>
             </div>
+        </div>
+        <div class="col-md-4 bg-white">
+            <div class="title">Cùng khối lớp</div>
+            <article class="content">
+                <div class="other-lesson">
+                    <div class="other-lesson-img">
+                        <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                    </div>
+                    <div class="other-lesson-content">
+                        <a href="">Unit 1: Family and Fun</a><br/>
+                        <span>Ngày cập nhật: 14/04/2023</span>
+                    </div>
+                </div>
+                <div class="other-lesson">
+                    <div class="other-lesson-img">
+                        <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                    </div>
+                    <div class="other-lesson-content">
+                        <a href="">Unit 1: Family and Fun</a><br/>
+                        <span>Ngày cập nhật: 14/04/2023</span>
+                    </div>
+                </div>
+                <div class="other-lesson">
+                    <div class="other-lesson-img">
+                        <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                    </div>
+                    <div class="other-lesson-content">
+                        <a href="">Unit 1: Family and Fun</a><br/>
+                        <span>Ngày cập nhật: 14/04/2023</span>
+                    </div>
+                </div>
+                <div class="other-lesson">
+                    <div class="other-lesson-img">
+                        <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                    </div>
+                    <div class="other-lesson-content">
+                        <a href="">Unit 1: Family and Fun</a><br/>
+                        <span>Ngày cập nhật: 14/04/2023</span>
+                    </div>
+                </div>
+                <div class="other-lesson">
+                    <div class="other-lesson-img">
+                        <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
+                    </div>
+                    <div class="other-lesson-content">
+                        <a href="">Unit 1: Family and Fun</a><br/>
+                        <span>Ngày cập nhật: 14/04/2023</span>
+                    </div>
+                </div>
+                
+            </article>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 bg-white mt-2">
+
 
         </div>
     </div>

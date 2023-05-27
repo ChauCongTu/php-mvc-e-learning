@@ -72,9 +72,10 @@ li {
 }
 
 .action-theme {
-    color: $theme_color;
+    color: #3b5998;
     text-decoration: none;
 }
+
 .action-theme:hover {
     color: $danger;
     text-decoration: none;
@@ -85,9 +86,45 @@ a {
     text-decoration: none;
 }
 
+.slick-arrow {
+    background-color: transparent;
+    border: none;
+    color: $counter_color;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+
+    :hover {
+        color: $danger;
+    }
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+@include phone {
+    .slick-arrow {
+        top: -42px;
+    }
+
+    .slick-prev {
+        left: 85%;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}
+
 // Header style
 header {
-    padding: 20px 0 0 0;
+    background-color: #f3f3f3;
 
     .header {
         align-items: center;
@@ -121,7 +158,7 @@ header {
                 input {
                     width: 100%;
                     height: 40px;
-                    padding-left: 10px;
+                    padding-left: 20px;
                     background-color: transparent;
                     color: $counter_color;
                     border: 1px solid $counter_color;
@@ -181,6 +218,8 @@ header {
     .header-mobile {
         display: none;
         align-items: center;
+        border-bottom: 1px solid #ccc;
+
         @include tab-port {
             display: flex;
 
@@ -217,14 +256,14 @@ header {
             }
         }
     }
-    @include tab-port {
-        padding: 20px 0;
-    }
+
+    @include tab-port {}
 }
 
 nav {
-    padding: 0 0 10px 0;
     background-color: $theme_color;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 
     ul {
         display: block;
@@ -232,18 +271,18 @@ nav {
 
         a {
             color: $counter_color;
-            line-height: 1.5;
             text-transform: uppercase;
             text-decoration: none;
+            padding: 10px;
+
             :hover {
-                border-bottom: 5px solid $danger;
                 color: $danger;
+
             }
 
             li {
-                padding: 10px 20px;
-                border: 1px solid $theme_color;
                 font-weight: 700;
+                padding: 13px 20px;
 
                 @include tab-port {
                     display: block;
@@ -251,58 +290,46 @@ nav {
             }
         }
 
+        a:hover {
+            border-bottom: 5px solid $danger;
+        }
+
+
         form {
             display: none;
         }
     }
 
     @include tab-port {
-        background-color: $theme_color;
         display: none;
-        top: 100px;
-        padding: 10px 0;
-        right: 0;
-        position: absolute;
-        width: 100%;
-        z-index: 1000;
-        transition: .5s;
-        border-top: 1px solid $counter_color;
-        ul {
-            a {
-                color: $counter_color;
-                text-align: left;
-
-                li {
-                    border-bottom: none;
-                }
-            }
-
-            form {
-                display: block;
-                position: relative;
-
-                input {
-                    width: 100%;
-                    height: 45px;
-                    border: 1px solid $counter_color;
-                    padding-left: 10px;
-
-                    ::placeholder {
-                        color: $theme_color;
-                    }
-                }
-
-                button {
-                    position: absolute;
-                    right: 0;
-                    background-color: transparent;
-                    border: none;
-                    font-size: 18px;
-                    color: $counter_color;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
+    }
+}
+.offcanvas-body {
+    a {
+        display: block;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ccc;
+    }
+    form {
+        margin-top: 10px;
+        position: relative;
+        input {
+            width: 100%;
+            height: 38px;
+            border-radius: 4px;
+            padding-left: 10px;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
         }
     }
 }
@@ -316,6 +343,7 @@ nav {
         width: 30%;
         background-color: $danger;
         height: 500px;
+        left: 0;
 
         h4 {
             margin-top: 40px;
@@ -336,10 +364,12 @@ nav {
 
         a {
             font-size: 18px;
+            color: #ffeb56;
+            font-weight: 700;
+        }
 
-            :hover {
-                color: #0d6efd;
-            }
+        a:hover {
+            color: #0d6efd;
         }
 
         @include desktop {
@@ -479,7 +509,7 @@ nav {
             }
 
             a {
-                color: $theme_color;
+                color: $primary;
                 font-weight: 600;
                 display: block;
                 text-align: right;
@@ -518,6 +548,7 @@ nav {
     color: #fff;
     position: relative;
     z-index: -2;
+
     .nen-mo {
         position: absolute;
         top: 0;
@@ -534,6 +565,7 @@ nav {
         display: block;
         margin: auto;
         z-index: 2;
+
         .title {
             font-size: 28px;
             font-weight: 700;
@@ -560,6 +592,10 @@ nav {
 .forum {
     background-color: #fff;
 
+    .badges {
+        width: 20px;
+    }
+
     .forum-title {
         padding: 30px 10px 10px 0;
         font-size: 28px;
@@ -573,37 +609,90 @@ nav {
         font-size: 22px;
         font-weight: 700;
         margin-top: 10px;
+        padding-bottom: 15px;
     }
 
     .forum-list {
+        padding-right: 10px;
+        overflow-y: scroll;
+        height: auto;
+        max-height: 400px;
+
         .forum-item {
-            border-bottom: 1px solid #ccc;
-            margin-top: 10px;
+            display: flex;
+            width: 100%;
+            border: 2px solid #000;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
 
-            .title {
-                color: $counter_color;
-                font-weight: 600;
-                padding: 10px 0;
+            .forum-item-img {
+                width: 5%;
+                text-align: center;
+
+                img {
+                    width: 70%;
+                    border: 1px solid #000;
+                }
             }
 
-            .title:hover {
-                color: $danger;
+            .forum-item-content {
+                width: 95%;
+
+                .title {
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
+                .title:hover {
+                    color: $danger;
+                }
+
+                .information {
+                    margin-top: 5px;
+                    font-size: 14px;
+
+                    .information-user {
+                        font-weight: 700;
+                    }
+
+                    .information-view {
+                        font-weight: 700;
+                        float: right;
+                    }
+                }
             }
 
-            p {
-                font-size: 14px;
-                color: #444;
+            @include phone {
+                .forum-item-img {
+                    width: 20%;
+                }
 
-                .date {
-                    float: right;
+                .forum-item-content {
+                    width: 80%;
                 }
             }
         }
 
         .forum-item:first-child {
-            border-top: 1px solid #ccc;
             padding-top: 10px;
         }
+    }
+
+    #list-scroll::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    #list-scroll::-webkit-scrollbar {
+        width: 3px;
+        background-color: #ffffff;
+    }
+
+    #list-scroll::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #000;
+        background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from($pink), to($pink), color-stop(.6, $pink));
     }
 }
 
@@ -624,8 +713,10 @@ nav {
 .login {
     margin: 10px auto;
     background-color: #fff;
+
     .login-form {
         padding: 20px;
+
         .title {
             font-size: 26px;
             font-weight: 700;
@@ -634,8 +725,10 @@ nav {
             text-transform: uppercase;
         }
     }
+
     .img {
         text-align: center;
+
         img {
             width: 60%;
             display: block;
@@ -655,7 +748,8 @@ nav {
     display: block;
     text-align: center;
     position: relative;
-    .photo-blur{
+
+    .photo-blur {
         position: absolute;
         background-color: #FFF;
         top: 0;
@@ -665,6 +759,7 @@ nav {
         opacity: .7;
         z-index: 1;
     }
+
     .text {
         position: absolute;
         color: #198754;
@@ -676,6 +771,7 @@ nav {
         font-weight: 700;
         text-transform: uppercase;
         z-index: 2;
+
         @include phone {
             font-size: 30px;
         }
@@ -683,39 +779,91 @@ nav {
 }
 
 .lesson {
-    padding: 10px;
+
     .title {
         padding: 30px 10px 10px 10px;
         font-size: 28px;
         font-weight: 700;
-        color: #198754;
+        color: #000;
         border-bottom: 5px solid $danger;
     }
+
     .content {
-        margin-top: 20px;
+        margin-top: 10px;
         padding: 0 10px;
         font-weight: 600;
         color: #333;
+        font-size: 14px;
+
+        a {
+            color: #3b5998;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #c70000;
+            border-bottom: 3px solid #c70000;
+        }
+
         p {
             font-size: 14px;
-            a {
-                color: #3b5998;
-                font-size: 16px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        .other-lesson {
+            display: flex;
+            width: 100%;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 4px;
+
+            .other-lesson-img {
+                width: 25%;
+
+                img {
+                    width: 100%;
+                    border-radius: 4px 0 0 4px;
+                }
             }
-            a:hover {
-                color: #c70000;
-                border-bottom: 3px solid #c70000;
+
+            .other-lesson-content {
+                margin-left: 10px;
             }
         }
     }
+
     .main {
+        .content {
+            .lesson-item {
+                cursor: pointer;
+                padding: 10px;
+                border: 1px solid #ccc;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                }
+
+                a {
+                    word-wrap: break-word;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+            }
+        }
+
         .sub_title {
             padding: 10px 0;
             font-size: 24px;
             font-weight: 700;
             text-transform: uppercase;
         }
-        .sub_content{
+
+        .sub_content {
             a {
                 color: #3b5998;
                 font-weight: 600;
