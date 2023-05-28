@@ -47,6 +47,14 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #d70000;
+}
+
+p {
+  margin-bottom: 0;
+}
+
 .slick-arrow {
   background-color: transparent;
   border: none;
@@ -724,6 +732,108 @@ nav ul form {
 .lesson .main .sub_content a {
   color: #3b5998;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 800px) {
+  .mobile-center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.profile .user-avatar {
+  text-align: center;
+  padding: 10px;
+}
+.profile .user-avatar img {
+  width: 55%;
+}
+.profile .user-info {
+  padding: 10px;
+}
+.profile .user-info .title {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+}
+.profile .user-info .content {
+  color: #333;
+}
+.profile .user-info .content p {
+  padding: 10px 0;
+}
+.profile .user-info .name {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.profile .user-info .username {
+  font-weight: 700;
+  color: #0d6efd;
+}
+.profile .user-info .stats {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.profile .user-info a:hover {
+  color: #d70000;
+}
+
+.user-list form {
+  position: relative;
+  margin: 10px 0;
+}
+.user-list form .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  left: 20px;
+  color: #ccc;
+}
+.user-list form input {
+  height: 45px;
+  width: 250px;
+  padding-left: 35px;
+  border: 1px solid #ccc;
+}
+
+.user-item {
+  padding: 5px;
+}
+.user-item .user-item-border {
+  display: flex;
+  padding: 25px 10px;
+  border-radius: 7px;
+  background-color: #fbfaff;
+}
+.user-item .user-item-border .user-item-img {
+  width: 20%;
+}
+.user-item .user-item-border .user-item-img img {
+  width: 100%;
+}
+.user-item .user-item-border .user-item-info {
+  margin-left: 10px;
+  width: 80%;
+}
+.user-item .user-item-border .user-item-info .name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.user-item .user-item-border .user-item-info .username {
+  font-size: 14px;
+}
+.user-item .user-item-border .user-item-info .location {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.user-item .user-item-border:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 footer {

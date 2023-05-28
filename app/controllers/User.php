@@ -9,9 +9,18 @@ class User extends Controller
     private $model = 'UserModel';
     public function index()
     {
-        $user = $this->db->table('users')->get();
-        var_dump($user);
-        $this->render('user/index', $this->data);
+        $this->data['page_title'] = 'Danh sách người dùng';
+        $this->data['content'] = 'user/index';
+        $this->render('layouts/client-layout', $this->data);
+    }
+    public function profile()
+    {
+        $this->data['page_title'] = 'Thông tin người dùng';
+        $this->data['content'] = 'user/profile';
+        $this->render('layouts/client-layout', $this->data);
+    }
+    public function profileEdit()
+    {
     }
     public function logout()
     {
@@ -49,8 +58,7 @@ class User extends Controller
             }
             $this->data['content'] = 'user/login';
             $this->render('layouts/client-layout', $this->data);
-        }
-        else {
+        } else {
             Helpers::redirectTo('/');
         }
     }

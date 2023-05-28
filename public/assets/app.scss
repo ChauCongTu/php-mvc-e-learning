@@ -85,6 +85,13 @@ a {
     color: #000;
     text-decoration: none;
 }
+a:hover {
+    color: $danger;
+}
+
+p {
+    margin-bottom: 0;
+}
 
 .slick-arrow {
     background-color: transparent;
@@ -869,6 +876,112 @@ nav {
                 font-weight: 600;
             }
         }
+    }
+}
+
+// User Style
+
+.mobile-center {
+    @include tab-port {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+.profile {
+    .user-avatar {
+        text-align: center;
+        padding: 10px;
+        img {
+            width: 55%;
+            
+        }
+    }
+    .user-info {
+        padding: 10px;
+        .title {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+        }
+        .content {
+            color: #333;
+            p {
+                padding: 10px 0;
+            }
+        }
+        .name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .username {
+            font-weight: 700;
+            color: $primary;
+        }
+        .stats {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        a:hover {
+            color: $danger;
+        }
+    }
+}
+.user-list {
+    form {
+        position: relative;
+        margin: 10px 0;
+        .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            left: 20px;
+            color: #ccc;
+        }
+        input{
+            height: 45px;
+            width: 250px;
+            padding-left: 35px;
+            border: 1px solid #ccc;
+        }
+    }
+}
+.user-item {
+    padding: 5px;
+    .user-item-border {
+        display: flex;
+        padding: 25px 10px;
+        border-radius: 7px;
+        background-color: #fbfaff;
+        .user-item-img {
+            width: 20%;
+            img {
+                width: 100%;
+            }
+        }
+        .user-item-info {
+            margin-left: 10px;
+            width: 80%;
+            .name {
+                font-size: 18px;
+                font-weight: 700;
+            }
+            .username {
+                font-size: 14px;
+            }
+            .location {
+                font-size: 14px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+        }
+    }
+    .user-item-border:hover {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 }
 

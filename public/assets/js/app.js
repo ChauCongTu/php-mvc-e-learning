@@ -60,21 +60,16 @@ $('.slick-pane').slick({
 
 
 $(document).ready(function () {
-  var nav = $(".nav-bar-home");
-  var header = $(".header-mobile");
+  var s = $(".nav-bar-home");
   var pos = s.position();
   $(window).scroll(function () {
     var windowpos = $(window).scrollTop();
     if (windowpos >= pos.top) {
-      nav.addClass("fixed-top");
-      nav.addClass("shadow-sm");
-      header.addClass("fixed-top");
-      header.addClass("shadow-sm");
+      s.addClass("fixed-top");
+      s.addClass("shadow-sm");
     } else {
-      nav.removeClass("fixed-top");
-      nav.removeClass("shadow-sm");
-      header.addClass("fixed-top");
-      header.addClass("shadow-sm");
+      s.removeClass("fixed-top");
+      s.removeClass("shadow-sm");
     }
   });
 });
