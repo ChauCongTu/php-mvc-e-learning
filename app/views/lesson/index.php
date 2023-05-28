@@ -6,30 +6,14 @@
     <div class="main">
         <div class="title">Bài học lớp 10 - Chương trình mới</div>
         <div class="content slick-pane">
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
+            <?php
+            foreach ($grade10lesson as $value) {
+                echo '<div class="lesson-item">
+                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
+                        <a href="">' . $value['title'] . '</a>
+                    </div>';
+            }
+            ?>
         </div>
     </div>
 
@@ -37,59 +21,27 @@
     <div class="main">
         <div class="title">Bài học lớp 11 - Chương trình mới</div>
         <div class="content slick-pane">
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
+            <?php
+            foreach ($grade11lesson as $value) {
+                echo '<div class="lesson-item">
+                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
+                        <a href="">' . $value['title'] . '</a>
+                    </div>';
+            }
+            ?>
         </div>
     </div>
     <div class="main">
         <div class="title">Bài học lớp 12 - Chương trình mới</div>
         <div class="content slick-pane">
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
-            <div class="lesson-item">
-                <img src="/public/Image/lesson/unit-1-grade-10.jpg" alt="">
-                <a href=""> Unit 1: Family and Fun</a>
-            </div>
+            <?php
+            foreach ($grade12lesson as $value) {
+                echo '<div class="lesson-item">
+                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
+                        <a href="">' . $value['title'] . '</a>
+                    </div>';
+            }
+            ?>
         </div>
     </div>
 </section>
