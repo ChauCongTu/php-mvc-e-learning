@@ -85,6 +85,7 @@ a {
     color: #000;
     text-decoration: none;
 }
+
 a:hover {
     color: $danger;
 }
@@ -311,6 +312,7 @@ nav {
         display: none;
     }
 }
+
 .offcanvas-body {
     a {
         display: block;
@@ -321,15 +323,18 @@ nav {
         margin-bottom: 5px;
         border-bottom: 1px solid #ccc;
     }
+
     form {
         margin-top: 10px;
         position: relative;
+
         input {
             width: 100%;
             height: 38px;
             border-radius: 4px;
             padding-left: 10px;
         }
+
         button {
             background-color: transparent;
             border: none;
@@ -596,6 +601,8 @@ nav {
     }
 }
 
+
+// Forum style
 .forum {
     background-color: #fff;
 
@@ -620,10 +627,6 @@ nav {
     }
 
     .forum-list {
-        padding-right: 10px;
-        overflow-y: scroll;
-        height: auto;
-        max-height: 400px;
 
         .forum-item {
             display: flex;
@@ -686,6 +689,13 @@ nav {
         }
     }
 
+    #list-scroll {
+        padding-right: 10px;
+        overflow-y: scroll;
+        height: auto;
+        max-height: 400px;
+    }
+
     #list-scroll::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
@@ -700,6 +710,97 @@ nav {
         border-radius: 10px;
         background-color: #000;
         background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from($pink), to($pink), color-stop(.6, $pink));
+    }
+}
+
+.post-content {
+    .post__name {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.5;
+        padding: 10px 0;
+    }
+
+    .post__author {
+        margin-bottom: 20px;
+        font-size: 20px;
+        display: flex;
+
+        .__img {
+            width: 5%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .__name {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+    }
+
+    .post__date {
+        color: #444;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .post__social {
+        padding: 20px 0;
+    }
+
+    .post__interact {
+        font-size: 20px;
+        text-align: right;
+    }
+}
+
+.comment-side {
+    textarea {
+        width: 100%;
+        border: 2px solid #ccc;
+        padding: 10px;
+        border-radius: 4px;
+    }
+}
+
+.comment {
+    display: flex;
+
+    .comment-img {
+        width: 10%;
+        text-align: center;
+        img {
+            width: 60%;
+        }
+    }
+
+    .comment-content {
+        width: 90%;
+        .comment__name {
+            font-weight: 700;
+        }
+        .comment__content {
+            padding: 10px 0;
+        }
+        .comment__date {
+            text-align: right;
+            color: #444;
+        }
+    }
+    @include tab-port {
+        flex-wrap: wrap;
+        .comment-img {
+            width: 20%;
+            text-align: left;
+        }
+    
+        .comment-content {
+            width: 100%;
+        }
     }
 }
 
@@ -888,17 +989,21 @@ nav {
         text-align: center;
     }
 }
+
 .profile {
     .user-avatar {
         text-align: center;
         padding: 10px;
+
         img {
             width: 55%;
-            
+
         }
     }
+
     .user-info {
         padding: 10px;
+
         .title {
             padding-bottom: 10px;
             margin-bottom: 10px;
@@ -906,34 +1011,42 @@ nav {
             text-transform: uppercase;
             border-bottom: 1px solid #ccc;
         }
+
         .content {
             color: #333;
+
             p {
                 padding: 10px 0;
             }
         }
+
         .name {
             font-size: 24px;
             font-weight: 700;
             letter-spacing: 1px;
         }
+
         .username {
             font-weight: 700;
             color: $primary;
         }
+
         .stats {
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
         a:hover {
             color: $danger;
         }
     }
 }
+
 .user-list {
     form {
         position: relative;
         margin: 10px 0;
+
         .icon {
             position: absolute;
             top: 50%;
@@ -942,7 +1055,8 @@ nav {
             left: 20px;
             color: #ccc;
         }
-        input{
+
+        input {
             height: 45px;
             width: 250px;
             padding-left: 35px;
@@ -950,29 +1064,37 @@ nav {
         }
     }
 }
+
 .user-item {
     padding: 5px;
+
     .user-item-border {
         display: flex;
         padding: 25px 10px;
         border-radius: 7px;
         background-color: #fbfaff;
+
         .user-item-img {
             width: 20%;
+
             img {
                 width: 100%;
             }
         }
+
         .user-item-info {
             margin-left: 10px;
             width: 80%;
+
             .name {
                 font-size: 18px;
                 font-weight: 700;
             }
+
             .username {
                 font-size: 14px;
             }
+
             .location {
                 font-size: 14px;
                 font-weight: 700;
@@ -980,6 +1102,7 @@ nav {
             }
         }
     }
+
     .user-item-border:hover {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
