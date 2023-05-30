@@ -1,62 +1,128 @@
 <section class="forum mt-3 mb-3">
     <div class="container">
-        <p class="link-to fw-bold">Trang chủ <i class="fa-solid fa-angle-right"></i> Diễn đàn <i class="fa-solid fa-angle-right"></i> Lorem ipsum dolor sit amet</p>
+        <p class="link-to fw-bold">Trang chủ <i class="fa-solid fa-angle-right"></i> Diễn đàn <i class="fa-solid fa-angle-right"></i> </p>
         <div class="row">
             <div class="col-sm-8">
                 <div class="content post shadow mt-3 p-3">
                     <div class="post-content">
                         <div class="post__author">
-                            <div class="__img"><img src="/public/Image/user/0.png" alt=""></div>
-                            <div class="__name"><a href="">Châu Quế Nhơn</a></div>
+                            <div class="__img"><img src="/public/Image/user/<?php echo $post['user']['avatar']; ?>" alt="" class="rounded-circle"></div>
+                            <div>
+                                <div class="__name"><a href="" class="fw-bold"><?php echo $post['user']['name']; ?></a></div>
+                                <div class="post__date"><i class="fa-solid fa-calendar-days"></i> <?php echo $post['created_at']; ?> &#8226; Cập nhật mới nhất <?php echo Helpers::displayTime($post['updated_at']); ?></div>
+                            </div>
                         </div>
-                        <div class="post__name">Lorem ipsum dolor sit amet</div>
-                        <div class="post__date"><i class="fa-solid fa-calendar-days"></i> 18/05/2023</div>
-
+                        <hr />
+                        <div class="post__name"><?php echo $post['title']; ?></div>
                         <div class="post__content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam vulputate dignissim suspendisse in est ante in nibh mauris. Dignissim diam quis enim lobortis scelerisque. Volutpat ac tincidunt vitae semper quis lectus. Fusce ut placerat orci nulla pellentesque dignissim enim. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Enim nec dui nunc mattis enim ut. Eget nunc lobortis mattis aliquam. At lectus urna duis convallis convallis tellus id interdum. Velit ut tortor pretium viverra suspendisse potenti nullam. Velit aliquet sagittis id consectetur purus. Tincidunt id aliquet risus feugiat in ante metus dictum. Morbi tristique senectus et netus et malesuada. Pellentesque elit eget gravida cum. Lacus sed viverra tellus in hac habitasse.
-                            <br>
-                            Sollicitudin nibh sit amet commodo nulla facilisi. Justo donec enim diam vulputate ut pharetra sit amet. Nisl pretium fusce id velit ut tortor pretium. Aliquam purus sit amet luctus venenatis. Mattis vulputate enim nulla aliquet porttitor. Lectus arcu bibendum at varius vel pharetra vel turpis. Eu scelerisque felis imperdiet proin fermentum leo vel orci. Sem integer vitae justo eget magna. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Leo in vitae turpis massa sed. Est ultricies integer quis auctor elit sed vulputate mi. Nulla aliquet porttitor lacus luctus. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Id aliquet lectus proin nibh.
-                            <br>
-                            Lacinia quis vel eros donec ac odio tempor orci dapibus. Scelerisque mauris pellentesque pulvinar pellentesque. Dolor morbi non arcu risus. Ac tincidunt vitae semper quis lectus nulla at volutpat. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Sit amet massa vitae tortor condimentum. Nunc vel risus commodo viverra. Libero enim sed faucibus turpis. In nibh mauris cursus mattis. Interdum varius sit amet mattis vulputate. Condimentum mattis pellentesque id nibh tortor id aliquet. Ipsum dolor sit amet consectetur adipiscing. Lectus urna duis convallis convallis tellus id interdum velit. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Volutpat ac tincidunt vitae semper quis lectus nulla at. Et magnis dis parturient montes nascetur ridiculus. Purus ut faucibus pulvinar elementum integer enim neque. Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a.
-                            <br>
-                            Massa eget egestas purus viverra. Enim nulla aliquet porttitor lacus. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Arcu dui vivamus arcu felis bibendum ut tristique et. Arcu bibendum at varius vel pharetra vel. Senectus et netus et malesuada fames ac turpis. Eget duis at tellus at urna condimentum. At imperdiet dui accumsan sit amet. Adipiscing vitae proin sagittis nisl rhoncus. Tortor vitae purus faucibus ornare suspendisse. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Dolor sed viverra ipsum nunc aliquet bibendum. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Tempus urna et pharetra pharetra massa massa. At lectus urna duis convallis convallis. Lectus sit amet est placerat in egestas erat imperdiet sed. Aliquet bibendum enim facilisis gravida neque convallis a cras. Ac orci phasellus egestas tellus.
-                            <br>
-                            Aliquet bibendum enim facilisis gravida neque. Elementum pulvinar etiam non quam lacus suspendisse faucibus. Suscipit adipiscing bibendum est ultricies integer quis. Morbi tristique senectus et netus et malesuada fames ac. Elit scelerisque mauris pellentesque pulvinar. Adipiscing at in tellus integer feugiat. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Urna nec tincidunt praesent semper feugiat nibh. Et ultrices neque ornare aenean euismod. Cras semper auctor neque vitae tempus quam pellentesque nec nam.
-                            <br>
-                            At in tellus integer feugiat scelerisque. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Aliquam sem et tortor consequat id porta nibh. Diam quam nulla porttitor massa id. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Adipiscing commodo elit at imperdiet dui accumsan. Integer quis auctor elit sed vulputate. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Et magnis dis parturient montes. Cursus risus at ultrices mi. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ipsum dolor sit amet consectetur adipiscing elit pellentesque.
+                            <?php echo $post['content']; ?>
                         </div>
                         <div class="post__social">
                             <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i> Share on Facebook</a>
                             <a href="#" class="btn btn-info btn-sm"><i class="fab fa-twitter"></i> Share on Twitter</a>
                             <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
                         </div>
+                        <?php
+                        if (Session::data('User') != null) {
+                            if ($post['user_id'] == Session::data('User')['user_id']) {
+                                echo '<small><a href="/dien-dan/chinh-sua-bai-viet_' . $post['post_id'] . '.html" class="fw-bold">[ <i class="fa-solid fa-pen"></i> Sửa ]</a></small>';
+                            }
+                            if ($post['user_id'] == Session::data('User')['user_id'] || Session::data('User')['role'] > 1) {
+                                echo '<small><a data-bs-toggle="modal" data-bs-target="#delete_cfm" style="cursor:pointer" class="fw-bold">[ <i class="fa-solid fa-trash"></i> Xóa ]</a></small>';
+                            }
+                        }
+                        ?>
                         <div class="post__interact">
                             <a href=""><i class="fa-solid fa-heart"></i>/<i class="fa-regular fa-heart"></i></a> 120
-                            <a href="#comment"><i class="fa-solid fa-message"></i></a> 17
+                            <a href="#comment"><i class="fa-solid fa-message"></i></a> <?php echo count($post['comment']) ?>
                         </div>
                     </div>
-                    <div class="comment-side mt-5" id="comment">
-                        <form action="" method="post">
-                            <textarea name="comment" rows="5" placeholder="Nội dung bình luận" class="input-comment"></textarea>
-                            <button type="button" name="submit" class="btn btn-danger">Bình luận</button>
-                        </form>
-                    </div>
+                    <?php
+                    if (Session::data('User') != null) {
+                    ?>
+                        <div class="comment-side mt-5" id="comment">
+                            <form action="/dien-dan/binh-luan/<?php echo $post['post_id']; ?>" method="post">
+                                <textarea name="content" rows="5" placeholder="Nội dung bình luận" class="input-comment"></textarea>
+                                <div class="text-danger"><?php echo (isset($errors['content']))?$errors['content']:false; ?></div>
+                                <button name="cmt_submit" class="btn btn-danger">Bình luận</button>
+                            </form>
+                        </div>
+                    <?php } ?>
                 </div>
                 <!-- Mỗi bình luận -->
-                <div class="content comment shadow mt-3 p-3">
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="/public/Image/user/0.png" class="rounded-circle" alt="">
-                        </div>
-                        <div class="comment-content">
-                            <div class="comment__name"><a href=""> Châu Quế Nhơn</a></div>
-                            <div class="comment__content">
-                                At in tellus integer feugiat scelerisque. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Aliquam sem et tortor consequat id porta nibh. Diam quam nulla porttitor massa id. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Adipiscing commodo elit at imperdiet dui accumsan. Integer quis auctor elit sed vulputate. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Et magnis dis parturient montes. Cursus risus at ultrices mi. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ipsum dolor sit amet consectetur adipiscing elit pellentesque.
+                <?php
+                foreach ($post['comment'] as $value) {
+                    echo '<div class="modal fade" id="edit_cmt_'.$value['comment_id'].'">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                        <form action="/dien-dan/chinh-sua-binh-luan/'.$value['comment_id'].'" method="post">
+                                            <div class="comment-side p-3">
+                                                <label for="content" class="h5">Nội dung:</label>
+                                                <textarea name="content" rows="5" placeholder="Nội dung bình luận" class="input-comment">'.$value['content'].'</textarea>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button name="edit_cmt_submit" class="btn btn-danger" style="width:100%" rows="5">Chỉnh sửa</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a style="cursor:pointer" data-bs-dismiss="modal" class="btn btn-outline-danger d-block">Hủy</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+                        echo '<div class="modal fade" id="delete_cmt_'.$value['comment_id'].'">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="p-3">
+                                                Bạn có chắc muốn xóa bình luận này? '.$value['comment_id'].'
+                                            </div>
+                                            <div class="text-end">
+                                                <a href="/dien-dan/xoa-binh-luan/'.$value['comment_id'].'">Xóa</a> |
+                                                <a style="cursor:pointer" data-bs-dismiss="modal">Hủy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+                    echo '<div class="content comment shadow mt-3 p-3">
+                            <div class="comment">
+                                <div class="comment-img">
+                                    <img src="/public/Image/user/' . $value['user_id'] . '.png" class="rounded-circle" alt="">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment__name">
+                                        <a href=""> ' . $value['user_name'] . '</a>';
+                                        if (Session::data('User') != null) {
+                                            if ($value['user_id'] == Session::data('User')['user_id']) {
+                                                echo '<small><a data-bs-toggle="modal" data-bs-target="#edit_cmt_'.$value['comment_id'].'" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-pen"></i> Sửa ]</a></small>';
+                                            }
+                                            if ($value['user_id'] == Session::data('User')['user_id'] || Session::data('User')['role'] > 1) {
+                                                echo '<small><a data-bs-toggle="modal" data-bs-target="#delete_cmt_'.$value['comment_id'].'" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-trash"></i> Xóa ]</a></small>';
+                                            }
+                                        }
+                                    echo '</div>
+                                    <div class="comment__content">
+                                        ' . $value['content'] . '
+                                    </div>
+                                    <div class="comment__date">';
+                                    if ($value['created_at'] != $value['updated_at']){
+                                        echo 'Chỉnh sửa gần nhất '. Helpers::displayTime($value['updated_at']) . ' &#8226; ';
+                                    }
+                                    echo Helpers::displayTime($value['created_at']) . '
+                                    </div>
+                                </div>
                             </div>
-                            <div class="comment__date">2 phút trước</div>
-                        </div>
-                    </div>
-                </div>
+                        </div>';
+                }
+                ?>
+
             </div>
             <div class="col-sm-4">
                 <div class="shadow mt-3 p-3">
@@ -111,3 +177,19 @@
         </div>
     </div>
 </section>
+<!-- Delete modal -->
+<div class="modal fade" id="delete_cfm">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="p-3">
+                    Bạn có chắc muốn xóa bài viết này?
+                </div>
+                <div class="text-end">
+                    <a href="/forum/delete/<?php echo $post['post_id']; ?>">Xóa</a> |
+                    <a style="cursor:pointer" data-bs-dismiss="modal">Hủy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@
 <section class="container lesson">
     <div class="row">
         <div class="col-md-8 bg-white">
-            <div class="title">Unit 1: Family Life</div>
+            <div class="title"><?php echo $lesson['title']; ?></div>
             <div class="main">
                 <div class="sub_title">Từ vựng</div>
                 <div class="sub_content">
@@ -35,7 +35,7 @@
             <div class="main">
                 <div class="sub_title text-center p-3">Bài tập áp dụng</div>
                 <div class="sub_content">
-                    <?php echo (isset($content))?$content:false; ?>
+                    <?php echo (isset($lesson['content']))?$lesson['content']:false; ?>
                 </div>
             </div>
         </div>
@@ -49,8 +49,8 @@
                                 <img src="/public/Image/lesson/'.$value['thumb'].'" alt="">
                             </div>
                             <div class="other-lesson-content">
-                                <a href="">'.$value['title'].'</a><br />
-                                <span>Ngày cập nhật: '.$value['updated_at'].'</span>
+                                <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">'.$value['title'].'</a><br />
+                                <span>Cập nhật: '.Helpers::displayTime($value['updated_at']).'</span>
                             </div>
                         </div>';
                 }

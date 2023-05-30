@@ -25,7 +25,7 @@ class User extends Controller
     public function logout()
     {
         Session::delete('User');
-        Helpers::redirectTo('/');
+        Helpers::redirect_to('/');
     }
     public function login()
     {
@@ -52,14 +52,14 @@ class User extends Controller
                         $this->data['sub_content']['msg'] = 'Tên đăng nhập hoặc mật khẩu không chính xác';
                     } else {
                         Session::data('User', $result);
-                        Helpers::redirectTo("/");
+                        Helpers::redirect_to("/");
                     }
                 }
             }
             $this->data['content'] = 'user/login';
             $this->render('layouts/client-layout', $this->data);
         } else {
-            Helpers::redirectTo('/');
+            Helpers::redirect_to('/');
         }
     }
     public function register()
@@ -93,7 +93,7 @@ class User extends Controller
                 $this->data['sub_content']['msg'] = 'Đã xảy ra lỗi, vui lòng kiểm tra lại!';
             } else {
                 $this->model($this->model)->createAccount($_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
-                Helpers::redirectTo("/dang-nhap.html");
+                Helpers::redirect_to("/dang-nhap.html");
             }
         }
         $this->data['content'] = 'user/register';

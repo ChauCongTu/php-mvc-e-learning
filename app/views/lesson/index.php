@@ -10,7 +10,7 @@
             foreach ($grade10lesson as $value) {
                 echo '<div class="lesson-item">
                         <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="">' . $value['title'] . '</a>
+                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
                     </div>';
             }
             ?>
@@ -25,7 +25,7 @@
             foreach ($grade11lesson as $value) {
                 echo '<div class="lesson-item">
                         <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="">' . $value['title'] . '</a>
+                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
                     </div>';
             }
             ?>
@@ -38,7 +38,7 @@
             foreach ($grade12lesson as $value) {
                 echo '<div class="lesson-item">
                         <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="">' . $value['title'] . '</a>
+                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
                     </div>';
             }
             ?>

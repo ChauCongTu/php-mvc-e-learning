@@ -39,10 +39,10 @@
         <a href="">
             <li>trang chủ</li>
         </a>
-        <a href="/lesson">
+        <a href="/bai-hoc">
             <li>bài học</li>
         </a>
-        <a href="">
+        <a href="/dien-dan">
             <li>diễn đàn</li>
         </a>
         <a href="">
@@ -66,10 +66,10 @@
         <a href="">
             <li><i class="fa-solid fa-house"></i> trang chủ</li>
         </a>
-        <a href="/lesson">
+        <a href="/bai-hoc">
             <li><i class="fa-solid fa-book-open"></i> bài học</li>
         </a>
-        <a href="">
+        <a href="/dien-dan">
             <li><i class="fa-solid fa-users"></i> diễn đàn</li>
         </a>
         <a href="">

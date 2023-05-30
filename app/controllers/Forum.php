@@ -6,24 +6,207 @@
 class Forum extends Controller
 {
     public $data = [];
-    private $model = 'PostModel';
+    private $model = 'ForumModel';
+    private $errors = [];
     public function index()
     {
-        $this->data['page_title'] = 'Danh sách người dùng';
+        $categories = $this->model($this->model)->getCategories();
+        $this->data['sub_content']['categories'] = $categories;
+        $this->data['sub_content']['stats'] = $this->model($this->model)->getStats();
+        $this->data['page_title'] = 'Danh mục diễn đàn';
         $this->data['content'] = 'forum/index';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function list()
+    public function list($slug, $category_id)
     {
-        $this->data['page_title'] = 'Danh sách người dùng';
+        $posts = $this->model($this->model)->getCategoryById($category_id);
+        if (!isset($posts['category_id'])) {
+            App::$app->loadError();
+            exit;
+        }
+        $this->data['sub_content']['posts'] = $posts;
+        $this->data['sub_content']['stats'] = $this->model($this->model)->getStats();
+        $this->data['page_title'] = $posts['category_name'];
         $this->data['content'] = 'forum/list';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function detail()
+    public function detail($slug, $post_id)
     {
-        $this->data['page_title'] = 'Danh sách người dùng';
+        $post = $this->model($this->model)->getFullPostById($post_id);
+        if (!isset($post['post_id'])) {
+            App::$app->loadError();
+            exit;
+        }
+
+        // Comment
+        $this->data['sub_content']['errors'] = $this->errors;
+
+        $this->data['sub_content']['post'] = $post;
+        $this->data['page_title'] = $post['title'];
         $this->data['content'] = 'forum/detail';
         $this->render('layouts/client-layout', $this->data);
+    }
+    public function create($category_id)
+    {
+        $category_id = filter_var($category_id, FILTER_SANITIZE_SPECIAL_CHARS);
+        if (Session::data('User') != null){
+            $user_id = Session::data('User')['user_id'];
+            $category = $this->model($this->model)->getCategoryById($category_id);
+            $this->data['sub_content']['category'] = $category['category_name'];
+            if (isset($_POST['create_submit'])){
+                $request = new Request();
+                $request->rules([
+                    'title' => 'required',
+                    'content' => 'required'
+                ]);
+                $request->message([
+                    'title.required' => '*Vui lòng nhập tiêu đề bài viết',
+                    'content.required' => '*Vui lòng nhập nội dung bài viết'
+                ]);
+                $validate = $request->validate();
+                if (!$validate) {
+                    $this->data['sub_content']['errors'] = $request->errors();
+                }
+                else {
+                    $title = addslashes($_POST['title']);
+                    $content = $_POST['content'];
+                    $post = array([
+                        'user_id' => $user_id,
+                        'category_id' => $category_id,
+                        'title' => $title,
+                        'content' => $content
+                    ]);
+                    $this->db->table('posts')->insert($post[0]);
+                    $this->data['sub_content']['msg'] = 'Đăng bài thành công';
+                }
+            }
+        }
+        $this->data['page_title'] = 'Thêm bài viết';
+        $this->data['content'] = 'forum/create';
+        $this->render('layouts/client-layout', $this->data);
+    }
+    public function edit($post_id)
+    {
+        $post_id = filter_var($post_id, FILTER_SANITIZE_SPECIAL_CHARS);
+        if (Session::data('User') != null){
+            $user_id = Session::data('User')['user_id'];
+            $post = $this->model($this->model)->getFullPostById($post_id);
+            $this->data['sub_content']['post'] = $post;
+            if (isset($_POST['edit_submit'])){
+                $request = new Request();
+                $request->rules([
+                    'title' => 'required',
+                    'content' => 'required'
+                ]);
+                $request->message([
+                    'title.required' => '*Vui lòng nhập tiêu đề bài viết',
+                    'content.required' => '*Vui lòng nhập nội dung bài viết'
+                ]);
+                $validate = $request->validate();
+                if (!$validate) {
+                    $this->data['sub_content']['errors'] = $request->errors();
+                }
+                else {
+                    $title = addslashes($_POST['title']);
+                    $content = $_POST['content'];
+                    $data_edit = array([
+                        'title' => $title,
+                        'content' => $content
+                    ]);
+                    $this->db->table('posts')->where('post_id', '=', $post_id)->update($data_edit[0]);
+                    Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+                }
+            }
+        }
+        $this->data['page_title'] = 'Chỉnh sửa bài viết';
+        $this->data['content'] = 'forum/edit';
+        $this->render('layouts/client-layout', $this->data);
+    }
+    public function delete ($post_id){
+        $post_id = filter_var($post_id, FILTER_SANITIZE_NUMBER_INT);
+        $post = $this->model($this->model)->getFullPostById($post_id);
+        if ($post != null) {
+            $this->db->table('posts')->where('post_id', '=', $post_id)->delete();
+            Helpers::redirect_to('/dien-dan/');
+        }
+        else {
+            Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+        }
+    }
+    public function comment ($post_id) {
+        $post_id = filter_var($post_id, FILTER_SANITIZE_NUMBER_INT);
+        $post = $this->model($this->model)->getFullPostById($post_id);
+        $user = $this->model($this->model)->getUsers(Session::data('User')['user_id']);
+        if (Session::data('User') != null) {
+            if (isset($_POST['cmt_submit'])){
+                $request = new Request();
+                $request->rules([
+                    'content' => 'required'
+                ]);
+                $request->message([
+                    'content.required' => '*Vui lòng nhập nội dung bình luận'
+                ]);
+                $validate = $request->validate();
+                if (!$validate) {
+                    $this->errors = $request->errors();
+                }
+                else {
+                    $content = filter_var($_POST['content'], FILTER_SANITIZE_SPECIAL_CHARS);
+                    $data_cmt = array(
+                        'user_id' => $user['user_id'],
+                        'user_name' => $user['name'],
+                        'post_id' => $post_id,
+                        'content' => $content
+                    );
+                    var_dump($data_cmt);
+                    $this->db->table('comments')->insert($data_cmt);
+                }
+            }
+        }
+        Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+    }
+    public function edit_comment ($comment_id) {
+        $comment_id = filter_var($comment_id, FILTER_SANITIZE_NUMBER_INT);
+        $comment = $this->model($this->model)->getCommentById($comment_id);
+        $post = $this->model($this->model)->getFullPostById($comment['post_id']);
+        if (Session::data('User') != null) {
+            if (isset($_POST['edit_cmt_submit'])){
+                $request = new Request();
+                $request->rules([
+                    'content' => 'required'
+                ]);
+                $request->message([
+                    'content.required' => '*Vui lòng nhập nội dung bình luận'
+                ]);
+                $validate = $request->validate();
+                if (!$validate) {
+                    $this->errors = $request->errors();
+                    echo 'Lỗi validate';
+                }
+                else {
+                    $content = filter_var($_POST['content'], FILTER_SANITIZE_SPECIAL_CHARS);
+                    $data_cmt = array(
+                        'content' => $content
+                    );
+                    var_dump($data_cmt);
+                    $this->db->table('comments')->where('comment_id', '=', $comment_id)->update($data_cmt);
+                }
+                echo 'Lỗi submit';
+            }
+        }
+        Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+    }
+    public function delete_comment ($comment_id){
+        $comment_id = filter_var($comment_id, FILTER_SANITIZE_NUMBER_INT);
+        $comment = $this->model($this->model)->getCommentById($comment_id);
+        $post = $this->model($this->model)->getFullPostById($comment['post_id']);
+        if ($comment != null) {
+            $this->db->table('comments')->where('comment_id', '=', $comment_id)->delete();
+            Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+        }
+        else {
+            Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');
+        }
     }
 }
 ?>

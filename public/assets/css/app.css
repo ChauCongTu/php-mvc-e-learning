@@ -76,6 +76,10 @@ p {
   right: -40px;
 }
 
+.modal {
+  top: 30%;
+}
+
 @media only screen and (max-width: 600px) {
   .slick-arrow {
     top: -42px;
@@ -616,6 +620,12 @@ nav ul form {
   font-size: 14px;
   font-weight: 700;
 }
+.post-content .post__content {
+  width: 100%;
+}
+.post-content .post__content img {
+  max-width: 80%;
+}
 .post-content .post__social {
   padding: 20px 0;
 }
@@ -632,6 +642,7 @@ nav ul form {
 }
 
 .comment {
+  width: 100%;
   display: flex;
 }
 .comment .comment-img {
@@ -649,6 +660,7 @@ nav ul form {
 }
 .comment .comment-content .comment__content {
   padding: 10px 0;
+  width: 100%;
 }
 .comment .comment-content .comment__date {
   text-align: right;

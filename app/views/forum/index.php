@@ -4,104 +4,34 @@
         <div class="title h2">Danh mục diễn đàn</div>
         <div class="row">
             <div class="col-sm-9">
-                <div class="content shadow p-3 mb-4">
-                    <div class="subtitle h4">Thông báo diễn đàn</div>
-                    <div class="subcontent">
-                        <article class="forum-list" id="list-scroll">
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
+                <?php
+                foreach ($categories as $value) {
+                    echo '<div class="content shadow p-3">
+                            <div class="subtitle h4 mt-3  mb-3"><a href="/dien-dan/'.Helpers::to_slug($value['category_name']).'_'.$value['category_id'].'">'.$value['category_name'].'</a></div>';
+                            foreach ($value['post'] as $values) {
+                                echo' <div class="subcontent">
+                                <article class="forum-list mt-2" id="list-scroll">
+                                    <div class="forum-item">
+                                        <div class="forum-item-img">
+                                            <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
+                                        </div>
+                                        <div class="forum-item-content">
+                                            <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="title"> '.$values['title'].'</a>
+                                            <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
+                                            <br />
+                                            <div class="information">
+                                                <a href="" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
+                                                <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="content shadow p-3">
-                    <div class="subtitle h4">Thông báo diễn đàn</div>
-                    <div class="subcontent">
-                        <article class="forum-list" id="list-scroll">
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forum-item">
-                                <div class="forum-item-img">
-                                    <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                                </div>
-                                <div class="forum-item-content">
-                                    <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                    <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                    <br />
-                                    <div class="information">
-                                        <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                        <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+                                </article>
+                            </div>';
+                            }
+                            
+                    echo'</div>';
+                }
+                ?>
             </div>
             <div class="col-sm-3">
                 <div class="shadow p-3">
@@ -109,19 +39,19 @@
                     <table>
                         <tr>
                             <td>Chủ đề:</td>
-                            <td>131</td>
+                            <td><?php echo $stats['post']; ?></td>
                         </tr>
                         <tr>
                             <td>Thảo luận: </td>
-                            <td>214</td>
+                            <td><?php echo $stats['comment']; ?></td>
                         </tr>
                         <tr>
                             <td>Lượt thích: </td>
-                            <td>21429</td>
+                            <td><?php echo $stats['like']; ?></td>
                         </tr>
                         <tr>
                             <td>Thành viên: </td>
-                            <td>123</td>
+                            <td><?php echo $stats['user']; ?></td>
                         </tr>
                     </table>
                 </div>
