@@ -8,9 +8,9 @@
                     <div class="subtitle h3 mt-2 mb-3"><?php echo $posts['category_name']; ?></div>
                     <p><a href="" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm bài viết</a></p>
                     <?php 
-                    foreach ($posts['post'] as $values) {
+                    foreach ($pagedData as $values) {
                         echo' <div class="subcontent">
-                        <article class="forum-list mt-2" id="list-scroll">
+                        <article class="forum-list mt-2">
                             <div class="forum-item">
                                 <div class="forum-item-img">
                                     <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
@@ -26,6 +26,7 @@
                                 </div>
                             </div>
                         </article>
+                        '.Helpers::pagination($pagination['total_rows'], $pagination['recordsPerPage'], $pagination['currentPage']).'
                     </div>';
                     }
                     ?>                    

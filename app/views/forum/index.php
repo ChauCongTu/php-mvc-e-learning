@@ -6,12 +6,12 @@
             <div class="col-sm-9">
                 <?php
                 foreach ($categories as $value) {
-                    echo '<div class="content shadow p-3">
+                    echo '<div class="content shadow p-3 mb-3">
                             <div class="subtitle h4 mt-3  mb-3"><a href="/dien-dan/'.Helpers::to_slug($value['category_name']).'_'.$value['category_id'].'">'.$value['category_name'].'</a></div>';
-                            foreach ($value['post'] as $values) {
                                 echo' <div class="subcontent">
-                                <article class="forum-list mt-2" id="list-scroll">
-                                    <div class="forum-item">
+                                <article class="forum-list mt-2" id="list-scroll">';
+                                foreach ($value['post'] as $values) {
+                                    echo'<div class="forum-item">
                                         <div class="forum-item-img">
                                             <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
                                         </div>
@@ -24,12 +24,11 @@
                                                 <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
                                             </div>
                                         </div>
-                                    </div>
-                                </article>
-                            </div>';
-                            }
-                            
-                    echo'</div>';
+                                    </div>';
+                                }
+                                echo '</article>
+                            </div>
+                        </div>';
                 }
                 ?>
             </div>

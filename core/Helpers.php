@@ -81,5 +81,35 @@ class Helpers {
             return "{$diff} ngày trước";
         }
     }
+    /**
+     * Pagination
+     * @access    public
+     *  
+     * 
+     */
+    public static function pagination($totalRecords, $recordsPerPage, $currentPage) {
+        $totalPages = ceil($totalRecords / $recordsPerPage);
+        $pagination = '';
+        if ($totalPages > 1) {
+            $pagination .= '<ul class="pagination justify-content-center" style="margin:20px 0">';
+            $disabled = ($currentPage == 1) ? 'disabled' : '';
+            $previousPage = ($currentPage > 1) ? ($currentPage - 1) : 1;
+            $pagination .= '<li class="page-item ' . $disabled . '">';
+            $pagination .= '<a class="page-link" href="?page=' . $previousPage . '">';
+            $pagination .= '«</a></li>';
+            for ($i = 1; $i <= $totalPages; $i++) {
+                $active = ($i == $currentPage) ? 'active' : '';
+                $pagination .= '<li class="page-item ' . $active . '">';
+                $pagination .= '<a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+            }
+            $disabled = ($currentPage == $totalPages) ? 'disabled' : '';
+            $nextPage = ($currentPage < $totalPages) ? ($currentPage + 1) : $totalPages;
+            $pagination .= '<li class="page-item ' . $disabled . '">';
+            $pagination .= '<a class="page-link" href="?page=' . $nextPage . '">';
+            $pagination .= '»</a></li>';
+            $pagination .= '</ul>';
+        }
+        return $pagination;
+    }
 }
 ?>

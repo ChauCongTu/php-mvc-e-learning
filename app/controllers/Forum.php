@@ -24,7 +24,25 @@ class Forum extends Controller
             App::$app->loadError();
             exit;
         }
+
+        $recordsPerPage = 10;
+        $totalRows = count($posts['post']);
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        
+        $start = ($currentPage - 1) * $recordsPerPage;
+        $end = $start + $recordsPerPage;
+        
+        $pagedData = array_slice($posts['post'], $start, $recordsPerPage);
+        // Pagination
+        $pagination = array(
+            'total_rows' => $totalRows,
+            'recordsPerPage' => $recordsPerPage,
+            'currentPage' => $currentPage
+        );
+        // Send data to view
         $this->data['sub_content']['posts'] = $posts;
+        $this->data['sub_content']['pagedData'] = $pagedData;
+        $this->data['sub_content']['pagination'] = $pagination;
         $this->data['sub_content']['stats'] = $this->model($this->model)->getStats();
         $this->data['page_title'] = $posts['category_name'];
         $this->data['content'] = 'forum/list';

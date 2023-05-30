@@ -21,11 +21,11 @@ class ForumModel extends Model
      * @param   
      * @return    array
      */
-    public function getCategories()
+    public function getCategories($limit = 0)
     {
         $data = $this->db->table('categories')->get();
         for ($i = 0; $i < count($data); $i++) {
-            $data[$i]['post'] = $this->getFullPosts($data[$i]['category_id']);
+            $data[$i]['post'] = $this->getFullPosts($data[$i]['category_id'], $limit);
         }
         return $data;
     }
@@ -59,10 +59,30 @@ class ForumModel extends Model
      * @param  int 
      * @return    array
      */
-    public function getFullPosts($category_id)
+    public function getFullPosts($category_id, $limit = 0)
     {
-        $id = filter_var($category_id, FILTER_SANITIZE_SPECIAL_CHARS);
-        $data = $this->db->table('posts')->where('category_id', '=', $category_id)->get();
+        if ($limit == 0) {
+            $id = filter_var($category_id, FILTER_SANITIZE_SPECIAL_CHARS);
+            $data = $this->db->table('posts')->where('category_id', '=', $category_id)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
+                $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
+            }
+        } else {
+            $id = filter_var($category_id, FILTER_SANITIZE_SPECIAL_CHARS);
+            $data = $this->db->table('posts')->where('category_id', '=', $category_id)->limit($limit)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
+                $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
+            }
+        }
+
+        return $data;
+    }
+
+    public function getLastestPosts()
+    {
+        $data = $this->db->table('posts')->orderBy('updated_at', 'DESC')->limit(5)->get();
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
             $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
@@ -70,6 +90,18 @@ class ForumModel extends Model
 
         return $data;
     }
+
+    public function getMostCommentPosts()
+    {
+        $data = $this->db->table('posts')->orderBy('updated_at', 'DESC')->get();
+        for ($i = 0; $i < count($data); $i++) {
+            $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
+            $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
+        }
+
+        return $data;
+    }
+
     /**
      * Lấy ra danh sách bài viết với tất cả thông tin về người đăng và bình luận
      * @access    public
@@ -141,10 +173,9 @@ class ForumModel extends Model
             'content' => $content
         ]);
         $result = $this->db->table('posts')->insert($data);
-        if ($result){
+        if ($result) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

@@ -42,22 +42,66 @@
 
 ?> -->
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<?php 
+function pagination($totalRecords, $recordsPerPage, $currentPage, $currentUrl) {
+    $totalPages = ceil($totalRecords / $recordsPerPage);
+    $pagination = '';
+    if ($totalPages > 1) {
+        $pagination .= '<nav class="text-center"><ul class="pagination">';
+        $disabled = ($currentPage == 1) ? 'disabled' : '';
+        $previousPage = ($currentPage > 1) ? ($currentPage - 1) : 1;
+        $pagination .= '<li class="page-item ' . $disabled . '">';
+        $pagination .= '<a class="page-link" href="' . $currentUrl . '?page=' . $previousPage . '">';
+        $pagination .= '«</a></li>';
+        for ($i = 1; $i <= $totalPages; $i++) {
+            $active = ($i == $currentPage) ? 'active' : '';
+            $pagination .= '<li class="page-item ' . $active . '">';
+            $pagination .= '<a class="page-link" href="' . $currentUrl . '?page=' . $i . '">' . $i . '</a></li>';
+        }
+        $disabled = ($currentPage == $totalPages) ? 'disabled' : '';
+        $nextPage = ($currentPage < $totalPages) ? ($currentPage + 1) : $totalPages;
+        $pagination .= '<li class="page-item ' . $disabled . '">';
+        $pagination .= '<a class="page-link" href="' . $currentUrl . '?page=' . $nextPage . '">';
+        $pagination .= '»</a></li>';
+        $pagination .= '</ul></nav>';
+    }
+    return $pagination;
+}
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <script src="https://cdn.tiny.cloud/1/59wpcu7rxhpcu1u2ly0p1j4sv17awhm2pn8t23782u3aygti/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-        });
-    </script>
-</head>
+$data = [
+    ['id' => 1, 'name' => 'Nhơn'],
+    ['id' => 2, 'name' => 'Nam'],
+    ['id' => 3, 'name' => 'Mai'],
+    ['id' => 4, 'name' => 'Hoàng'],
+    ['id' => 5, 'name' => 'Thế Anh'],
+    ['id' => 6, 'name' => 'Nam'],
+    ['id' => 7, 'name' => 'Mai'],
+    ['id' => 8, 'name' => 'Hoàng'],
+    ['id' => 9, 'name' => 'Thế Anh'],
+    // ... nhiều hơn
+ ];
+ 
+ $recordsPerPage = 3;
+ $totalRows = count($data);
+ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+ $currentUrl = $_SERVER['PHP_SELF'];
+ 
+ $start = ($currentPage - 1) * $recordsPerPage;
+ $end = $start + $recordsPerPage;
+ 
+ $pagedData = array_slice($data, $start, $recordsPerPage);
+ 
+ // Hiển thị các bản ghi trên trang hiện tại
+ foreach ($pagedData as $record) {
+     echo $record['id'].$record['name'] . '<br>';
+ }
+ 
+ // Tạo phân trang
+ echo pagination($totalRows, $recordsPerPage, $currentPage, $currentUrl);
+ 
 
-<body> <textarea></textarea> </body>
 
-</html>
+?>
