@@ -80,6 +80,27 @@ class ForumModel extends Model
         return $data;
     }
 
+    public function getPostsSameCategory($post_id, $limit = 0)
+    {
+        $post_id = filter_var($post_id, FILTER_SANITIZE_SPECIAL_CHARS);
+        $post = $this->db->table('posts')->where('post_id', '=', $post_id)->first();
+        if ($limit == 0) {
+            $data = $this->db->table('posts')->where('category_id', '=', $post['category_id'])->where('post_id', '!=', $post_id)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
+                $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
+            }
+        } else {
+            $data = $this->db->table('posts')->where('category_id', '=', $post['category_id'])->where('post_id', '!=', $post_id)->limit($limit)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                $data[$i]['user'] = $this->getUsers($data[$i]['user_id']);
+                $data[$i]['comment'] = $this->getComment($data[$i]['post_id']);
+            }
+        }
+
+        return $data;
+    }
+
     public function getLastestPosts()
     {
         $data = $this->db->table('posts')->orderBy('updated_at', 'DESC')->limit(5)->get();

@@ -55,11 +55,10 @@ class Forum extends Controller
             App::$app->loadError();
             exit;
         }
-
         // Comment
         $this->data['sub_content']['errors'] = $this->errors;
-
         $this->data['sub_content']['post'] = $post;
+        $this->data['sub_content']['post_same_category'] = $this->model($this->model)->getPostsSameCategory($post_id);
         $this->data['page_title'] = $post['title'];
         $this->data['content'] = 'forum/detail';
         $this->render('layouts/client-layout', $this->data);

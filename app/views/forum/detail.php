@@ -1,6 +1,6 @@
 <section class="forum mt-3 mb-3">
     <div class="container">
-        <p class="link-to fw-bold">Trang chủ <i class="fa-solid fa-angle-right"></i> Diễn đàn <i class="fa-solid fa-angle-right"></i> </p>
+        <p class="link-to fw-bold">Trang chủ <i class="fa-solid fa-angle-right"></i> Diễn đàn <i class="fa-solid fa-angle-right"></i> <?php echo $post['title']; ?></p>
         <div class="row">
             <div class="col-sm-8">
                 <div class="content post shadow mt-3 p-3">
@@ -128,49 +128,19 @@
                 <div class="shadow mt-3 p-3">
                     <div class="h4 border-bottom pb-1">Cùng chuyên mục</div>
                     <article class="forum-list" id="list-scroll">
-                        <!-- Mỗi bài viết -->
-                        <div class="forum-item">
-                            <div class="forum-item-img">
-                                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                            </div>
-                            <div class="forum-item-content">
-                                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                <br />
-                                <div class="information">
-                                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="forum-item">
-                            <div class="forum-item-img">
-                                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                            </div>
-                            <div class="forum-item-content">
-                                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                <br />
-                                <div class="information">
-                                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="forum-item">
-                            <div class="forum-item-img">
-                                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
-                            </div>
-                            <div class="forum-item-content">
-                                <a href="" class="title"> Cách sử dụng "should" trong tiếng Anh cực kỳ chi tiết</a>
-                                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> 121</span>
-                                <br />
-                                <div class="information">
-                                    <a href="" class="information-user"><i class="fa-solid fa-pen"></i> Châu Quế Nhơn</a> 10 phút trước
-                                    <span class="information-view"><i class="fa-solid fa-eye"></i> 12.0322</span>
-                                </div>
-                            </div>
-                        </div>
+                        <?php 
+                        foreach ($post_same_category as $values) {
+                            echo '<div class="forum-item">
+                                    <div>
+                                        <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="fw-bold"> '.$values['title'].'</a>
+                                        <br />
+                                        <div class="information">
+                                            <a href="" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                        ?>
                     </article>
                 </div>
             </div>
