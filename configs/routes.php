@@ -28,4 +28,8 @@ $routes['dien-dan/binh-luan/(\d+)'] = 'forum/comment/$1';
 $routes['dien-dan/chinh-sua-binh-luan/(\d+)'] = 'forum/edit_comment/$1';
 $routes['dien-dan/xoa-binh-luan/(\d+)'] = 'forum/delete_comment/$1';
 
+
+// Translate 
+$routes['dich/anh-viet'] = 'home/translate/anh-viet';
+$routes['dich/viet-anh'] = 'home/translate/viet-anh';
 ?>

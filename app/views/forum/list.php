@@ -6,7 +6,11 @@
                 <div class="content shadow p-3 mt-2">
 
                     <div class="subtitle h3 mt-2 mb-3"><?php echo $posts['category_name']; ?></div>
-                    <p><a href="" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm bài viết</a></p>
+                    <?php
+                    if (Session::data('User') != null) {
+                        echo '<p><a href="/dien-dan/them-bai-viet_'.$posts['category_id'].'.html" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm bài viết</a></p>';
+                    }
+                    ?>
                     <?php 
                     foreach ($pagedData as $values) {
                         echo' <div class="subcontent">
@@ -39,19 +43,19 @@
                     <table>
                         <tr>
                             <td>Chủ đề:</td>
-                            <td>131</td>
+                            <td><?php echo $stats['post']; ?></td>
                         </tr>
                         <tr>
                             <td>Thảo luận: </td>
-                            <td>214</td>
+                            <td><?php echo $stats['comment']; ?></td>
                         </tr>
                         <tr>
                             <td>Lượt thích: </td>
-                            <td>21429</td>
+                            <td><?php echo $stats['like']; ?></td>
                         </tr>
                         <tr>
                             <td>Thành viên: </td>
-                            <td>123</td>
+                            <td><?php echo $stats['user']; ?></td>
                         </tr>
                     </table>
                 </div>

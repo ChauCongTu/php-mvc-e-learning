@@ -1,13 +1,15 @@
 <?php
-class Helpers {
+class Helpers
+{
     /**
      * Redirect to URL
      * @access    public
      * @param string
      * @return    void
      */
-    public static function redirect_to(string $url){
-        header("Location: ". $url);
+    public static function redirect_to(string $url)
+    {
+        header("Location: " . $url);
         exit;
     }
 
@@ -64,7 +66,8 @@ class Helpers {
      * @param  string 
      * @return    string
      */
-    public static function displayTime($timeString) {
+    public static function displayTime($timeString)
+    {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $time = strtotime($timeString);
         $timeDiff = time() - $time;
@@ -87,7 +90,8 @@ class Helpers {
      *  
      * 
      */
-    public static function pagination($totalRecords, $recordsPerPage, $currentPage) {
+    public static function pagination($totalRecords, $recordsPerPage, $currentPage)
+    {
         $totalPages = ceil($totalRecords / $recordsPerPage);
         $pagination = '';
         if ($totalPages > 1) {
@@ -111,5 +115,20 @@ class Helpers {
         }
         return $pagination;
     }
+
+    public static function translate($textToTranslate, $from, $to)
+    {
+        $url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=".$from."&tl=" . $to . "&dt=t&q=" . rawurlencode($textToTranslate);
+        $response = file_get_contents($url);
+        $result = json_decode($response);
+        if ($result[0] == null) {
+            return false;
+        } else {
+            $translatedText = "";
+            foreach ($result[0] as $values) {
+                $translatedText = $translatedText . htmlspecialchars($values[0], ENT_QUOTES, 'UTF-8');
+            }
+            return $translatedText;
+        }
+    }
 }
-?>

@@ -504,6 +504,18 @@ nav ul form {
   }
 }
 
+.translate textarea {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+}
+.translate textarea:focus {
+  border-color: #198754;
+}
+
 .forum {
   background-color: #fff;
 }
