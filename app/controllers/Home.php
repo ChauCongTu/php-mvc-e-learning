@@ -40,4 +40,8 @@ class Home extends Controller
         $this->data['content'] = 'home/translate';
         $this->render('layouts/client-layout', $this->data);
     }
+    public function ajax_translate()
+    {
+        echo 'Xin chào';
+    }
 }

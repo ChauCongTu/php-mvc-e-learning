@@ -51,6 +51,9 @@
         <a href="">
             <li>bảng xếp hạng</li>
         </a>
+        <a href="/dich/anh-viet">
+            <li>Dịch</li>
+        </a>
         <form method="get" action="">
             <input type="text" name="key" placeholder="Tìm kiếm ...">
             <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -77,6 +80,9 @@
         </a>
         <a href="">
             <li><i class="fa-solid fa-ranking-star"></i> bảng xếp hạng</li>
+        </a>
+        <a href="/dich/anh-viet">
+            <li><i class="fa-solid fa-language"></i> dịch</li>
         </a>
         <form method="get" action="" class="container">
             <input type="text" name="key" placeholder="Tìm kiếm ...">
