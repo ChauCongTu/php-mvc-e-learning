@@ -5,6 +5,7 @@
 <section class="test">
     <div class="container pt-3 pb-3">
         <div class="h1"><a href="">Đề thi lớp 10</a></div>
+        <a href="" class="btn btn-danger btn-rectangle rounded-0 mb-2"><i class="fa-solid fa-plus"></i> Thêm đề thi</a>
         <div class="row">
             <div class="col-md-4 test-item">
                 <div class="p-3 pb-0 mt-2 border border-danger">

@@ -131,4 +131,16 @@ class Helpers
             return $translatedText;
         }
     }
+    public static function generate_key($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $string = '';
+    
+        for ($i = 0; $i < $length; $i++) {
+            $randomIndex = rand(0, strlen($characters) - 1);
+            $string .= $characters[$randomIndex];
+        }
+    
+        return $string;
+    }
+    
 }

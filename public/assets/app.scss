@@ -120,6 +120,18 @@ p {
     top: 30%;
 }
 
+.clock {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    background-color: #3b5998;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 700;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 1000;
+}
+
 @include phone {
     .slick-arrow {
         top: -42px;
@@ -1133,6 +1145,7 @@ nav {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 }
+
 
 footer {
     color: $theme_color;

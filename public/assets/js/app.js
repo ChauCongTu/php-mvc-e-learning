@@ -73,3 +73,36 @@ $(document).ready(function () {
     }
   });
 });
+
+var h = null; // Giờ
+var m = null; // Phút
+var s = null; // Giây
+function start($minute) {
+  if (h === null) {
+    s = 0;
+    m = $minute;
+    h = 0;
+  }
+  if (s === -1) {
+    m -= 1;
+    s = 59;
+  }
+  if (m === -1) {
+    h -= 1;
+    m = 59;
+  }
+  if (h == -1) {
+    clearTimeout(timeout);
+    alert('Hết giờ');
+    return false;
+  }
+
+  document.getElementById('m').innerText = m.toString();
+  document.getElementById('s').innerText = s.toString();
+
+  /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
+  timeout = setTimeout(function () {
+    s--;
+    start();
+  }, 1000);
+}
