@@ -90,7 +90,7 @@ class Test extends Controller
         );
         // Trả về thông tin của học sinh được yêu cầu dưới dạng chuỗi JSON
         header('Content-type: application/json');
-        echo json_encode($questions[$question]);
+        echo json_encode($questions[$question - 1]);
     }
     public function save_anwser(){
         $numb_question = $_POST['numb_question'];
@@ -99,6 +99,8 @@ class Test extends Controller
         $data['answer'][$numb_question] = $answer;
         Session::delete('test');
         Session::data('test', $data);
+        header('Content-type: application/json');
+        echo json_encode(Session::data('test'));
     }
     public function submit_result(){
         // Nộp bài
