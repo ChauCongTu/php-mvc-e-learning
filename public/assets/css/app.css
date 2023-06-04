@@ -974,6 +974,17 @@ nav ul form {
   margin: 10px;
 }
 
+.test .score {
+  font-size: 140px;
+  font-weight: 700;
+  color: #d70000;
+}
+.test .numb_question {
+  color: #198754;
+  font-size: 40px;
+  font-weight: 700;
+}
+
 footer {
   color: #fff;
   background-color: #d70000;

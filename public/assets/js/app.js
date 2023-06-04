@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var question = 0;
+  var question = 1;
   var total_question = 40;
   var numb_question = 0;
   var answer = 0;
@@ -25,9 +25,7 @@ $(document).ready(function () {
         url: '/test/process',
         type: 'post',
         data: {
-          question: question,
-          numb_question: numb_question,
-          answer: answer
+          question: question
         },
         dataType: 'json',
         success: function (data) {
@@ -226,9 +224,7 @@ $(document).ready(function () {
       url: '/test/process',
       type: 'post',
       data: {
-        question: question,
-        numb_question: numb_question,
-        answer: answer
+        question: question
       },
       dataType: 'json',
       success: function (data) {
@@ -504,8 +500,8 @@ function start($minute) {
     return false;
   }
 
-  document.getElementById('m').innerText = m.toString();
-  document.getElementById('s').innerText = s.toString();
+  document.getElementById('m').innerText = m.toString().padStart(2, "0");
+  document.getElementById('s').innerText = s.toString().padStart(2, "0"); 
 
   /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
   timeout = setTimeout(function () {

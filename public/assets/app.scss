@@ -1167,7 +1167,18 @@ nav {
         margin: 10px;
     }
 }
-
+.test {
+    .score {
+        font-size: 140px;
+        font-weight: 700;
+        color: $danger;
+    }
+    .numb_question {
+        color: $success;
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
 
 footer {
     color: $theme_color;

@@ -174,6 +174,8 @@
     <div class="forum-title"><a href="/dien-dan">Danh mục diễn đàn</a></div>
     <?php
     foreach ($categories as $value) {
+        echo '<div class="p-1">';
+        echo '<div class="border border-secondary p-3 rounded">';
         echo '<div class="forum-sub-title"><a href="/dien-dan/'.Helpers::to_slug($value['category_name']).'_'.$value['category_id'].'">'.$value['category_name'].'</a></div>';
         echo '<article class="forum-list" id="list-scroll">';
         foreach ($value['post'] as $values) {
@@ -193,6 +195,8 @@
                 </div>';
         }
         echo '</article>';
+        echo '</div>';
+        echo '</div>';
     }
     ?>
 </section>

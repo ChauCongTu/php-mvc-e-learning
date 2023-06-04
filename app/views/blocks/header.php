@@ -36,7 +36,7 @@
 </header>
 <nav class="nav-bar-home">
     <ul class="container">
-        <a href="">
+        <a href="/">
             <li>trang chủ</li>
         </a>
         <a href="/bai-hoc">
@@ -45,11 +45,8 @@
         <a href="/dien-dan">
             <li>diễn đàn</li>
         </a>
-        <a href="">
-            <li>thi thử</li>
-        </a>
-        <a href="">
-            <li>bảng xếp hạng</li>
+        <a href="/thi-truc-tuyen">
+            <li>thi trục tuyến</li>
         </a>
         <a href="/dich/anh-viet">
             <li>Dịch</li>
@@ -66,7 +63,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-        <a href="">
+        <a href="/">
             <li><i class="fa-solid fa-house"></i> trang chủ</li>
         </a>
         <a href="/bai-hoc">
@@ -75,11 +72,8 @@
         <a href="/dien-dan">
             <li><i class="fa-solid fa-users"></i> diễn đàn</li>
         </a>
-        <a href="">
-            <li><i class="fa-solid fa-file-pen"></i> thi thử</li>
-        </a>
-        <a href="">
-            <li><i class="fa-solid fa-ranking-star"></i> bảng xếp hạng</li>
+        <a href="/thi-truc-tuyen">
+            <li><i class="fa-solid fa-file-pen"></i> thi trực tuyến</li>
         </a>
         <a href="/dich/anh-viet">
             <li><i class="fa-solid fa-language"></i> dịch</li>

@@ -28,6 +28,12 @@ $routes['dien-dan/binh-luan/(\d+)'] = 'forum/comment/$1';
 $routes['dien-dan/chinh-sua-binh-luan/(\d+)'] = 'forum/edit_comment/$1';
 $routes['dien-dan/xoa-binh-luan/(\d+)'] = 'forum/delete_comment/$1';
 
+// Test
+$routes['thi-truc-tuyen'] = 'test';
+$routes['thi-truc-tuyen/ket-qua'] = 'test/submit_result';
+$routes['thi-truc-tuyen/bo-de-(\d+).html'] = 'test/list/$1';
+$routes['thi-truc-tuyen/them/(\d+).html'] = 'test/add/$1';
+$routes['thi-truc-tuyen/(.+)_(\d+).html'] = 'test/detail/$1/$2';
 
 // Translate 
 $routes['dich/anh-viet'] = 'home/translate/anh-viet';

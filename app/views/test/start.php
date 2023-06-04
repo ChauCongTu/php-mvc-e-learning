@@ -3,47 +3,49 @@
     <div class="photo-blur"></div>
 </div>
 <?php
-$minute = 60;
+$minute = $test['time'];
 ?>
 <div class="container mt-3">
-    <a href="" class="btn btn-success btn-rectangle rounded-0 shadow float-end">Nộp bài</a>
+    <form action="/thi-truc-tuyen/ket-qua" method="post">
+        <button class="btn btn-success btn-rectangle rounded-0 shadow float-end" name="submit_result">Nộp bài</button>
+    </form>
 </div>
 
 <body class="test" onload="start(<?php echo $minute; ?>)">
     <div class="container shadow-lg mt-3 pt-5 pb-3">
         <div class="clock">
-            <span id="m">Phút</span> :
-            <span id="s">Giây</span>
+            <span id="m"></span> :
+            <span id="s"></span>
         </div>
         <div class="row">
             <div class="col-md-9">
                 <div class="question" id="questionInfo">
-                    <div class="h4">Câu <span class="number_question">1</span>. </div>
-                    <p class="fw-bold">Find the word which has a different sound in the part underlined: weather, hearty, meadow, breath</p>
+                    <div class="h3">Câu <span class="number_question">1</span>: </div>
+                    <p class="fw-bold"><?php echo $test['question'][0]['content']; ?></p>
                     <div>
                         <form action="">
                             <div class="mt-2 border p-3 rounded">
                                 <input class="form-check-input" type="radio" name="answer" id="a" value="1">
                                 <label class="form-check-label" for="a">
-                                    A. W<u>ea</u>ther
+                                    A. <?php echo $test['question'][0]['answer_1']; ?>
                                 </label>
                             </div>
                             <div class="mt-2 border p-3 rounded">
                                 <input class="form-check-input" type="radio" name="answer" id="b" value="2">
                                 <label class="form-check-label" for="a">
-                                    A. W<u>ea</u>ther
+                                    B. <?php echo $test['question'][0]['answer_2']; ?>
                                 </label>
                             </div>
                             <div class="mt-2 border p-3 rounded">
                                 <input class="form-check-input" type="radio" name="answer" id="c" value="3">
                                 <label class="form-check-label" for="a">
-                                    A. W<u>ea</u>ther
+                                    C. <?php echo $test['question'][0]['answer_3']; ?>
                                 </label>
                             </div>
                             <div class="mt-2 border p-3 rounded">
                                 <input class="form-check-input" type="radio" name="answer" id="d" value="4">
                                 <label class="form-check-label" for="a">
-                                    A. W<u>ea</u>ther
+                                    D. <?php echo $test['question'][0]['answer_4']; ?>
                                 </label>
                             </div>
                         </form>
@@ -63,7 +65,7 @@ $minute = 60;
             <div class="col-md-3 border-start">
                 <div class="question-selector">
                     <?php
-                    for ($i = 1; $i <= 40; $i++) {
+                    for ($i = 1; $i <= $test['size']; $i++) {
                         echo '<div><button id="' . $i . '" class="question__selector__done">' . $i . '</a></div>';
                     }
                     ?>
