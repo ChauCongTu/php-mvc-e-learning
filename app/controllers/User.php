@@ -9,18 +9,46 @@ class User extends Controller
     private $model = 'UserModel';
     public function index()
     {
+        if (isset($_GET['key'])) {
+            $users = $this->model($this->model)->findUsers();
+        }
+        else {
+            $users = $this->model($this->model)->getUsers();
+        }
+        $recordsPerPage = 9;
+        $totalRows = count($users);
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        
+        $start = ($currentPage - 1) * $recordsPerPage;
+        $end = $start + $recordsPerPage;
+        
+        $pagedData = array_slice($users, $start, $recordsPerPage);
+        // Pagination
+        $pagination = array(
+            'total_rows' => $totalRows,
+            'recordsPerPage' => $recordsPerPage,
+            'currentPage' => $currentPage
+        );
+        $this->data['sub_content']['users'] = $users;
+        $this->data['sub_content']['pagedData'] = $pagedData;
+        $this->data['sub_content']['pagination'] = $pagination;
         $this->data['page_title'] = 'Danh sách người dùng';
         $this->data['content'] = 'user/index';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function profile()
+    public function profile($slug, $user_id)
     {
+        $user = $this->model($this->model)->getUserByID($user_id);
+        $this->data['sub_content']['user'] = $user;
+        $this->data['sub_content']['topic'] = $this->db->table('posts')->where('user_id', '=', $user_id)->get();
+        $this->data['sub_content']['comment'] = $this->db->table('comments')->where('user_id', '=', $user_id)->get();
         $this->data['page_title'] = 'Thông tin người dùng';
         $this->data['content'] = 'user/profile';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function profileEdit()
+    public function profileEdit($user_id)
     {
+        
     }
     public function logout()
     {
@@ -51,8 +79,12 @@ class User extends Controller
                     if (!$result) {
                         $this->data['sub_content']['msg'] = 'Tên đăng nhập hoặc mật khẩu không chính xác';
                     } else {
-                        Session::data('User', $result);
-                        Helpers::redirect_to("/");
+                        if ($result['role'] == -1) {
+                            $this->data['sub_content']['msg'] = 'Tài khoản của bạn đã bị khóa truy cập, liên hệ Admin để biết thêm chi tiết';
+                        } else {
+                            Session::data('User', $result);
+                            Helpers::redirect_to("/");
+                        }
                     }
                 }
             }
@@ -98,5 +130,42 @@ class User extends Controller
         }
         $this->data['content'] = 'user/register';
         $this->render('layouts/client-layout', $this->data);
+    }
+    public function active($user_id){
+        $user = $this->model($this->model)->getUserByID($user_id);
+        if ($user['active']) {
+            Helpers::redirect_to("/");
+        }
+        else {
+            if (isset($_GET['key'])) {
+                if ($_GET['key'] == Session::data('active_key')){
+                    $this->model($this->model)->activeUser($user['user_id']);
+                    $this->data['sub_content']['msg'] = 'Kích hoạt thành công';
+                    $user = $this->model($this->model)->getUserByID($user_id);
+                    Session::data('User', $user);
+                }
+                else{
+                    $this->data['sub_content']['msg'] = 'Có lỗi xảy ra, vui lòng thử lại';
+                }
+                $this->data['page_title'] = 'Kích hoạt tài khoản | '.$user['name'];
+                $this->data['content'] = 'home/active_result';
+                $this->render('layouts/client-layout', $this->data);
+            }
+            else {
+                $active_key = Helpers::generate_key(32);
+                Session::data('active_key', $active_key);
+                $htmlContent = '<p style="text-align: center;"><strong><img src="https://cdn.discordapp.com/attachments/1100753623849377835/1115201661795827742/bg.png" alt="" width="40%" height="auto" /></strong></p>
+                <p style="text-align: center;"><strong>&nbsp;</strong></p>
+                <h3 style="text-align: left;"><strong>Ch&agrave;o mừng <strong>'.$user['name'].'</strong> đến với trang web!</strong></h3>
+                <p style="text-align: left;"><strong>Trang Web học tiếng Anh d&agrave;nh cho đối tượng ch&iacute;nh l&agrave; học sinh THPT, &ocirc;n thi THPT Quốc Gia. Cung cấp c&aacute;c b&agrave;i giảng về từ vựng ngữ ph&aacute;p, trang bị cho bạn đủ kiến thức để tăng cường khả năng tiếng Anh của m&igrave;nh. Ngo&agrave;i ra, bạn c&oacute; thể tham gia v&agrave;o c&aacute;c b&agrave;i thi thử trực tuyến để thử sức với c&aacute;c th&agrave;nh vi&ecirc;n kh&aacute;c.</strong></p>
+                <p style="text-align: left;"><span style="color: #000000;"><strong>Để k&iacute;ch hoạt t&agrave;i, khoản diễn đ&agrave;n. H&atilde;y click v&agrave;o link sau đ&acirc;y: <a href="http://localhost:8080/kich-hoat/'.$user['user_id'].'.html?key='.$active_key.'" target="_blank">http://localhost:8080/kich-hoat/'.$user['user_id'].'.html?key='.$active_key.'</a></strong></span></p>
+                <p style="text-align: left;"><strong>Cảm ơn!</strong></p>';
+                $this->data['page_title'] = 'Kích hoạt tài khoản | '.$user['name'];
+                Helpers::sendMail($user['email'], 'Kích hoạt tài khoản'.$user['name'], $htmlContent);
+                $this->data['content'] = 'home/active';
+                $this->render('layouts/client-layout', $this->data);
+            }
+        }
+        
     }
 }

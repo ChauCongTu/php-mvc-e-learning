@@ -1167,6 +1167,28 @@ nav {
         margin: 10px;
     }
 }
+
+.r-member, .r-mod, .r-cm, .r-admin, .r-banned {
+    font-weight: 700;
+}
+.r-member {
+    color: #0d6efd;
+}
+.r-mod {
+    color: $purple;
+}
+.r-cm {
+    color: $success;
+}
+.r-admin {
+    color: $danger;
+}
+.r-banned {
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+// Test style
 .test {
     .score {
         font-size: 140px;

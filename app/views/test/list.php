@@ -5,7 +5,11 @@
 <section class="test">
     <div class="container pt-3 pb-3">
         <div class="h1"><a href="">Đề thi lớp <?php echo $grade; ?></a></div>
-        <a href="/thi-truc-tuyen/them/<?php echo $grade; ?>.html" class="btn btn-danger btn-rectangle rounded-0 mb-2"><i class="fa-solid fa-plus"></i> Thêm đề thi</a>
+        <?php
+        if (Session::data('User') != null) {
+            echo '<a href="/thi-truc-tuyen/them/'.$grade.'.html" class="btn btn-danger btn-rectangle rounded-0 mb-2"><i class="fa-solid fa-plus"></i> Thêm đề thi</a>';
+        }
+        ?>
         <div class="row">
             <?php
             foreach ($test as $value) {

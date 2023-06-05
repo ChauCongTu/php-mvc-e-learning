@@ -43,17 +43,11 @@ CREATE TABLE Exams (
     exam_id INT AUTO_INCREMENT PRIMARY KEY,
     grade INT NOT NULL,
     title VARCHAR(255) NOT NULL,
+    size INT,
+    time INT,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Tests (
-    test_id INT AUTO_INCREMENT PRIMARY KEY,
-    grade INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    user_id INT NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
-);
 
 CREATE TABLE Questions (
     question_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -67,21 +61,15 @@ CREATE TABLE Questions (
     FOREIGN KEY (exam_id) REFERENCES Exams(exam_id)
 );
 
-CREATE TABLE User_Answers (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    test_id INT NOT NULL,
-    answer INT NOT NULL,
-    FOREIGN KEY (test_id) REFERENCES Tests(test_id)
-);
 
 CREATE TABLE Test_Results (
     result_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    test_id INT NOT NULL,
+    exam_id INT NOT NULL,
     score INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (test_id) REFERENCES Tests(test_id)
+    FOREIGN KEY (exam_id) REFERENCES Exams(exam_id)
 );
 
 CREATE TABLE Categories (

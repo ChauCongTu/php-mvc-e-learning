@@ -974,6 +974,31 @@ nav ul form {
   margin: 10px;
 }
 
+.r-member, .r-mod, .r-cm, .r-admin, .r-banned {
+  font-weight: 700;
+}
+
+.r-member {
+  color: #0d6efd;
+}
+
+.r-mod {
+  color: #6f42c1;
+}
+
+.r-cm {
+  color: #198754;
+}
+
+.r-admin {
+  color: #d70000;
+}
+
+.r-banned {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
 .test .score {
   font-size: 140px;
   font-weight: 700;

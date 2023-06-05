@@ -1,4 +1,12 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 class Helpers
 {
     /**
@@ -72,18 +80,25 @@ class Helpers
         $time = strtotime($timeString);
         $timeDiff = time() - $time;
         if ($timeDiff < 60) {
-            return 'vừa xong';
+            return 'mới đây';
         } elseif ($timeDiff < 3600) {
             $diff = round($timeDiff / 60);
             return "{$diff} phút trước";
         } elseif ($timeDiff < 86400) {
             $diff = round($timeDiff / 3600);
             return "{$diff} giờ trước";
-        } else {
+        } elseif ($timeDiff < 2592000) {
             $diff = round($timeDiff / 86400);
             return "{$diff} ngày trước";
+        } elseif ($timeDiff < 31536000) {
+            $diff = round($timeDiff / 2592000);
+            return "{$diff} tháng trước";
+        } else {
+            $diff = round($timeDiff / 31536000);
+            return "{$diff} năm trước";
         }
     }
+
     /**
      * Pagination
      * @access    public
@@ -118,7 +133,7 @@ class Helpers
 
     public static function translate($textToTranslate, $from, $to)
     {
-        $url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=".$from."&tl=" . $to . "&dt=t&q=" . rawurlencode($textToTranslate);
+        $url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" . $from . "&tl=" . $to . "&dt=t&q=" . rawurlencode($textToTranslate);
         $response = file_get_contents($url);
         $result = json_decode($response);
         if ($result[0] == null) {
@@ -131,16 +146,63 @@ class Helpers
             return $translatedText;
         }
     }
-    public static function generate_key($length = 10) {
+    public static function generate_key($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $string = '';
-    
+
         for ($i = 0; $i < $length; $i++) {
             $randomIndex = rand(0, strlen($characters) - 1);
             $string .= $characters[$randomIndex];
         }
-    
+
         return $string;
     }
-    
+    public static function display_role($role = 0)
+    {
+        if ($role == 0)
+            return '<span class="r-member"> - Thành viên</span>';
+        else if ($role == 1)
+            return '<span class="r-mod"> <img src="/public/Image/icon/iconsaotim.png"/> Mod</span>';
+        else if ($role == 2)
+            return '<span class="r-cm"> <img src="/public/Image/icon/iconsaoxanhla.png"/> Content Manager</span>';
+        else if ($role == 3)
+            return '<span class="r-admin"> <img src="/public/Image/icon/iconsaodo.png"/> Admin</span>';
+        else
+            return '<span class="r-banned"> <i class="fa-solid fa-lock"></i> Banned</span>';
+    }
+    public static function sendMail($receiver, $subject, $content)
+    {
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->SMTPDebug = 0; // Enable verbose debug output
+            $mail->isSMTP(); // gửi mail SMTP
+            $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = 'skyland.0410@gmail.com'; // SMTP username
+            $mail->Password = 'nspqpitfdumeaeao';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $mail->Port = 587; // TCP port to connect to
+            $mail->setLanguage('vi', '/optional/path/to/language/directory/');
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64'; //hoặc 8bit, hoặc quoted-printable
+            $mail->ContentType = 'text/html';
+            //Recipients
+            $mail->setFrom('admin@chaucongtu.gq', '[EnglishWeCan] Cộng đồng học tiếng Anh trực tuyến');
+            $mail->addAddress($receiver); // Add a recipient
+            // $mail->addAddress('ellen@example.com'); // Name is optional
+            // $mail->addReplyTo('info@example.com', 'Information');
+            // $mail->addCC('cc@example.com');
+            // $mail->addBCC('bcc@example.com');
+            // Content
+            $mail->isHTML(true);   // Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body = $content;
+            $mail->send();
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

@@ -45,7 +45,12 @@
                                 <label for="title">Đáp án chính xác:</label>
                             </div>
                             <div class="mt-2">
-                                <input type="number" name="correct_<?php echo $i; ?>" class="form-control">
+                                <select name="correct_<?php echo $i; ?>" class="form-control">
+                                    <option value="1">Đáp án 1</option>
+                                    <option value="2">Đáp án 2</option>
+                                    <option value="3">Đáp án 3</option>
+                                    <option value="4">Đáp án 4</option>
+                                </select>
                             </div>
                         </div>
                     </div>

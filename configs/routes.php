@@ -35,6 +35,13 @@ $routes['thi-truc-tuyen/bo-de-(\d+).html'] = 'test/list/$1';
 $routes['thi-truc-tuyen/them/(\d+).html'] = 'test/add/$1';
 $routes['thi-truc-tuyen/(.+)_(\d+).html'] = 'test/detail/$1/$2';
 
+// User
+$routes['nguoi-dung'] = 'user';
+$routes['nguoi-dung/(.+)_(\d+).html'] = 'user/profile/$1/$2';
+$routes['kich-hoat/(\d+).html'] = 'user/active/$1';
+
+
+
 // Translate 
 $routes['dich/anh-viet'] = 'home/translate/anh-viet';
 $routes['dich/viet-anh'] = 'home/translate/viet-anh';
