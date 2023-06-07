@@ -76,4 +76,57 @@ class UserModel extends Model
             return false;
         }
     }
+    public function editAccount($user_id, $name, $gender, $birthday, $phone_number, $address, $link, $description, $role)
+    {
+        $user_id = filter_var($user_id, FILTER_SANITIZE_ENCODED);
+        $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS);
+        $gender = filter_var($gender, FILTER_SANITIZE_NUMBER_INT);
+        $birthday = filter_var($birthday, FILTER_SANITIZE_SPECIAL_CHARS);
+        $phone_number = filter_var($phone_number, FILTER_SANITIZE_SPECIAL_CHARS);
+        $address = filter_var($address, FILTER_SANITIZE_SPECIAL_CHARS);
+        $link = filter_var($link, FILTER_SANITIZE_SPECIAL_CHARS);
+        $description = filter_var($description, FILTER_SANITIZE_SPECIAL_CHARS);
+        $role = filter_var($role, FILTER_SANITIZE_NUMBER_INT);
+        $data = ([
+            'name' => $name,
+            'gender' => $gender,
+            'birthday' => $birthday,
+            'phone_number' => $phone_number,
+            'address' => $address,
+            'link' => $link,
+            'description' => $description,
+            'role' => $role
+        ]);
+        $result = $this->db->table($this->_table)->where('user_id', '=', $user_id)->update($data);
+        if ($result)
+            return true;
+        return false;
+    }
+    public function banUser($user_id)
+    {
+        $data = array(
+            'role' => -1
+        );
+        $result = $this->db->table($this->_table)->where('user_id', '=', $user_id)->update($data);
+        if ($result)
+            return true;
+        return false;
+    }
+    public function deleteUser($user_id)
+    {
+        $result = $this->db->table($this->_table)->where('user_id', '=', $user_id)->delete();
+        if ($result)
+            return true;
+        return false;
+    }
+    public function unbanUser($user_id)
+    {
+        $data = array(
+            'role' => 0
+        );
+        $result = $this->db->table($this->_table)->where('user_id', '=', $user_id)->update($data);
+        if ($result)
+            return true;
+        return false;
+    }
 }

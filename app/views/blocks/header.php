@@ -91,6 +91,15 @@ if (Session::data('User') != null && Session::data('User')['active'] == 0) {
         </div>';
 }
 ?>
+<?php
+if (Session::data('User') != null){
+    if (Session::data('User')['phone_number'] == null) {
+        echo '<div class="active p-3 container text-center">
+            <div class="active-line">Tài khoản của bạn vẫn chưa hoàn tất, còn một bước nữa. Hãy <a class="text-danger fw-bold" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html">hoàn tất hồ sơ</a> của mình!</div>
+        </div>';
+    }
+}
+?>
 <!-- Modal Logout -->
 <div class="modal fade" id="logout">
     <div class="modal-dialog">

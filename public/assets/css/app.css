@@ -858,11 +858,23 @@ nav ul form {
 }
 
 .profile .user-avatar {
+  position: relative;
   text-align: center;
   padding: 10px;
 }
 .profile .user-avatar img {
   width: 55%;
+}
+.profile .user-avatar #avatar_changer {
+  position: absolute;
+  bottom: 10px;
+  color: #ccc;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+.profile .user-avatar #avatar_changer:hover {
+  opacity: 1;
 }
 .profile .user-info {
   padding: 10px;

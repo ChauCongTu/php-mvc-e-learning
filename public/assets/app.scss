@@ -1030,12 +1030,24 @@ nav {
 
 .profile {
     .user-avatar {
+        position: relative;
         text-align: center;
         padding: 10px;
 
         img {
             width: 55%;
 
+        }
+        #avatar_changer {
+            position: absolute;
+            bottom: 10px;
+            color: #ccc;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: .4;
+        }
+        #avatar_changer:hover {
+            opacity: 1;
         }
     }
 
