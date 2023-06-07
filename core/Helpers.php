@@ -21,6 +21,21 @@ class Helpers
         exit;
     }
 
+    public static function current_url()
+    {
+        $currentURL = 'http';
+        if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+            $currentURL .= "s";
+        }
+        $currentURL .= "://";
+        if ($_SERVER["SERVER_PORT"] != "80") {
+            $currentURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+        } else {
+            $currentURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+        }
+        return $currentURL;
+    }
+
     /**
      * Convert string to slug
      * @access    public
@@ -178,18 +193,18 @@ class Helpers
             //Server settings
             $mail->SMTPDebug = 0; // Enable verbose debug output
             $mail->isSMTP(); // gửi mail SMTP
-            $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
             $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
             $mail->Username = 'skyland.0410@gmail.com'; // SMTP username
             $mail->Password = 'nspqpitfdumeaeao';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port = 587; // TCP port to connect to
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->setLanguage('vi', '/optional/path/to/language/directory/');
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64'; //hoặc 8bit, hoặc quoted-printable
             $mail->ContentType = 'text/html';
             //Recipients
-            $mail->setFrom('admin@chaucongtu.gq', '[EnglishWeCan] Cộng đồng học tiếng Anh trực tuyến');
+            $mail->setFrom('admin@chaucongtu.site', '[EnglishWeCan] Cộng đồng học tiếng Anh trực tuyến');
             $mail->addAddress($receiver); // Add a recipient
             // $mail->addAddress('ellen@example.com'); // Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');

@@ -13,7 +13,7 @@
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a> |
                       <a href="/dang-ky.html"><i class="fa-solid fa-user"></i> Đăng ký</a>';
             } else {
-                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                echo '<a href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
             }
             ?>
         </div>
@@ -25,7 +25,7 @@
             if (Session::data('User') == null) {
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-user"></i> Tài khoản</a>';
             } else {
-                echo '<a href=""><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"> <i class="fa-solid fa-right-from-bracket"></i></a>';
+                echo '<a href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"> <i class="fa-solid fa-right-from-bracket"></i></a>';
             }
             ?>
         </div>

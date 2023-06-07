@@ -20,7 +20,7 @@
                                             <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
                                             <br />
                                             <div class="information">
-                                                <a href="" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
+                                                <a href="/nguoi-dung/'.Helpers::to_slug($values['user']['name']).'_'.$values['user']['user_id'].'.html" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
                                                 <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
                                             </div>
                                         </div>
