@@ -103,6 +103,10 @@ class User extends Controller
                     $img_path = $target_path . '/' . $img_name;
                     move_uploaded_file($file['tmp_name'], $img_path);
                     $msg = 'Thay đổi thành công!';
+                    $data = array(
+                        'avatar' => $user_id . '.png'
+                    );
+                    $this->db->table('users')->where('user_id', '=', $user_id)->update($data);
                 }
             } else {
                 $msg = 'Bạn chưa chọn hình ảnh!';

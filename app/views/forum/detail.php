@@ -13,7 +13,6 @@
                             </div>
                         </div>
                         <hr />
-                        <div class="post__name"><?php echo $post['title']; ?></div>
                         <div class="post__content">
                             <?php echo $post['content']; ?>
                         </div>
