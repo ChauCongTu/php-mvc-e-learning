@@ -144,7 +144,7 @@ class Test extends Controller
             // Nộp bài
             // Gọi danh sách câu trả lời trong Session::data['test']['answer'];
             $point_per_question = 10 / Session::data('test')['size'];
-            $score = 0;
+            $score = 0.0;
             $answer_sheet = Session::data('test')['answer'];
             $barem = [];
             $true_question = 0;

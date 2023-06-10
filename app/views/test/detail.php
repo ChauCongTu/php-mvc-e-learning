@@ -37,12 +37,13 @@
                             <?php
                             $stt = 1;
                             foreach ($ranking as $value) {
+                                $date = date_create($value['created_at']);
                                 echo '
                                 <tr>
                                     <td>'.$stt ++.'</td>
-                                    <td><a href="">'.$value['user_name'].'</a></td>
+                                    <td><a href="/nguoi-dung/'.Helpers::to_slug($value['user_name']).'_'.$value['user_id'].'.html">'.$value['user_name'].'</a></td>
                                     <td>'.$value['score'].'</td>
-                                    <td>'.$value['created_at'].'</td>
+                                    <td>'.date_format($date,"d/m/Y H:i").'</td>
                                 </tr>
                                 ';
                             }

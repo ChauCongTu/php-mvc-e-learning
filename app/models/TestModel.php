@@ -46,7 +46,7 @@ class TestModel extends Model
         $user_id = filter_var($user_id, FILTER_SANITIZE_NUMBER_INT);
         $user_name = filter_var($user_name, FILTER_SANITIZE_SPECIAL_CHARS);
         $exam_id = filter_var($exam_id, FILTER_SANITIZE_NUMBER_INT);
-        $score = filter_var($score, FILTER_SANITIZE_NUMBER_FLOAT);
+        $score;
         $data = array(
             'user_id' => $user_id,
             'user_name' => $user_name,

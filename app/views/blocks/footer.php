@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-5">
                 <p class="footer-title">Về chúng tôi</p>
-                <div class="footer-content">Chào mừng đến với trang web học tiếng Anh của chúng tôi! Trang web này được thiết kế để giúp các bạn học sinh THPT nâng cao khả năng tiếng anh của mình thông qua các bài học cơ bản, thi thử theo các loại đề từ thi học kì 10-11-12, THPTQG và cơ hội tham gia vào một cộng đồng học thuật tiếng anh nhộn nhịp. Chúc các bạn học tập tốt và đạt thành tích cao trong môn tiếng Anh nói riêng và các môn học khác nói chung!</div>
+                <div class="footer-content mt-3">Chào mừng đến với trang web học tiếng Anh của chúng tôi! Trang web này được thiết kế để giúp các bạn học sinh THPT nâng cao khả năng tiếng anh của mình thông qua các bài học cơ bản, thi thử theo các loại đề từ thi học kì 10-11-12, THPTQG và cơ hội tham gia vào một cộng đồng học thuật tiếng anh nhộn nhịp. Chúc các bạn học tập tốt và đạt thành tích cao trong môn tiếng Anh nói riêng và các môn học khác nói chung!</div>
                 <div class="mt-3">
                     <!-- Button Facebook -->
                     <a href="#" class="btn btn-primary btn-social" style="background-color: #1877f2">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-3">
                 <p class="footer-title">Chính sách - điều khoản</p>
-                <div class="faqs">
+                <div class="faqs mt-3">
                     <a href="">
                         <li>Chính sách sử dụng</li>
                     </a>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-4">
                 <p class="footer-title">Liên hệ</p>
-                <form action="" method="post" class="contact-form">
+                <form action="" method="post" class="contact-form mt-3">
                     <div class="mb-3">
                         <input type="text" name="name" placeholder="Enter your name" class="form-control">
                     </div>

@@ -1,7 +1,3 @@
-<div class="photo">
-    <div class="text">Thi tiếng Anh trực tuyến</div>
-    <div class="photo-blur"></div>
-</div>
 <?php
 $minute = $test['time'];
 ?>

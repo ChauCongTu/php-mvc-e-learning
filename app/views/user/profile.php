@@ -6,7 +6,7 @@
                     <img src="/public/Image/user/<?php echo $user['avatar']; ?>" class="rounded-circle shadow-4-strong" alt="thong tin nguoi dung" />
                 </a>
                 <a data-bs-toggle="modal" data-bs-target="#change_avatar" style="cursor:pointer" id="avatar_changer"><i class="fa-solid fa-camera"></i></a>
-                <?php echo (isset($msg))?$msg:false; ?>
+                <?php echo (isset($msg)) ? $msg : false; ?>
             </div>
         </div>
         <div class="col-md-8">
@@ -92,7 +92,12 @@
                     <table>
                         <tr>
                             <td class="fw-bold" width="60%">Ngày sinh: </td>
-                            <td><?php echo $user['birthday']; ?></td>
+                            <td>
+                                <?php
+                                $date = date_create($user['birthday']);
+                                echo date_format($date,"d/m/Y");
+                                ?>
+                            </td>
                         </tr>
                         <tr>
                             <td class="fw-bold" width="40%">Giới tính: </td>
