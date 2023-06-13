@@ -41,7 +41,10 @@ $routes['nguoi-dung/(.+)_(\d+).html'] = 'user/profile/$1/$2';
 $routes['nguoi-dung/chinh-sua-thong-tin/(.+)_(\d+).html'] = 'user/profileEdit/$1/$2';
 $routes['kich-hoat/(\d+).html'] = 'user/active/$1';
 
-
+// Admin
+$routes['bang-dieu-khien'] = 'admin';
+$routes['bang-dieu-khien/quan-ly-dien-dan.html'] = 'admin/forum';
+$routes['bang-dieu-khien/quan-ly-nguoi-dung.html'] = 'user';
 
 // Translate 
 $routes['dich/anh-viet'] = 'home/translate/anh-viet';

@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-4 mt-3">
                 <div class="list-group">
-                    <a href="">
+                    <a href="bang-dieu-khien/quan-ly-dien-dan.html">
                         <div class="list-group list-group-item list-group-item-success text-center rounded-2">
                             <div class="icon"><i class="fa-solid fa-chart-simple"></i></div>
                             <li class=""> Quản lý diễn đàn</li>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-sm-4 mt-3">
-                <a href="">
+                <a href="/bang-dieu-khien/quan-ly-bai-hoc.html">
                     <div class="list-group list-group-item list-group-item-warning text-center rounded-2">
                         <div class="icon"><i class="fa-solid fa-file"></i></div>
                         <li class=""> Quản lý bài học</li>
@@ -29,7 +29,7 @@
                 </a>
             </div>
             <div class="col-sm-4 mt-3">
-                <a href="">
+                <a href="/bang-dieu-khien/quan-ly-nguoi-dung.html">
                     <div class="list-group list-group-item list-group-item-info text-center rounded-2">
                         <div class="icon"><i class="fa-solid fa-user"></i></div>
                         <li class=""> Quản lý người dùng</li>
