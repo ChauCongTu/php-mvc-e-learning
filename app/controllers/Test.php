@@ -19,6 +19,13 @@ class Test extends Controller
         $this->data['page_title'] = 'Thi Tiếng Anh trực tuyến | Bộ đề lớp 10';
         $this->data['content'] = 'test/list';
         $this->render('layouts/client-layout', $this->data);
+
+
+
+        $userList = $this->db->table('students')->where('MALOP', '=', 'CNTTK61')->orderBy('DIEMTB', 'DESC')->get();
+
+
+
     }
     public function add($grade)
     {
@@ -70,9 +77,9 @@ class Test extends Controller
     {
         if (isset($_POST['add_submit'])) {
             $data = Session::data('test');
-            echo '<pre>';
-            print_r($data);
-            echo '</pre>';
+            // echo '<pre>';
+            // print_r($data);
+            // echo '</pre>';
             $this->model($this->model)->addExams($data['grade'], $data['title'], $data['size'], $data['time']);
             $exam_id = $this->model($this->model)->getLastId();
             for ($i = 1; $i <= $data['size']; $i++) {

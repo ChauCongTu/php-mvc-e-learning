@@ -9,11 +9,26 @@
             <div class="main">
                 <div class="sub_title">Từ vựng</div>
                 <div class="sub_content">
-                    <?php
-                    foreach ($lesson['vocabulary'] as $value) {
-                        echo ' <p><a href="">' . $value['word'] . '</a> ' . $spelling . ' ' . $meaning . '</p>';
-                    }
-                    ?>
+                    <table class="table table-bordered">
+                        <thead class="fw-bold text-center">
+                            <td></td>
+                            <td>Từ vựng</td>
+                            <td>Phiên âm</td>
+                            <td>Nghĩa</td>
+                        </thead>
+                        <?php
+                        $index = 1;
+                        foreach ($lesson['vocabulary'] as $value) {
+                            echo '<tr class="text-center">
+                                    <td>'.$index++.'</td>
+                                    <td>'.$value['word'].'</td>
+                                    <td>'.$value['spelling'].'</td>
+                                    <td>'.$value['meaning'].'</td>
+                                </tr>';
+                        }
+                        ?>
+                    </table>
+
                 </div>
                 <hr />
                 <div class="sub_title">Ngữ pháp</div>
@@ -25,7 +40,7 @@
                             <div><strong> Cấu trúc:</strong>' . $value['content'] . '</div>
                             <div>
                                 <strong>Ví dụ:</strong>
-                                '.$value['example'].'
+                                ' . $value['example'] . '
                             </div>
                         </div>';
                 }
@@ -35,22 +50,22 @@
             <div class="main">
                 <div class="sub_title text-center p-3">Bài tập áp dụng</div>
                 <div class="sub_content">
-                    <?php echo (isset($lesson['content']))?$lesson['content']:false; ?>
+                    <?php echo (isset($lesson['content'])) ? $lesson['content'] : false; ?>
                 </div>
             </div>
         </div>
         <div class="col-md-4 bg-white">
             <div class="title">Cùng khối lớp</div>
             <article class="content">
-                <?php 
-                foreach ($other_lesson as $value){
+                <?php
+                foreach ($other_lesson as $value) {
                     echo '<div class="other-lesson">
                             <div class="other-lesson-img">
-                                <img src="/public/Image/lesson/'.$value['thumb'].'" alt="">
+                                <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
                             </div>
                             <div class="other-lesson-content">
-                                <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">'.$value['title'].'</a><br />
-                                <span>Cập nhật: '.Helpers::displayTime($value['updated_at']).'</span>
+                                <a href="/bai-hoc/' . Helpers::to_slug($value['title']) . '_' . $value['lesson_id'] . '.html">' . $value['title'] . '</a><br />
+                                <span>Cập nhật: ' . Helpers::displayTime($value['updated_at']) . '</span>
                             </div>
                         </div>';
                 }

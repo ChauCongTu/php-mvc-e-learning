@@ -10,7 +10,7 @@
             foreach ($grade10lesson as $value) {
                 echo '<div class="lesson-item">
                         <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
+                        <a class="p-3" href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
                     </div>';
             }
             ?>

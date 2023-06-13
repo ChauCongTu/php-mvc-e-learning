@@ -12,6 +12,24 @@ li {
   display: inline-block;
 }
 
+.dropdown-menu {
+  padding: 10px 20px;
+}
+.dropdown-menu li {
+  display: contents;
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+.admin-list li {
+  display: block;
+  padding: 10px 0;
+}
+
+.dropdown-menu .show {
+  width: 300px;
+}
+
 .bg-theme {
   background-color: #fff;
 }
@@ -1020,6 +1038,13 @@ nav ul form {
   color: #198754;
   font-size: 40px;
   font-weight: 700;
+}
+
+.admin .icon {
+  font-size: 50px;
+}
+.admin .list-group-item:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 footer {

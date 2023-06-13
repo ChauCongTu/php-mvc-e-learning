@@ -19,9 +19,6 @@
                 </div>
                 <?php
                 if (Session::data('User') != null) {
-                    if ($user['user_id'] != Session::data('User')['user_id']) {
-                        echo '<a href="" class="btn btn-primary rounded-0 btn-sm"><i class="fa-solid fa-plus"></i> Theo dõi</a> <a href="" class="btn btn-outline-danger rounded-0 btn-sm"><i class="fa-solid fa-flag"></i> Báo cáo</a>';
-                    }
                     if ($user['user_id'] == Session::data('User')['user_id']) {
                         echo '<a href="/nguoi-dung/chinh-sua-thong-tin/' . Helpers::to_slug($user['name']) . '_' . $user['user_id'] . '.html" class="btn btn-primary rounded-0 btn-sm"><i class="fa-solid fa-pen"></i> Chỉnh sửa</a>';
                     }

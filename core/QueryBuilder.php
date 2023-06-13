@@ -66,7 +66,11 @@ trait QueryBuilder{
     }
     
     public function get(){
-        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->join $this->condition $this->orderBy $this->limit";
+        $sqlQuery = "SELECT $this->selectField 
+                     FROM $this->tableName $this->join 
+                    $this->condition 
+                    $this->orderBy 
+                    $this->limit";
         //echo $sqlQuery;
         $sqlQuery = trim($sqlQuery);
         $query = $this->query($sqlQuery);

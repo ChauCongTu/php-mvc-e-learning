@@ -200,4 +200,39 @@ class ForumModel extends Model
             return false;
         }
     }
+    public function createCategory($name) {
+        $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'category_name' => $name
+        ];
+        $result = $this->db->table('categories')->insert($data);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function updateCategory($category_id, $category_name) {
+        $category_id = filter_var($category_id, FILTER_SANITIZE_NUMBER_INT);
+        $category_name = filter_var($category_name, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'category_name' => $category_name
+        ];
+        $result = $this->db->table('categories')->where('category_id', '=', $category_id)->update($data);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function deleteCategory($category_id) {
+        $category_id = filter_var($category_id, FILTER_SANITIZE_NUMBER_INT);
+        $result = $this->db->table('posts')->where('category_id', '=', $category_id)->delete();
+        $result = $this->db->table('categories')->where('category_id', '=', $category_id)->delete();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -114,6 +114,11 @@ class Helpers
         }
     }
 
+    public static function dd($arr = []) {
+        echo '<pre>';
+        print_r($arr);
+        echo '</pre>';
+    }
     /**
      * Pagination
      * @access    public
@@ -176,9 +181,9 @@ class Helpers
     public static function display_role($role = 0)
     {
         if ($role == 0)
-            return '<span class="r-member"> - Thành viên</span>';
+            return '<span class="r-member"> - Member</span>';
         else if ($role == 1)
-            return '<span class="r-mod"> <img src="/public/Image/icon/iconsaotim.png"/> Mod</span>';
+            return '<span class="r-mod"> <img src="/public/Image/icon/iconsaotim.png"/> Moderator</span>';
         else if ($role == 2)
             return '<span class="r-cm"> <img src="/public/Image/icon/iconsaoxanhla.png"/> Content Manager</span>';
         else if ($role == 3)

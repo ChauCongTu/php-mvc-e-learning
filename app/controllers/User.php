@@ -74,8 +74,10 @@ class User extends Controller
                         $role = $_POST['role'];
                     }
                     $this->model($this->model)->editAccount($user_id, $_POST['name'], $_POST['gender'], $_POST['birthday'], $_POST['phone_number'], $_POST['address'], $_POST['link'], $_POST['description'], $role);
-                    $user = $this->model($this->model)->getUserByID($user_id);
-                    Session::data('User', $user);
+                    if ($user_id == Session::data('User')['user_id']){
+                        $user = $this->model($this->model)->getUserByID($user_id);
+                        Session::data('User', $user);
+                    }
                     Helpers::redirect_to('/nguoi-dung/' . Helpers::to_slug($_POST['name']) . '_' . $user_id . '.html');
                 }
             }

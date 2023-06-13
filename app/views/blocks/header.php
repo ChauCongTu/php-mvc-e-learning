@@ -13,7 +13,22 @@
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a> |
                       <a href="/dang-ky.html"><i class="fa-solid fa-user"></i> Đăng ký</a>';
             } else {
-                echo '<a href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                echo '<div class="dropdown">
+                        <a style="cursor:pointer" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '
+                        </a>
+                        <ul class="dropdown-menu">';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
+                            
+                            echo (Session::data('User')['role'] >= 1)?'<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>':false;
+                            
+                            echo '<hr/>
+                            <li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                ';
             }
             ?>
         </div>
@@ -25,7 +40,22 @@
             if (Session::data('User') == null) {
                 echo '<a href="/dang-nhap.html"><i class="fa-solid fa-user"></i> Tài khoản</a>';
             } else {
-                echo '<a href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '</a><a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"> <i class="fa-solid fa-right-from-bracket"></i></a>';
+                echo '<div class="dropdown">
+                        <a style="cursor:pointer" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '
+                        </a>
+                        <ul class="dropdown-menu">';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                            echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
+                            
+                            echo (Session::data('User')['role'] >= 1)?'<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>':false;
+                            
+                            echo '<hr/>
+                            <li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                ';
             }
             ?>
         </div>
