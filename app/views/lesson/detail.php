@@ -47,12 +47,16 @@
                 ?>
                 <hr />
             </div>
-            <div class="main">
-                <div class="sub_title text-center p-3">Bài tập áp dụng</div>
-                <div class="sub_content">
-                    <?php echo (isset($lesson['content'])) ? $lesson['content'] : false; ?>
-                </div>
-            </div>
+            <?php 
+            if (!empty($lesson['content'])) {
+                echo '<div class="main">
+                        <div class="sub_title text-center p-3">Bài tập áp dụng</div>
+                        <div class="sub_content">
+                            '. $lesson['content'] .'
+                        </div>
+                    </div>';
+            }
+            ?>
         </div>
         <div class="col-md-4 bg-white">
             <div class="title">Cùng khối lớp</div>
