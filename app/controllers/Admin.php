@@ -111,11 +111,10 @@ class Admin extends Controller
                     $validate = $request->validate();
                     if (!$validate) {
                         $this->data['sub_content']['errors'] = $request->errors();
-                        if (!isset($_FILES['thumb'])){
+                        if (!isset($_FILES['thumb'])) {
                             $this->data['sub_content']['errors']['thumb'] = "Bạn chưa chọn hình ảnh";
                         }
-                    }
-                    else {
+                    } else {
                         if (isset($_FILES['thumb'])) {
                             $file = $_FILES['thumb'];
                             $filename = $file['name'];
@@ -156,16 +155,20 @@ class Admin extends Controller
                     $validate = $request->validate();
                     if (!$validate) {
                         $this->data['sub_content']['errors'] = $request->errors();
-                    }
-                    else {
-                        $data = [];
-                        if (isset($_FILES['thumb'])) {
+                    } else {
+                        $title = filter_var($_POST['title'], FILTER_SANITIZE_SPECIAL_CHARS);
+                        $data = array(
+                            'title' => $title,
+                            'content' => $_POST['content'],
+                            'grade' => $_POST['grade'],
+                            'created_by' => Session::data('User')['user_id']
+                        );
+
+                        if ($_FILES['thumb']['name'] != null) {
                             $file = $_FILES['thumb'];
                             $filename = $file['name'];
                             $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
                             if (!in_array($file_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                                // file không định dạng ảnh hợp lệ
-                                // codes xử lý lỗi tại đây
                                 $this->data['sub_content']['errors']['thumb'] = "File được tải lên không đúng định dạng ";
                             } else {
                                 $img_name = Helpers::to_slug($_POST['title']) . '.png';
@@ -174,17 +177,9 @@ class Admin extends Controller
                                 move_uploaded_file($file['tmp_name'], $img_path);
                                 $data['thumb'] = $img_name;
                             }
-                        } 
-                        $title = filter_var($_POST['title'], FILTER_SANITIZE_SPECIAL_CHARS);
-                        $data += array(
-                            'title' => $title,
-                            'content' => $_POST['content'],
-                            'grade' => $_POST['grade'],
-                            'created_by' => Session::data('User')['user_id']
-                        );
-                        // Insert
-                        Helpers::dd($data);
-                        // $this->db->table("lessons")->where('lesson_id', '=', $_POST['id'])->insert($data);
+                        }
+                        // Update
+                        $this->db->table("lessons")->where('lesson_id', '=', $_POST['id'])->update($data);
                     }
                 }
                 if (isset($_POST['del'])) {
@@ -194,6 +189,25 @@ class Admin extends Controller
                 $this->data['sub_content']['lessons'] = $lessons;
                 $this->data['page_title'] = 'Quản lý bài học';
                 $this->data['content'] = 'admin/lesson/index';
+                $this->render('layouts/client-layout', $this->data);
+            } else {
+                echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+                exit;
+            }
+        }
+    }
+    public function lesson_detail($lesson_id)
+    {
+        if (Session::data('User') == null) {
+            echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+            exit;
+        } else {
+            if (Session::data('User')['role'] == 2 || Session::data('User')['role'] == 3) {
+                $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
+                $lesson = $this->model("LessonModel")->getLessonById($lesson_id);
+                $this->data['sub_content']['lesson'] = $lesson;
+                $this->data['page_title'] = 'Chi tiết bài học';
+                $this->data['content'] = 'admin/lesson/detail';
                 $this->render('layouts/client-layout', $this->data);
             } else {
                 echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';

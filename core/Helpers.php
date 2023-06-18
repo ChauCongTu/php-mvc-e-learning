@@ -114,10 +114,12 @@ class Helpers
         }
     }
 
-    public static function dd($arr = []) {
+    public static function dd($arr = [])
+    {
         echo '<pre>';
         print_r($arr);
         echo '</pre>';
+        die;
     }
     /**
      * Pagination
@@ -166,6 +168,7 @@ class Helpers
             return $translatedText;
         }
     }
+   
     public static function generate_key($length = 10)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';

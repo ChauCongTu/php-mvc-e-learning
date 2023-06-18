@@ -4,7 +4,7 @@
 </div>
 <section class="container lesson  bg-white">
     <div class="main">
-        <div class="title">Bài học lớp 10 - Chương trình mới</div>
+        <div class="title">Bài học tiếng Anh lớp 10</div>
         <div class="content slick-pane">
             <?php
             foreach ($grade10lesson as $value) {
