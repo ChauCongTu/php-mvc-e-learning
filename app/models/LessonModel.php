@@ -53,5 +53,44 @@ class LessonModel extends Model
         $this->db->table('vocabulary')->where('lesson_id', '=', $lesson_id)->delete();
         $this->db->table('lessons')->where('lesson_id', '=', $lesson_id)->delete();
     }
+    public function addVocab($lesson_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = ''){
+        $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
+        $word = filter_var($word, FILTER_SANITIZE_SPECIAL_CHARS);
+        $spelling = filter_var($spelling, FILTER_SANITIZE_SPECIAL_CHARS);
+        $meaning = filter_var($meaning, FILTER_SANITIZE_SPECIAL_CHARS);
+        $synonyms = filter_var($synonyms, FILTER_SANITIZE_SPECIAL_CHARS);
+        $antonyms = filter_var($antonyms, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'lesson_id' => $lesson_id,
+            'word' => $word,
+            'spelling' => $spelling,
+            'meaning' => $meaning,
+            'example' => $example,
+            'synonyms' => $synonyms,
+            'antonyms' => $antonyms
+        ];
+        $this->db->table('vocabulary')->insert($data);
+    }
+    public function updateVocab($vocab_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = ''){
+        $vocab_id = filter_var($vocab_id, FILTER_SANITIZE_NUMBER_INT);
+        $word = filter_var($word, FILTER_SANITIZE_SPECIAL_CHARS);
+        $spelling = filter_var($spelling, FILTER_SANITIZE_SPECIAL_CHARS);
+        $meaning = filter_var($meaning, FILTER_SANITIZE_SPECIAL_CHARS);
+        $synonyms = filter_var($synonyms, FILTER_SANITIZE_SPECIAL_CHARS);
+        $antonyms = filter_var($antonyms, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'word' => $word,
+            'spelling' => $spelling,
+            'meaning' => $meaning,
+            'example' => $example,
+            'synonyms' => $synonyms,
+            'antonyms' => $antonyms
+        ];
+        $this->db->table('vocabulary')->where('vocab_id', '=', $vocab_id)->update($data);
+    }
+    public function deleteVocab($vocab_id) {
+        $vocab_id = filter_var($vocab_id, FILTER_SANITIZE_NUMBER_INT);
+        $this->db->table('vocabulary')->where('vocab_id', '=', $vocab_id)->delete();
+    }
 }
 ?>

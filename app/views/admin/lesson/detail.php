@@ -2,6 +2,16 @@
     <div class="container mt-3 mb-3">
         <div class="h1">Từ vựng</div>
         <a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#vocabulary_add" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm từ vựng</a>
+        <?php
+        if (isset($errors)) {
+            echo '<div class="alert alert-danger"> <h5>Không thành công:</h5> ';
+            echo (isset($errors['word']) ? '<p>&#8226; ' . $errors['word'] . '</p>' : false);
+            echo (isset($errors['spelling']) ? '<p>&#8226; ' . $errors['spelling'] . '</p>' : false);
+            echo (isset($errors['meaning']) ? '<p>&#8226; ' . $errors['meaning'] . '</p>' : false);
+            echo (isset($errors['example']) ? '<p>&#8226; ' . $errors['example'] . '</p>' : false);
+            echo '</div>';
+        }
+        ?>
         <div class="table-responsive">
             <table class="table table-bordered align-middle bg-white">
                 <thead class="bg-light">
@@ -81,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Edit Grammar Modal -->
+                        <!-- Edit Vocabulay Modal -->
                         <div class="modal fade modal-mv" id="vocabulary_edit_<?php echo $value['vocab_id']; ?>">
                             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -91,6 +101,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
                                         <div class="modal-body">
+                                            <input type="hidden" name="vocab_id" value="<?php echo $value['vocab_id']; ?>" class="form-control" />
                                             <div class="mb-3">
                                                 <label for="title" class="h5">Từ tiếng anh: </label>
                                                 <input type="text" name="word" placeholder="Nhập từ" class="form-control" value="<?php echo $value['word']; ?>" />
@@ -335,6 +346,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" name="lesson_id" value="<?php echo $lesson['lesson_id'] ?>" />
                     <div class="mb-3">
                         <label for="title" class="h5">Từ tiếng anh: </label>
                         <input type="text" name="word" placeholder="Nhập từ" class="form-control" />

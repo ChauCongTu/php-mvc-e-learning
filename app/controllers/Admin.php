@@ -203,6 +203,55 @@ class Admin extends Controller
             exit;
         } else {
             if (Session::data('User')['role'] == 2 || Session::data('User')['role'] == 3) {
+                if (isset($_POST['add_vocab'])) {
+                    $request = new Request();
+                    $request->rules([
+                        'word' => 'required',
+                        'spelling' => 'required',
+                        'meaning' => 'required',
+                        'example' => 'required'
+                    ]);
+                    $request->message([
+                        'word.required' => 'vui lòng nhập từ tiếng anh',
+                        'spelling.required' => 'vui lòng nhập phiên âm',
+                        'meaning.required' => 'vui lòng nhập nghĩa',
+                        'example.required' => 'vui lòng nhập ví dụ'
+                    ]);
+                    $validate = $request->validate();
+                    if (!$validate) {
+                        $this->data['sub_content']['errors'] = $request->errors();
+                    }
+                    else {
+                        // Thục hiện thêm
+                        $this->model('LessonModel')->addVocab($_POST['lesson_id'], $_POST['word'], $_POST['spelling'], $_POST['meaning'], $_POST['example'], $_POST['synonyms'], $_POST['antonyms']);
+                    }
+                }
+                if (isset($_POST['edit_vocab'])) {
+                    $request = new Request();
+                    $request->rules([
+                        'word' => 'required',
+                        'spelling' => 'required',
+                        'meaning' => 'required',
+                        'example' => 'required'
+                    ]);
+                    $request->message([
+                        'word.required' => 'vui lòng nhập từ tiếng anh',
+                        'spelling.required' => 'vui lòng nhập phiên âm',
+                        'meaning.required' => 'vui lòng nhập nghĩa',
+                        'example.required' => 'vui lòng nhập ví dụ'
+                    ]);
+                    $validate = $request->validate();
+                    if (!$validate) {
+                        $this->data['sub_content']['errors'] = $request->errors();
+                    }
+                    else {
+                        // Thục hiện cập nhật
+                        $this->model('LessonModel')->updateVocab($_POST['vocab_id'], $_POST['word'], $_POST['spelling'], $_POST['meaning'], $_POST['example'], $_POST['synonyms'], $_POST['antonyms']);
+                    }
+                }
+                if (isset($_POST['del_vocab'])) {
+                    $this->model('LessonModel')->deleteVocab($_POST['id']);
+                }
                 $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
                 $lesson = $this->model("LessonModel")->getLessonById($lesson_id);
                 $this->data['sub_content']['lesson'] = $lesson;

@@ -1090,10 +1090,10 @@ nav ul form {
   margin: 10px 0;
 }
 .admin .text_pane {
-  padding: 10px;
-  margin-left: 10px;
+  padding: 20px 10px;
   border-left: 5px solid #d63384;
   color: #333;
+  background-color: #f7f7f7;
 }
 
 footer {
