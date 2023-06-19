@@ -1,7 +1,19 @@
 <section class="admin">
     <div class="container mt-3 mb-3">
         <div class="h1">Từ vựng</div>
-        <a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#vocabulary_add" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm từ vựng</a>
+        <div class="row">
+            <div class="col">
+                <a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#vocabulary_add" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm từ vựng</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <div class="input-group mb-3">
+                        <input type="text" name="word" class="form-control" placeholder="Nhập từ vựng" value="<?php echo (isset($word))?$word:false; ?>">
+                        <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <?php
         if (isset($errors)) {
             echo '<div class="alert alert-danger"> <h5>Không thành công:</h5> ';
@@ -25,7 +37,7 @@
                 </thead>
                 <tbody>
                     <?php $index = 0; ?>
-                    <?php foreach ($lesson['vocabulary'] as $value) { ?>
+                    <?php foreach ($pagedData as $value) { ?>
                         <tr>
                             <td class="text-center"><?php echo ++$index; ?></td>
                             <td><?php echo $value['word']; ?></td>
@@ -160,9 +172,23 @@
                     <?php } ?>
                 </tbody>
             </table>
+            <?php
+            echo Helpers::pagination($pagination['total_rows'], $pagination['recordsPerPage'], $pagination['currentPage']);
+            ?>
         </div>
         <div class="h1">Ngữ pháp</div>
         <a style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#grammar_add" class="btn btn-danger mb-3 btn-sm"><i class="fa-solid fa-plus"></i> Thêm ngữ pháp</a>
+        <?php
+        if (isset($errors)) {
+            echo '<div class="alert alert-danger"> <h5>Không thành công:</h5> ';
+            echo (isset($errors['title']) ? '<p>&#8226; ' . $errors['title'] . '</p>' : false);
+            echo (isset($errors['content']) ? '<p>&#8226; ' . $errors['content'] . '</p>' : false);
+            echo (isset($errors['example']) ? '<p>&#8226; ' . $errors['example'] . '</p>' : false);
+            echo (isset($errors['define']) ? '<p>&#8226; ' . $errors['define'] . '</p>' : false);
+            echo (isset($errors['sign']) ? '<p>&#8226; ' . $errors['sign'] . '</p>' : false);
+            echo '</div>';
+        }
+        ?>
         <div class="table-responsive">
             <table class="table table-bordered align-middle bg-white">
                 <thead class="bg-light">
@@ -241,6 +267,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="mb-3">
+                                                <input type="hidden" name="id" value="<?php echo $value['grammar_id']; ?>" class="form-control" />
                                                 <label for="title" class="h5">Tiêu đề: </label>
                                                 <input type="text" name="title" placeholder="Nhập tiêu đề" value="<?php echo $value['title']; ?>" class="form-control" />
                                             </div>
@@ -302,6 +329,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="lesson_id" value="<?php echo $lesson['lesson_id'] ?>" />
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm ngữ pháp</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>

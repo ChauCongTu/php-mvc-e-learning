@@ -196,7 +196,7 @@ class Admin extends Controller
             }
         }
     }
-    public function lesson_detail($lesson_id)
+    public function lesson_detail($lesson_id, $word = null)
     {
         if (Session::data('User') == null) {
             echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
@@ -252,9 +252,89 @@ class Admin extends Controller
                 if (isset($_POST['del_vocab'])) {
                     $this->model('LessonModel')->deleteVocab($_POST['id']);
                 }
+                if (isset($_POST['add_grammar'])) {
+                    $request = new Request();
+                    $request->rules([
+                        'title' => 'required',
+                        'content' => 'required',
+                        'example' => 'required',
+                        'define' => 'required',
+                        'sign' => 'required'
+                    ]);
+                    $request->message([
+                        'title.required' => 'Vui lòng nhập tiêu đề',
+                        'content.required' => 'Vui lòng nhập cấu trúc',
+                        'example.required' => 'Vui lòng nhập ví dụ',
+                        'define.required' => 'Vui lòng nhập định nghĩa',
+                        'sign.required' => 'Vui lòng nhập dấu hiệu nhận biết'
+                    ]);
+                    $validate = $request->validate();
+                    if (!$validate) {
+                        $this->data['sub_content']['errors'] = $request->errors();
+                    }
+                    else {
+                        // Thục hiện thêm
+                        $this->model('LessonModel')->addGrammar($_POST['lesson_id'], $_POST['title'], $_POST['content'], $_POST['example'], $_POST['define'], $_POST['sign']);
+                    }
+                }
+                if (isset($_POST['edit_grammar'])) {
+                    $request = new Request();
+                    $request->rules([
+                        'title' => 'required',
+                        'content' => 'required',
+                        'example' => 'required',
+                        'define' => 'required',
+                        'sign' => 'required'
+                    ]);
+                    $request->message([
+                        'title.required' => 'Vui lòng nhập tiêu đề',
+                        'content.required' => 'Vui lòng nhập cấu trúc',
+                        'example.required' => 'Vui lòng nhập ví dụ',
+                        'define.required' => 'Vui lòng nhập định nghĩa',
+                        'sign.required' => 'Vui lòng nhập dấu hiệu nhận biết'
+                    ]);
+                    $validate = $request->validate();
+                    if (!$validate) {
+                        $this->data['sub_content']['errors'] = $request->errors();
+                    }
+                    else {
+                        // Thục hiện thêm
+                        $this->model('LessonModel')->updateGrammar($_POST['id'], $_POST['title'], $_POST['content'], $_POST['example'], $_POST['define'], $_POST['sign']);
+                    }
+                    if (isset($_POST['del_grammar'])) {
+
+                    }
+                }
+                if (isset($_POST['del_grammar'])) {
+                    $this->model('LessonModel')->deleteGrammar($_POST['id']);
+                }
                 $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
                 $lesson = $this->model("LessonModel")->getLessonById($lesson_id);
-                $this->data['sub_content']['lesson'] = $lesson;
+                if (!$lesson) {
+                    App::$app->loadError('404');
+                    die;
+                }
+                if (isset($_GET['word'])) {
+                    $lesson['vocabulary'] = $this->model('LessonModel')->findVocabulary($lesson['vocabulary'], $_GET['word']);
+                    $this->data['sub_content']['word'] = $_GET['word'];
+                }
+                $recordsPerPage = 10;
+                $totalRows = count($lesson['vocabulary']);
+                $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                $start = ($currentPage - 1) * $recordsPerPage;
+                $end = $start + $recordsPerPage;
+
+                $pagedData = array_slice($lesson['vocabulary'], $start, $recordsPerPage);
+                // Pagination
+                $pagination = array(
+                    'total_rows' => $totalRows,
+                    'recordsPerPage' => $recordsPerPage,
+                    'currentPage' => $currentPage
+                );
+                $this->data['sub_content']['pagedData'] = $pagedData;
+                $this->data['sub_content']['pagination'] = $pagination;
+                $this->data['sub_content']['lesson'] = $lesson;                
                 $this->data['page_title'] = 'Chi tiết bài học';
                 $this->data['content'] = 'admin/lesson/detail';
                 $this->render('layouts/client-layout', $this->data);

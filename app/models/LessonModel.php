@@ -15,45 +15,60 @@ class LessonModel extends Model
     {
         return 'lesson_id';
     }
-    public function getLesson () {
+    public function getLesson()
+    {
         $data = $this->db->table($this->_table)->get();
         for ($i = 0; $i < count($data); $i++) {
-            if ($data != null){
+            if ($data != null) {
                 $data[$i]['grammar'] = $this->db->table('grammars')->where('lesson_id', '=', $data[$i]['lesson_id'])->get();
                 $data[$i]['vocabulary'] = $this->db->table('vocabulary')->where('lesson_id', '=', $data[$i]['lesson_id'])->get();
             }
         }
         return $data;
     }
-    public function getLessonByGrade($grade = 10) {
-        if ($grade == 10 || $grade == 11 || $grade == 12){
+    public function getLessonByGrade($grade = 10)
+    {
+        if ($grade == 10 || $grade == 11 || $grade == 12) {
             $data = $this->db->table($this->_table)->where('grade', '=', $grade)->get();
             return $data;
         }
         return false;
     }
-    public function getLessonSimilarGrade($id) {
+    public function getLessonSimilarGrade($id)
+    {
         $id = filter_var($id, FILTER_SANITIZE_SPECIAL_CHARS);
         $grade = $this->db->table($this->_table)->select('grade')->where('lesson_id', '=', $id)->first();
         $data = $this->db->table($this->_table)->where('grade', '=', $grade['grade'])->where('lesson_id', '!=', $id)->get();
         return $data;
     }
-    public function getLessonById($id) {
+    public function getLessonById($id)
+    {
         $id = filter_var($id, FILTER_SANITIZE_SPECIAL_CHARS);
         $data = $this->db->table($this->_table)->where('lesson_id', '=', $id)->first();
-        if ($data != null){
+        if ($data != null) {
             $data['grammar'] = $this->db->table('grammars')->where('lesson_id', '=', $id)->get();
             $data['vocabulary'] = $this->db->table('vocabulary')->where('lesson_id', '=', $id)->get();
         }
         return $data;
     }
-    public function deleteLesson($lesson_id) {
+    public function findVocabulary($data, $word)
+    {
+        $word = filter_var($word, FILTER_SANITIZE_SPECIAL_CHARS);
+        $result = array_filter($data, function ($item) use ($word) {
+            return strpos(strtolower($item['word']), strtolower($word)) !== false;
+        });
+
+        return array_values($result); 
+    }
+    public function deleteLesson($lesson_id)
+    {
         $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
         $this->db->table('grammars')->where('lesson_id', '=', $lesson_id)->delete();
         $this->db->table('vocabulary')->where('lesson_id', '=', $lesson_id)->delete();
         $this->db->table('lessons')->where('lesson_id', '=', $lesson_id)->delete();
     }
-    public function addVocab($lesson_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = ''){
+    public function addVocab($lesson_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = '')
+    {
         $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
         $word = filter_var($word, FILTER_SANITIZE_SPECIAL_CHARS);
         $spelling = filter_var($spelling, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -71,7 +86,8 @@ class LessonModel extends Model
         ];
         $this->db->table('vocabulary')->insert($data);
     }
-    public function updateVocab($vocab_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = ''){
+    public function updateVocab($vocab_id, $word, $spelling, $meaning, $example, $synonyms = '', $antonyms = '')
+    {
         $vocab_id = filter_var($vocab_id, FILTER_SANITIZE_NUMBER_INT);
         $word = filter_var($word, FILTER_SANITIZE_SPECIAL_CHARS);
         $spelling = filter_var($spelling, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -88,9 +104,41 @@ class LessonModel extends Model
         ];
         $this->db->table('vocabulary')->where('vocab_id', '=', $vocab_id)->update($data);
     }
-    public function deleteVocab($vocab_id) {
+    public function deleteVocab($vocab_id)
+    {
         $vocab_id = filter_var($vocab_id, FILTER_SANITIZE_NUMBER_INT);
         $this->db->table('vocabulary')->where('vocab_id', '=', $vocab_id)->delete();
     }
+    public function addGrammar($lesson_id, $title, $content, $example, $define, $sign)
+    {
+        $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
+        $title = filter_var($title, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'lesson_id' => $lesson_id,
+            'title' => $title,
+            'content' => $content,
+            'example' => $example,
+            'define' => $define,
+            'sign' => $sign
+        ];
+        $this->db->table('grammars')->insert($data);
+    }
+    public function updateGrammar($grammar_id, $title, $content, $example, $define, $sign)
+    {
+        $grammar_id = filter_var($grammar_id, FILTER_SANITIZE_NUMBER_INT);
+        $title = filter_var($title, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'title' => $title,
+            'content' => $content,
+            'example' => $example,
+            'define' => $define,
+            'sign' => $sign
+        ];
+        $this->db->table('grammars')->where('grammar_id', '=', $grammar_id)->update($data);
+    }
+    public function deleteGrammar($grammar_id)
+    {
+        $grammar_id = filter_var($grammar_id, FILTER_SANITIZE_NUMBER_INT);
+        $this->db->table('grammars')->where('grammar_id', '=', $grammar_id)->delete();
+    }
 }
-?>

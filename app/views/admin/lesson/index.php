@@ -60,12 +60,10 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <!-- Modal Header -->
                                         <div class="modal-header">
                                             <h4 class="modal-title">Chỉnh sửa bài học</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
-                                        <!-- Modal body -->
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label for="thumb" class="h5">Ảnh Thumb: </label><br/>
@@ -82,9 +80,9 @@
                                             <div class="mb-3">
                                                 <label for="title" class="h5">Loại bài học: </label>
                                                 <select name="grade" class="form-control">
-                                                    <option value="10" <?php echo ($value['grade'] == 10)?"checked":false; ?>>Lớp 10</option>
-                                                    <option value="11" <?php echo ($value['grade'] == 11)?"checked":false; ?>>Lớp 11</option>
-                                                    <option value="12" <?php echo ($value['grade'] == 12)?"checked":false; ?>>Lớp 12</option>
+                                                    <option value="10" <?php echo ($value['grade'] == 10)?"selected":false; ?>>Lớp 10</option>
+                                                    <option value="11" <?php echo ($value['grade'] == 11)?"selected":false; ?>>Lớp 11</option>
+                                                    <option value="12" <?php echo ($value['grade'] == 12)?"selected":false; ?>>Lớp 12</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -95,7 +93,6 @@
                                                 </script>
                                             </div>
                                         </div>
-                                        <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <button class="btn btn-danger" name="edit">Chỉnh sửa</button>
                                             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Hủy</button>
