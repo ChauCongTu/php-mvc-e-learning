@@ -6,7 +6,7 @@
             <?php echo (isset($errors['name'])) ? $errors['name'] : false; ?>
         </div>
         <div class="table-responsive">
-            <table class="table align-middle bg-white">
+            <table class="table table-bordered align-middle bg-white">
                 <thead class="bg-light">
                     <tr class="text-center">
                         <th>#</th>
@@ -25,8 +25,8 @@
                             <td>' . count($values['post']) . '</td>
                             <td>' . Helpers::displayTime($values['created_at']) . '</td>
                             <td>
-                                <a class="btn btn-link" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#edit_' . $values['category_id'] . '"><i class="fa-solid fa-pen"></i> Sửa </a>
-                                <a class="btn btn-link" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#del_' . $values['category_id'] . '"><i class="fa-solid fa-trash"></i> Xóa</a>
+                                <a class="btn btn-primary btn-sm" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#edit_' . $values['category_id'] . '"><i class="fa-solid fa-pen"></i> Sửa </a>
+                                <a class="btn btn-danger btn-sm" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#del_' . $values['category_id'] . '"><i class="fa-solid fa-trash"></i> Xóa</a>
                             </td>
                         </tr>';
                     echo '<div class="modal fade" id="edit_' . $values['category_id'] . '">
@@ -75,8 +75,19 @@
                                             <div class="modal-body">
                                                 <div class="">
                                                     Bạn có chắc muốn xóa danh mục này?
-                                                    <p><small>Lưu ý: tất cả bài viết trong danh mục này cũng sẽ bị xóa theo</small></p>
-                                                    <input type="hidden" name="id" value="' . $values['category_id'] . '">
+                                                    ';
+                                                    if (count($values['post']) > 0) {
+                                                        echo '
+                                                        <p><small>Lưu ý: tất cả bài viết trong danh mục này cũng sẽ bị xóa theo</small></p>
+                                                        <div class="overflow-auto">
+                                                            <pre class="p-3 bg-light">';
+                                                            foreach ($values['post'] as $post) {
+                                                                echo '<p>&#8226; ' . $post['title'] . '</p>';
+                                                            }
+                                                        echo '</pre>
+                                                        </div>';
+                                                    }
+                                                    echo '<input type="hidden" name="id" value="' . $values['category_id'] . '">
                                                 </div>
                                             </div>
                         

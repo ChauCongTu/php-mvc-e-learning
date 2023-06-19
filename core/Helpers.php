@@ -121,6 +121,26 @@ class Helpers
         echo '</pre>';
         die;
     }
+    public static function handlePaged($itemPerPage, $data)
+    {
+        $recordsPerPage = $itemPerPage;
+        $totalRows = count($data);
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+
+        $start = ($currentPage - 1) * $recordsPerPage;
+
+        $pagedData = array_slice($data, $start, $recordsPerPage);
+        // Pagination
+        $pagination = array(
+            'total_rows' => $totalRows,
+            'recordsPerPage' => $recordsPerPage,
+            'currentPage' => $currentPage
+        );
+        return [
+            'pagedData' => $pagedData,
+            'pagination' => $pagination
+        ];
+    }
     /**
      * Pagination
      * @access    public
@@ -168,7 +188,7 @@ class Helpers
             return $translatedText;
         }
     }
-   
+
     public static function generate_key($length = 10)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';

@@ -68,22 +68,9 @@ class Admin extends Controller
                     $this->model('ForumModel')->deleteCategory($_POST['id']);
                 }
                 $categories = $this->model('ForumModel')->getCategories();
-                $recordsPerPage = 10;
-                $totalRows = count($categories);
-                $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                $start = ($currentPage - 1) * $recordsPerPage;
-                $end = $start + $recordsPerPage;
-
-                $pagedData = array_slice($categories, $start, $recordsPerPage);
-                // Pagination
-                $pagination = array(
-                    'total_rows' => $totalRows,
-                    'recordsPerPage' => $recordsPerPage,
-                    'currentPage' => $currentPage
-                );
-                $this->data['sub_content']['categories'] = $pagedData;
-                $this->data['sub_content']['pagination'] = $pagination;
+                $paged = Helpers::handlePaged(10, $categories);
+                $this->data['sub_content']['categories'] = $paged['pagedData'];
+                $this->data['sub_content']['pagination'] = $paged['pagination'];
                 $this->data['page_title'] = 'Quản lý danh mục diễn đàn';
                 $this->data['content'] = 'admin/forum';
                 $this->render('layouts/client-layout', $this->data);
@@ -186,7 +173,9 @@ class Admin extends Controller
                     $this->model("LessonModel")->deleteLesson($_POST['id']);
                 }
                 $lessons = $this->model("LessonModel")->getLesson();
-                $this->data['sub_content']['lessons'] = $lessons;
+                $paged = Helpers::handlePaged(10, $lessons);
+                $this->data['sub_content']['lessons'] = $paged['pagedData'];
+                $this->data['sub_content']['pagination'] = $paged['pagination'];
                 $this->data['page_title'] = 'Quản lý bài học';
                 $this->data['content'] = 'admin/lesson/index';
                 $this->render('layouts/client-layout', $this->data);
@@ -318,22 +307,9 @@ class Admin extends Controller
                     $lesson['vocabulary'] = $this->model('LessonModel')->findVocabulary($lesson['vocabulary'], $_GET['word']);
                     $this->data['sub_content']['word'] = $_GET['word'];
                 }
-                $recordsPerPage = 10;
-                $totalRows = count($lesson['vocabulary']);
-                $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                $start = ($currentPage - 1) * $recordsPerPage;
-                $end = $start + $recordsPerPage;
-
-                $pagedData = array_slice($lesson['vocabulary'], $start, $recordsPerPage);
-                // Pagination
-                $pagination = array(
-                    'total_rows' => $totalRows,
-                    'recordsPerPage' => $recordsPerPage,
-                    'currentPage' => $currentPage
-                );
-                $this->data['sub_content']['pagedData'] = $pagedData;
-                $this->data['sub_content']['pagination'] = $pagination;
+                $paged = Helpers::handlePaged(10, $lesson['vocabulary']);
+                $this->data['sub_content']['pagedData'] = $paged['pagedData'];
+                $this->data['sub_content']['pagination'] = $paged['pagination'];
                 $this->data['sub_content']['lesson'] = $lesson;                
                 $this->data['page_title'] = 'Chi tiết bài học';
                 $this->data['content'] = 'admin/lesson/detail';

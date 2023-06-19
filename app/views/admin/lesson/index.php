@@ -134,6 +134,9 @@
                     <?php } ?>
                 </tbody>
             </table>
+            <?php
+            echo Helpers::pagination($pagination['total_rows'], $pagination['recordsPerPage'], $pagination['currentPage']);
+            ?>
         </div>
     </div>
 </section>
