@@ -54,6 +54,17 @@ class UserModel extends Model
             return true;
         return false;
     }
+    public function sendReport($title, $type, $content, $user_id, $reported_user_id) {
+        $title = filter_var($title, FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'title' => $title,
+            'type' => $type,
+            'content' => $content,
+            'user_id' => $user_id,
+            'reported_user_id' => $reported_user_id
+        ];
+        $this->db->table('report')->insert($data);
+    }
     public function createAccount($username, $password, $email, $name)
     {
         if ($username == null || $password == null || $email == null || $name == null) {

@@ -42,6 +42,25 @@ class User extends Controller
     public function profile($slug, $user_id)
     {
         $user = $this->model($this->model)->getUserByID($user_id);
+        if (isset($_POST['sendReport'])) {
+            $request = new Request();
+            $request->rules([
+                'title' => 'required'
+            ]);
+            $request->message([
+                'title.required' => 'Vui lòng nhập tiêu đề báo cáo'
+            ]);
+            $validate = $request->validate();
+            if (!$validate) {
+                $this->data['sub_content']['errors'] = $request->errors();
+            }
+            else {
+                $reported_user_id = $_POST['reported_user_id'];
+                $user_id = Session::data('User')['user_id'];
+                $this->model('UserModel')->sendReport($_POST['title'], $_POST['type'], $_POST['content'], $reported_user_id, $user_id);
+                $this->data['sub_content']['msg'] = 'Gửi báo cáo thành công, chúng tôi sẽ tiến hàng xác minh và xử lý ngay lập tức. Cảm ơn bạn đã gửi báo cáo!';
+            }
+        }
         $this->data['sub_content']['user'] = $user;
         $this->data['sub_content']['topic'] = $this->db->table('posts')->where('user_id', '=', $user_id)->get();
         $this->data['sub_content']['comment'] = $this->db->table('comments')->where('user_id', '=', $user_id)->get();
@@ -103,17 +122,16 @@ class User extends Controller
                 $file_extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 $img_name = $user_id . '.' . $file_extension;
                 if (!in_array($file_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                    // file không định dạng ảnh hợp lệ
-                    // codes xử lý lỗi tại đây
                     $msg = 'Hình ảnh không hợp lệ!';
                 } else {
                     $target_path = "./public/Image/user";
                     $img_path = $target_path . '/' . $img_name;
                     move_uploaded_file($file['tmp_name'], $img_path); 
+                    // Copy original image to ..user/original
                     $target_path_img_full = "./public/Image/user/original";
                     $img_full_path = $target_path_img_full . '/' . $img_name;
                     copy($img_path, $img_full_path);
-                    // Đoạn code xử lý cắt ảnh thành hình vuông
+                    // Cut avatar to square
                     if ($file_extension == 'png') {
                         $source_image = imagecreatefrompng($img_path);
                     } elseif (in_array($file_extension, ['jpg', 'jpeg'])) {

@@ -121,6 +121,24 @@ class Helpers
         echo '</pre>';
         die;
     }
+    public static function display_type_report($type)
+    {
+        if ($type == 1) {
+            return 'Vi phạm tiêu chuẩn cộng động';
+        }
+        else if ($type == 2) {
+            return 'Mạo danh người khác';
+        }
+        else if ($type == 3) {
+            return 'Hành vi trái với chuẩn mực, đạo đức';
+        }
+        else if ($type == 4) {
+            return 'Hành vi có hại đến diễn đàn';
+        }
+        else if ($type == 5) {
+            return 'Nội dung thô tục, xúc phạm người khác';
+        }
+    }
     public static function handlePaged($itemPerPage, $data)
     {
         $recordsPerPage = $itemPerPage;
