@@ -45,6 +45,10 @@ $routes['kich-hoat/(\d+).html'] = 'user/active/$1';
 $routes['bang-dieu-khien'] = 'admin';
 $routes['bang-dieu-khien/quan-ly-dien-dan.html'] = 'admin/forum';
 $routes['bang-dieu-khien/quan-ly-nguoi-dung.html'] = 'user';
+$routes['bang-dieu-khien/quan-ly-bai-hoc.html'] = 'admin/lesson';
+$routes['bang-dieu-khien/quan-ly-bai-hoc/(.+)_(\d+).html'] = 'admin/lesson_detail/$1/$2';
+
+
 
 // Translate 
 $routes['dich/anh-viet'] = 'home/translate/anh-viet';

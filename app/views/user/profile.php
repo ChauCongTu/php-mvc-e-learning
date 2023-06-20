@@ -2,10 +2,10 @@
     <div class="row mt-5 mb-5">
         <div class="col-md-4">
             <div class="user-avatar">
-                <a href="/public/Image/user/<?php echo $user['avatar']; ?>" target="_blank">
+                <a href="/public/Image/user/original/<?php echo $user['avatar']; ?>" target="_blank">
                     <img src="/public/Image/user/<?php echo $user['avatar']; ?>" class="rounded-circle shadow-4-strong" alt="thong tin nguoi dung" />
                 </a>
-                <a data-bs-toggle="modal" data-bs-target="#change_avatar" style="cursor:pointer" id="avatar_changer"><i class="fa-solid fa-camera"></i></a>
+                <?php echo ($user['user_id'] == Session::data('User')['user_id'])?'<a data-bs-toggle="modal" data-bs-target="#change_avatar" style="cursor:pointer" id="avatar_changer"><i class="fa-solid fa-camera"></i></a>':false; ?>
                 <?php echo (isset($msg)) ? $msg : false; ?>
             </div>
         </div>

@@ -14,6 +14,10 @@ class User extends Controller
         } else {
             $users = $this->model($this->model)->getUsers();
         }
+        if (isset($_GET['name'])) {
+            $users = $this->db->table('users')->whereLike('name', '%' . $_GET['name'] . '%')->get();
+            $this->data['sub_content']['name'] = $_GET['name'];
+        }
         $recordsPerPage = 9;
         $totalRows = count($users);
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -89,13 +93,15 @@ class User extends Controller
     }
     public function changeAvatar($user_id)
     {
+        if (Session::data('User')['user_id'] != $user_id) {
+            App::$app->loadError();
+        }
         if (isset($_POST['upload'])) {
-            $duoi = ".png";
-            $img_name = $user_id . $duoi;
             if (isset($_FILES['avatar'])) {
                 $file = $_FILES['avatar'];
                 $filename = $file['name'];
-                $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+                $file_extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                $img_name = $user_id . '.' . $file_extension;
                 if (!in_array($file_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                     // file không định dạng ảnh hợp lệ
                     // codes xử lý lỗi tại đây
@@ -103,10 +109,33 @@ class User extends Controller
                 } else {
                     $target_path = "./public/Image/user";
                     $img_path = $target_path . '/' . $img_name;
-                    move_uploaded_file($file['tmp_name'], $img_path);
+                    move_uploaded_file($file['tmp_name'], $img_path); 
+                    $target_path_img_full = "./public/Image/user/original";
+                    $img_full_path = $target_path_img_full . '/' . $img_name;
+                    copy($img_path, $img_full_path);
+                    // Đoạn code xử lý cắt ảnh thành hình vuông
+                    if ($file_extension == 'png') {
+                        $source_image = imagecreatefrompng($img_path);
+                    } elseif (in_array($file_extension, ['jpg', 'jpeg'])) {
+                        $source_image = imagecreatefromjpeg($img_path);
+                    } elseif ($file_extension == 'gif') {
+                        $source_image = imagecreatefromgif($img_path);
+                    }
+                    $width = imagesx($source_image);
+                    $height = imagesy($source_image);
+                    $size = min($width, $height);
+                    $cropped_image = imagecreatetruecolor($size, $size);
+                    imagecopyresampled($cropped_image, $source_image, 0, 0, ($width - $size) / 2, ($height - $size) / 2, $size, $size, $size, $size);
+                    if ($file_extension == 'png') {
+                        imagepng($cropped_image, $img_path);
+                    } elseif (in_array($file_extension, ['jpg', 'jpeg'])) {
+                        imagejpeg($cropped_image, $img_path, 100);
+                    } elseif ($file_extension == 'gif') {
+                        imagegif($cropped_image, $img_path);
+                    }
                     $msg = 'Thay đổi thành công!';
                     $data = array(
-                        'avatar' => $user_id . '.png'
+                        'avatar' => $user_id . '.' . $file_extension
                     );
                     $this->db->table('users')->where('user_id', '=', $user_id)->update($data);
                 }
@@ -114,6 +143,7 @@ class User extends Controller
                 $msg = 'Bạn chưa chọn hình ảnh!';
             }
         }
+
         Session::data('message', $msg);
         $user = $this->model($this->model)->getUserByID($user_id);
         Helpers::redirect_to('/nguoi-dung/' . Helpers::to_slug($user['name']) . '_' . $user_id . '.html');

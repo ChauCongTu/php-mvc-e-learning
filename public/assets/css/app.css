@@ -937,25 +937,6 @@ nav ul form {
   color: #d70000;
 }
 
-.user-list form {
-  position: relative;
-  margin: 10px 0;
-}
-.user-list form .icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  left: 20px;
-  color: #ccc;
-}
-.user-list form input {
-  height: 45px;
-  width: 250px;
-  padding-left: 35px;
-  border: 1px solid #ccc;
-}
-
 .user-item {
   padding: 5px;
 }

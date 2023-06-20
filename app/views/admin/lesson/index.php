@@ -44,7 +44,7 @@
                                 <?php echo Helpers::displayTime($value['created_at']);  ?>
                             </td>
                             <td>
-                                <a href="<?php echo ++$i; ?>" class="btn btn-link btn-sm fw-bold">
+                                <a href="/bang-dieu-khien/quan-ly-bai-hoc/<?php echo Helpers::to_slug($value['title']) ?>_<?php echo $value['lesson_id']; ?>.html" class="btn btn-link btn-sm fw-bold">
                                     <i class="fa-solid fa-circle-info"></i> Chi tiết
                                 </a>
                                 <a  style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#edit_<?php echo $value['lesson_id']; ?>" class="btn btn-link btn-sm fw-bold">

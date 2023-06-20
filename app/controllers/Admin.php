@@ -185,7 +185,7 @@ class Admin extends Controller
             }
         }
     }
-    public function lesson_detail($lesson_id, $word = null)
+    public function lesson_detail($slug, $lesson_id)
     {
         if (Session::data('User') == null) {
             echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
@@ -319,5 +319,30 @@ class Admin extends Controller
                 exit;
             }
         }
+    }
+    public function load_user(){
+        $role = $_POST['role'];
+        $users = $this->model('UserModel')->getUsers();
+        if ($role == 4) {
+            for ($i = 0; $i < count($users); $i++) {
+                $users[$i]['slug'] = Helpers::to_slug($users[$i]['name']);
+                $users[$i]['role'] = Helpers::display_role($users[$i]['role']);
+                $users[$i]['create_at'] = Helpers::displayTime($users[$i]['create_at']);
+            }
+            echo json_encode($users);
+            die;
+        }
+        $data = [];
+        $i = 0;
+        foreach ($users as $val) {
+            if ($val['role'] == $role) {
+                $data[$i] = $val;
+                $data[$i]['slug'] = Helpers::to_slug($data[$i]['name']);
+                $data[$i]['role'] = Helpers::display_role($role);
+                $data[$i]['create_at'] = Helpers::displayTime($data[$i]['create_at']);
+                $i ++; 
+            } 
+        }
+        echo json_encode($data);
     }
 }
