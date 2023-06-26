@@ -1,60 +1,39 @@
 <section class="forum mt-3 mb-3">
+    <div class="pt-2 pb-2">
+        <div class="container link-to fw-bold" style="cursor: pointer;">Trang chủ <i class="fa-solid fa-angle-right"></i> Danh mục diễn đàn</div>
+    </div>
     <div class="container">
-        <p class="link-to fw-bold">Trang chủ <i class="fa-solid fa-angle-right"></i> Diễn đàn</p>
-        <div class="title h2">Danh mục diễn đàn</div>
-        <div class="row">
-            <div class="col-sm-9">
-                <?php
-                foreach ($categories as $value) {
-                    echo '<div class="content shadow p-3 mb-3">
-                            <div class="subtitle h4 mt-3  mb-3"><a href="/dien-dan/'.Helpers::to_slug($value['category_name']).'_'.$value['category_id'].'">'.$value['category_name'].'</a></div>';
-                                echo' <div class="subcontent">
-                                <article class="forum-list mt-2" id="list-scroll">';
-                                foreach ($value['post'] as $values) {
-                                    echo'<div class="forum-item">
-                                        <div class="forum-item-img">
-                                            <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
-                                        </div>
-                                        <div class="forum-item-content">
-                                            <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="title"> '.$values['title'].'</a>
-                                            <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
-                                            <br />
-                                            <div class="information">
-                                                <a href="/nguoi-dung/'.Helpers::to_slug($values['user']['name']).'_'.$values['user']['user_id'].'.html" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
-                                                <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
-                                            </div>
-                                        </div>
-                                    </div>';
-                                }
-                                echo '</article>
-                            </div>
-                        </div>';
-                }
-                ?>
-            </div>
-            <div class="col-sm-3">
-                <div class="shadow p-3">
-                    <div class="h4 border-bottom pb-1">Thống kê diễn đàn</div>
-                    <table>
-                        <tr>
-                            <td>Chủ đề:</td>
-                            <td><?php echo $stats['post']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Thảo luận: </td>
-                            <td><?php echo $stats['comment']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Lượt thích: </td>
-                            <td><?php echo $stats['like']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Thành viên: </td>
-                            <td><?php echo $stats['user']; ?></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+        <button class="btn btn-light rounded-0 border" data-bs-toggle="collapse" data-bs-target="#category">Danh mục diễn đàn</button>
+        <div class="bg-light collapse" id="category">
+            <?php $i = 0; ?>
+            <?php foreach ($categories as $value) { ?>
+                <a href="#<?php echo Helpers::to_slug($value['category_name']); ?>" class="d-block border-top border-bottom ps-5 pt-2 pb-2"><?php echo ++$i . '. ' . $value['category_name']; ?></a>
+            <?php } ?>
         </div>
+        <?php foreach ($categories as $value) {
+            echo '<div class="bg-light h4 p-3 border-top border-bottom mt-3" id="' . Helpers::to_slug($value['category_name']) . '"><a href="/dien-dan/' . Helpers::to_slug($value['category_name']) . '_' . $value['category_id'] . '">' . $value['category_name'] . '</a></div>
+                    <ul class="list-group list-group-light mb-3">';
+            foreach ($value['post'] as $values) {
+                echo '<li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <img src="/public/image/user/' . $values['user']['avatar'] . '" alt="" style="width: 50px; height: 50px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <h5 class="fw-bold"><a href="/dien-dan/' . Helpers::to_slug($values['title']) . '_' . $values['post_id'] . '.html"> ' . $values['title'] . '</a></h5>
+                                    <p class="text-muted mb-2"><i class="fa-solid fa-clock me-2"></i>' . Helpers::displayTime($values['updated_at']) . '<i class="fa-solid fa-user ms-3"></i><span class="ms-2"><a class="text-muted" href="/nguoi-dung/' . Helpers::to_slug($values['user']['name']) . '_' . $values['user']['user_id'] . '.html">' . $values['user']['name'] . '</a></span></p>
+                                    <div class="text-muted mb-0 text-cut">
+                                        Some placeholder content in a paragraph relating to "Our company starts its operations". And
+                                        some
+                                        more content, used here just to pad out and fill this tab panel. In production, you would
+                                        obviously
+                                        have more real content here. And not just text. It could be anything, really. Text, images,
+                                        forms.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>';
+            }
+            echo '</ul>
+                <div class="text-center"><a class="btn btn-light btn-rounded border" href="/dien-dan/' . Helpers::to_slug($value['category_name']) . '_' . $value['category_id'] . '" role="button" data-ripple-color="dark">Xem tất cả</a></div>';
+        } ?>
     </div>
 </section>

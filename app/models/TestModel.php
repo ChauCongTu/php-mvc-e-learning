@@ -21,12 +21,29 @@ class TestModel extends Model
         var_dump($data);
         return $data[0]['exam_id'];
     }
-    public function getExam($grade) {
-        $data = $this->db->table('exams')->where('grade', '=', $grade)->get();
+    public function getExam($grade, $limit = 0) {
+        if ($limit == 0) {
+            $data = $this->db->table('exams')->where('grade', '=', $grade)->get();
+        }
+        else{
+            $data = $this->db->table('exams')->where('grade', '=', $grade)->limit($limit)->get();
+        }
         for ($i = 0; $i < count($data); $i++){
             $data[$i]['question'] = $this->getQuestions($data[$i]['exam_id']);
+            $data[$i]['numbUser'] = $this->getNumbUserDo($data[$i]['exam_id']);
         }
         return $data;
+    }
+    public function getResult($user_id){
+        $data = $this->db->table('test_results')->where('user_id', '=', $user_id)->get();
+        for($i = 0; $i < count($data); $i ++) {
+            $data[$i]['title'] = $this->getExamById($data[$i]['exam_id'])['title'];
+        }
+        return $data;
+    }
+    public function getNumbUserDo($test_id) {
+        $data = $this->db->table('test_results')->where('exam_id', '=', $test_id)->get();
+        return count($data);
     }
     public function getExamById($exam_id) {
         $data = $this->db->table('exams')->where('exam_id', '=', $exam_id)->first();
@@ -106,4 +123,3 @@ class TestModel extends Model
         }
     }
 }
-?>

@@ -803,6 +803,16 @@ nav ul form {
   }
 }
 
+.text-cut {
+  overflow: hidden;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 100%;
+  margin: 10px 0;
+}
+
 .lesson .title {
   padding: 30px 10px 10px 10px;
   font-size: 28px;

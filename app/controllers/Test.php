@@ -5,27 +5,34 @@ class Test extends Controller
     public $model = 'TestModel';
     public function index()
     {
-        $this->data['sub_content']['grade_10'] = $this->model($this->model)->getExam(10);
-        $this->data['sub_content']['grade_11'] = $this->model($this->model)->getExam(11);
-        $this->data['sub_content']['grade_12'] = $this->model($this->model)->getExam(12);
+        $this->data['sub_content']['grade_10'] = $this->model($this->model)->getExam(10, 4);
+        $this->data['sub_content']['grade_11'] = $this->model($this->model)->getExam(11, 4);
+        $this->data['sub_content']['grade_12'] = $this->model($this->model)->getExam(12, 4);
         $this->data['page_title'] = 'Thi Tiếng Anh trực tuyến';
         $this->data['content'] = 'test/index';
         $this->render('layouts/client-layout', $this->data);
     }
+    public function history(){
+        if (Session::data('User') == null) {
+            Helpers::redirect_to('/thi-truc-tuyen');
+        }
+        $user_id = Session::data('User')['user_id'];
+        $this->data['page_title'] = 'Lịch sử làm bài';
+        $result = $this->model($this->model)->getResult($user_id);
+        $this->data['sub_content']['result'] = $result;
+        $this->data['content'] = 'test/history';
+        $this->render('layouts/client-layout', $this->data);
+    }
     public function list($grade = 10)
     {
-        $this->data['sub_content']['test'] = $this->model($this->model)->getExam($grade);
+        $tests = $this->model($this->model)->getExam($grade);
         $this->data['sub_content']['grade'] = $grade;
-        $this->data['page_title'] = 'Thi Tiếng Anh trực tuyến | Bộ đề lớp 10';
+        $page = Helpers::handlePaged(10, $tests);
+        $this->data['sub_content']['test'] = $page['pagedData'];
+        $this->data['sub_content']['pagination'] = $page['pagination']; 
+        $this->data['page_title'] = 'Thi Tiếng Anh trực tuyến | Bộ đề lớp ';
         $this->data['content'] = 'test/list';
         $this->render('layouts/client-layout', $this->data);
-
-
-
-        $userList = $this->db->table('students')->where('MALOP', '=', 'CNTTK61')->orderBy('DIEMTB', 'DESC')->get();
-
-
-
     }
     public function add($grade)
     {

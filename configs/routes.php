@@ -35,6 +35,7 @@ $routes['thi-truc-tuyen/ket-qua'] = 'test/submit_result';
 $routes['thi-truc-tuyen/bo-de-(\d+).html'] = 'test/list/$1';
 $routes['thi-truc-tuyen/them/(\d+).html'] = 'test/add/$1';
 $routes['thi-truc-tuyen/(.+)_(\d+).html'] = 'test/detail/$1/$2';
+$routes['thi-truc-tuyen/lich-su.html'] = 'test/history';
 
 // User
 $routes['nguoi-dung'] = 'user';

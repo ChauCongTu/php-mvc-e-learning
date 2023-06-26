@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     ClassicEditor
       .create(editorElements[i], {
         // Cấu hình cho trình soạn thảo CKEditor
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList'],
       })
       .catch(error => {
         console.error(error);
@@ -120,4 +120,13 @@ function start($minute) {
     s--;
     start();
   }, 1000);
+}
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
 }
