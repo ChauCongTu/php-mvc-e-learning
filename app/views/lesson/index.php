@@ -1,6 +1,6 @@
 <div class="container">
     <?php if (Session::data('User') != null) { ?>
-        <a href="/bai-hoc/danh-sach-da-luu" class="btn btn-primary mt-3"><i class="fa-solid fa-bookmark me-2"></i>Danh sách bài học đã lưu <?php echo (isset($numbSaved))?'<span class="badge bg-danger ms-3">'.$numbSaved.'</span></a>':false; ?>
+        <a href="/bai-hoc/danh-sach-da-luu" class="btn btn-primary mt-3"><i class="fa-solid fa-bookmark me-2"></i>Danh sách bài học đã lưu <?php echo (isset($numbSaved))?'<span class="badge bg-danger ms-1">'.$numbSaved.'</span></a>':false; ?>
     <?php } ?>
     <h3 class="bg-light p-2 border-top border-bottom mt-3">Bài học tiếng Anh lớp 10</h3>
     <div class="row" id="grade_10_list">
