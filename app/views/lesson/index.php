@@ -1,72 +1,86 @@
-<div class="photo">
-    <div class="text">Danh sách bài học</div>
-    <div class="photo-blur"></div>
-</div>
-<section class="container lesson  bg-white">
-    <div class="main">
-        <div class="title">Bài học tiếng Anh lớp 10</div>
-        <div class="content slick-pane">
-            <?php
-            foreach ($grade10lesson as $value) {
-                echo '<div class="lesson-item">
-                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a class="p-3" href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
-                    </div>';
-            }
-            ?>
-        </div>
-    </div>
-
-    </div>
-    <div class="main">
-        <div class="title">Bài học lớp 11 - Chương trình mới</div>
-        <div class="content slick-pane">
-            <?php
-            foreach ($grade11lesson as $value) {
-                echo '<div class="lesson-item">
-                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
-                    </div>';
-            }
-            ?>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">Bài học lớp 12 - Chương trình mới</div>
-        <div class="content slick-pane">
-            <?php
-            foreach ($grade12lesson as $value) {
-                echo '<div class="lesson-item">
-                        <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="">
-                        <a href="/bai-hoc/'.Helpers::to_slug($value['title']).'_'.$value['lesson_id'].'.html">' . $value['title'] . '</a>
-                    </div>';
-            }
-            ?>
-        </div>
-    </div>
-</section>
-
-<section class="container lesson">
-    <div class="row">
-        <div class="col-md-7  bg-white">
-            <div class="title">Đề xuất cho bạn</div>
-            <div class="content">
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND02</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
-                <p><a href=""><i class="fa-solid fa-file-pen"></i> Đề thi lớp 10 - ND01</a><br /> >> Số người đã thi: 122 | Điểm số cao nhất: 9.75</p>
+<div class="container">
+    <?php if (Session::data('User') != null) { ?>
+        <a href="/bai-hoc/danh-sach-da-luu" class="btn btn-primary mt-3"><i class="fa-solid fa-bookmark me-2"></i>Danh sách bài học đã lưu <?php echo (isset($numbSaved))?'<span class="badge bg-danger ms-3">'.$numbSaved.'</span></a>':false; ?>
+    <?php } ?>
+    <h3 class="bg-light p-2 border-top border-bottom mt-3">Bài học tiếng Anh lớp 10</h3>
+    <div class="row" id="grade_10_list">
+        <?php foreach ($grade10lesson as $value) { ?>
+            <div class="col-xl-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="/public/Image/lesson/<?php echo $value['thumb']; ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1"><?php echo $value['title']; ?></p>
+                                    <p class="text-muted mb-0"><i class="fa-solid fa-clock me-2"></i><?php echo Helpers::displayTime($value['created_at']); ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
+                        <a class="m-0 text-reset" href="/Lesson/Save/<?php echo $value['lesson_id']; ?>" role="button" data-ripple-color="primary">Lưu bài học<i class="fa-solid fa-bookmark ms-2"></i></a>
+                        <a class="m-0 text-reset" href="/bai-hoc/<?php echo Helpers::to_slug($value['title']) . '_' . $value['lesson_id'] . '.html'; ?>" role="button" data-ripple-color="primary">Bắt đầu học<i class="fa-solid fa-angles-right ms-2"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-5 mt-4">
-            <a href="https://www.facebook.com/Tienganhgiaotieplangmaster/posts/2191227677635416/">
-                <img src="/public/Image/banner/58761519_2191225317635652_2107690685808246784_n.jpg" width="100%" alt="">
-            </a>
-            <a href="">
-                <img src="/public/Image/banner/bo-anh-hoc-mien-mien-phi-0-dong-adweb-1652950316.jpg" class="mt-2" width="100%" alt="">
-            </a>
+        <?php } ?>
+        <div class="text-center">
+            <div class="btn btn-light border" id="see_all_10_grade">Xem toàn bộ</div>
         </div>
     </div>
-
-</section>
+    <h3 class="bg-light p-2 border-top border-bottom mt-3">Bài học tiếng Anh lớp 11</h3>
+    <div class="row" id="grade_11_list">
+        <?php foreach ($grade11lesson as $value) { ?>
+            <div class="col-xl-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="/public/Image/lesson/<?php echo $value['thumb']; ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1"><?php echo $value['title']; ?></p>
+                                    <p class="text-muted mb-0"><i class="fa-solid fa-clock me-2"></i><?php echo Helpers::displayTime($value['created_at']); ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
+                        <a class="m-0 text-reset" href="/Lesson/Save/<?php echo $value['lesson_id']; ?>" role="button" data-ripple-color="primary">Lưu bài học<i class="fa-solid fa-bookmark ms-2"></i></a>
+                        <a class="m-0 text-reset" href="/bai-hoc/<?php echo Helpers::to_slug($value['title']) . '_' . $value['lesson_id'] . '.html'; ?>" role="button" data-ripple-color="primary">Bắt đầu học<i class="fa-solid fa-angles-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <div class="text-center">
+            <div class="btn btn-light border" id="see_all_11_grade">Xem toàn bộ</div>
+        </div>
+    </div>
+    <h3 class="bg-light p-2 border-top border-bottom mt-3">Bài học tiếng Anh lớp 12</h3>
+    <div class="row" id="grade_12_list">
+        <?php foreach ($grade12lesson as $value) { ?>
+            <div class="col-xl-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="/public/Image/lesson/<?php echo $value['thumb']; ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1"><?php echo $value['title']; ?></p>
+                                    <p class="text-muted mb-0"><i class="fa-solid fa-clock me-2"></i><?php echo Helpers::displayTime($value['created_at']); ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
+                        <a class="m-0 text-reset" href="/Lesson/Save/<?php echo $value['lesson_id']; ?>" role="button" data-ripple-color="primary">Lưu bài học<i class="fa-solid fa-bookmark ms-2"></i></a>
+                        <a class="m-0 text-reset" href="/bai-hoc/<?php echo Helpers::to_slug($value['title']) . '_' . $value['lesson_id'] . '.html'; ?>" role="button" data-ripple-color="primary">Bắt đầu học<i class="fa-solid fa-angles-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <div class="text-center">
+            <div class="btn btn-light border" id="see_all_12_grade">Xem toàn bộ</div>
+        </div>
+    </div>
+</div>

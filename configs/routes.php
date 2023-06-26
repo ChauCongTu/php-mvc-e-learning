@@ -17,6 +17,7 @@ $routes['dang-xuat.html'] = 'user/logout';
 // Lesson
 $routes['bai-hoc'] = 'lesson';
 $routes['bai-hoc/(.+)_(\d+).html'] = 'lesson/detail/$1/$2';
+$routes['bai-hoc/danh-sach-da-luu'] = 'Lesson/SavedList';
 
 // Forum
 $routes['dien-dan'] = 'forum';

@@ -114,7 +114,9 @@ a:hover {
 p {
     margin-bottom: 0;
 }
-
+.sub_item {
+    font-size: 14px;
+}
 .slick-arrow {
     background-color: transparent;
     border: none;
@@ -1016,6 +1018,14 @@ nav {
     }
 
     .main {
+        .noidung {
+            img {
+                width: 100%;
+                display: block;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         .content {
             .lesson-item {
                 cursor: pointer;

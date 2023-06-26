@@ -73,6 +73,10 @@ p {
   margin-bottom: 0;
 }
 
+.sub_item {
+  font-size: 14px;
+}
+
 .slick-arrow {
   background-color: transparent;
   border: none;
@@ -844,6 +848,12 @@ nav ul form {
 }
 .lesson .content .other-lesson .other-lesson-content {
   margin-left: 10px;
+}
+.lesson .main .noidung img {
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
 .lesson .main .content .lesson-item {
   cursor: pointer;

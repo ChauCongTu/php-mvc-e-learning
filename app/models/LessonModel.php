@@ -26,11 +26,16 @@ class LessonModel extends Model
         }
         return $data;
     }
-    public function getLessonByGrade($grade = 10)
+    public function getLessonByGrade($grade = 10, $limit = 0)
     {
         if ($grade == 10 || $grade == 11 || $grade == 12) {
-            $data = $this->db->table($this->_table)->where('grade', '=', $grade)->get();
-            return $data;
+            if ($limit == 0) {
+                $data = $this->db->table($this->_table)->where('grade', '=', $grade)->get();
+                return $data;
+            } else {
+                $data = $this->db->table($this->_table)->where('grade', '=', $grade)->limit($limit)->get();
+                return $data;
+            }
         }
         return false;
     }
@@ -58,8 +63,40 @@ class LessonModel extends Model
             return strpos(strtolower($item['word']), strtolower($word)) !== false;
         });
 
-        return array_values($result); 
+        return array_values($result);
     }
+    public function checkSaved($user_id, $lesson_id) {
+        $data = $this->db->table('lesson_saved')->where('user_id', '=', $user_id)->where('lesson_id', '=', $lesson_id)->get();
+        if (count($data) > 0) {
+            return true;
+        }
+        else
+            return false;
+    }
+    public function Save($user_id, $lesson_id) {
+        $user_id = filter_var($user_id, FILTER_SANITIZE_NUMBER_INT);
+        $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
+        $data = [
+            'user_id' => $user_id,
+            'lesson_id' => $lesson_id
+        ];
+        $this->db->table('lesson_saved')->insert($data);
+    }
+    public function removeSaved($user_id, $lesson_id) {
+        $user_id = filter_var($user_id, FILTER_SANITIZE_NUMBER_INT);
+        $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
+        $this->db->table('lesson_saved')->where('user_id', '=', $user_id)->where('lesson_id', '=', $lesson_id)->delete();
+    }
+    public function getSavedList($user_id, $limit = 0) {
+        if ($limit == 0) {
+            $data = $this->db->table('lesson_saved')->where('user_id', '=', $user_id)->get();
+        }
+        else {
+            $data = $this->db->table('lesson_saved')->where('user_id', '=', $user_id)->limit($limit)->get();
+        }
+        return $data;
+    }
+
     public function deleteLesson($lesson_id)
     {
         $lesson_id = filter_var($lesson_id, FILTER_SANITIZE_NUMBER_INT);
