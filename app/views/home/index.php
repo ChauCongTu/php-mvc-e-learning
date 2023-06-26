@@ -121,54 +121,32 @@
     </div>
 </section>
 <section class="container forum pb-3">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="forum-title">Chủ đề mới nhất</div>
-            <article class="forum-list" id="list-scroll">
-                <?php
-                foreach ($lastest_posts as $values) {
-                    echo '<div class="forum-item">
-                            <div class="forum-item-img">
-                                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
-                            </div>
-                            <div class="forum-item-content">
-                                <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="title"> '.$values['title'].'</a>
-                                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
-                                <br />
-                                <div class="information">
-                                    <a href="/nguoi-dung/'.Helpers::to_slug($values['user']['name']).'_'.$values['user']['user_id'].'.html" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
-                                    <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
+    <div class="forum-title">Chủ đề mới nhất</div>
+    <article class="forum-list" id="list-scroll">
+        <ul class="list-group list-group-light mb-3">
+            <?php foreach ($lastest_posts as $values) {
+                echo '<li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <img src="/public/image/user/' . $values['user']['avatar'] . '" alt="" style="width: 50px; height: 50px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <h5 class="fw-bold"><a href="/dien-dan/' . Helpers::to_slug($values['title']) . '_' . $values['post_id'] . '.html"> ' . $values['title'] . '</a><img class="ms-2" src="https://www.sivico.com.vn/images/new_icon.gif"/ width="45px" height="20px"></h5>
+                                    <p class="text-muted mb-2"><i class="fa-solid fa-clock me-2"></i>' . Helpers::displayTime($values['updated_at']) . '<i class="fa-solid fa-user ms-3"></i><span class="ms-2"><a class="text-muted" href="/nguoi-dung/' . Helpers::to_slug($values['user']['name']) . '_' . $values['user']['user_id'] . '.html">' . $values['user']['name'] . '</a></span></p>
+                                    <div class="text-muted mb-0 text-cut">
+                                        Some placeholder content in a paragraph relating to "Our company starts its operations". And
+                                        some
+                                        more content, used here just to pad out and fill this tab panel. In production, you would
+                                        obviously
+                                        have more real content here. And not just text. It could be anything, really. Text, images,
+                                        forms.
+                                    </div>
                                 </div>
                             </div>
-                        </div>';
-                }
-                ?>                
-            </article>
-        </div>
-        <div class="col-md-6">
-            <div class="forum-title">Thảo luận nhiều nhất</div>
-            <article class="forum-list" id="list-scroll">
-            <?php
-                foreach ($most_comment_posts as $values) {
-                    echo '<div class="forum-item">
-                            <div class="forum-item-img">
-                                <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
-                            </div>
-                            <div class="forum-item-content">
-                                <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="title"> '.$values['title'].'</a>
-                                <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
-                                <br />
-                                <div class="information">
-                                    <a href="/nguoi-dung/'.Helpers::to_slug($values['user']['name']).'_'.$values['user']['user_id'].'.html" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
-                                    <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
-                                </div>
-                            </div>
-                        </div>';
-                }
-                ?> 
-            </article>
-        </div>
-    </div>
+                        </li>';
+            }
+            echo '</ul>';
+            ?>
+        </ul>
+    </article>
 </section>
 <section class="container forum">
     <div class="forum-title"><a href="/dien-dan">Danh mục diễn đàn</a></div>
@@ -176,20 +154,20 @@
     foreach ($categories as $value) {
         echo '<div class="p-1">';
         echo '<div class="border border-secondary p-3 rounded">';
-        echo '<div class="forum-sub-title"><a href="/dien-dan/'.Helpers::to_slug($value['category_name']).'_'.$value['category_id'].'">'.$value['category_name'].'</a></div>';
+        echo '<div class="forum-sub-title"><a href="/dien-dan/' . Helpers::to_slug($value['category_name']) . '_' . $value['category_id'] . '">' . $value['category_name'] . '</a></div>';
         echo '<article class="forum-list" id="list-scroll">';
         foreach ($value['post'] as $values) {
             echo '<div class="forum-item">
                     <div class="forum-item-img">
-                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/'.$values['user']['avatar'].'" />
+                        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/public/image/user/' . $values['user']['avatar'] . '" />
                     </div>
                     <div class="forum-item-content">
-                        <a href="/dien-dan/'.Helpers::to_slug($values['title']).'_'.$values['post_id'].'.html" class="title"> '.$values['title'].'</a>
-                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> '.count($values['comment']).'</span>
+                        <a href="/dien-dan/' . Helpers::to_slug($values['title']) . '_' . $values['post_id'] . '.html" class="title"> ' . $values['title'] . '</a>
+                        <span class="float-end fw-bold"><i class="fa-solid fa-message"></i> ' . count($values['comment']) . '</span>
                         <br />
                         <div class="information">
-                            <a href="/nguoi-dung/'.Helpers::to_slug($values['user']['name']).'_'.$values['user']['user_id'].'.html" class="information-user"><i class="fa-solid fa-pen"></i> '.$values['user']['name'].'</a> &#8226; Cập nhật '.Helpers::displayTime($values['updated_at']).'
-                            <span class="information-view"><i class="fa-solid fa-eye"></i> '.$values['view'].'</span>
+                            <a href="/nguoi-dung/' . Helpers::to_slug($values['user']['name']) . '_' . $values['user']['user_id'] . '.html" class="information-user"><i class="fa-solid fa-pen"></i> ' . $values['user']['name'] . '</a> &#8226; Cập nhật ' . Helpers::displayTime($values['updated_at']) . '
+                            <span class="information-view"><i class="fa-solid fa-eye"></i> ' . $values['view'] . '</span>
                         </div>
                     </div>
                 </div>';

@@ -58,4 +58,15 @@ class Home extends Controller
         }
         echo json_encode($data);
     }
+    public function sendContact(){
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $mail = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
+        $content = filter_var($_POST['content'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $data = [
+            'name' => $name,
+            'email' => $mail,
+            'content' => $content
+        ];
+        $this->db->table('contact')->insert($data);
+    }
 }

@@ -32,5 +32,6 @@
             echo '</ul>';
             Helpers::pagination($pagination['total_rows'], $pagination['recordsPerPage'], $pagination['currentPage']);
             ?>
+        </ul>
     </div>
 </section>

@@ -45,21 +45,46 @@
             </div>
             <div class="col-md-4">
                 <p class="footer-title">Liên hệ</p>
-                <form action="" method="post" class="contact-form mt-3">
-                    <div class="mb-3">
-                        <input type="text" name="name" placeholder="Enter your name" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="email" placeholder="Enter your email" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <textarea name="content" placeholder="Enter your message" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary" name="send_contact">Liên hệ</button>
-                </form>
+                <div class="mb-3 mt-3">
+                    <input type="text" name="name" id="ct_name" placeholder="Nhập họ tên" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="email" id="ct_email" placeholder="Nhập địa chỉ email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <textarea name="content" id="ct_content" placeholder="Nhập nội dung" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary" id="send_contact" name="send_contact">Gửi liên hệ</button>
+                <div id="showmsg"></div>
             </div>
         </div>
         <hr />
         <p class="text-center pb-3">Copyright &copy; <?php echo date('Y'); ?> - Code by <a href="mailto:quenhon2002@gmail.com" class="text-white">Chau Que Nhon</a></p>
     </div>
 </footer>
+<script>
+    $(document).ready(function() {
+       $("#send_contact").click(function() {
+            var name = $("#ct_name").val();
+            var mail = $("#ct_email").val();
+            var content = $("#ct_content").val();
+            if (name == "" || mail == "" || content == "") {
+                $("#showmsg").html('<div class="alert alert-danger mt-2">Lỗi! Vui lòng nhập đẩy đủ thông tin</div>');
+            }
+            else{
+                $.ajax({
+                    url: '/home/sendContact',
+                    type: 'post',
+                    data: {
+                        name: name,
+                        mail: mail,
+                        content: content
+                    },
+                    success: function(){
+                        $("#showmsg").html('<div class="alert alert-success mt-2">Gửi liên hệ thành công! Chúng tôi sẽ phản hồi với bạn sớm nhất</div>');
+                    }
+                });
+            }
+       });
+    });
+</script>
