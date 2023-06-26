@@ -28,20 +28,34 @@ class Home extends Controller
             $to = 'vi';
             $this->data['page_title'] = 'Công cụ dịch văn bản Anh - Việt';
         }
-        if (isset($_POST['translate'])) {
-            $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
-            // if (!Helpers::translate($_POST['textToTranslate'], $from, $to)) {
-            //     $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
-            // } else {
-            //     $this->data['sub_content']['translated_text'] = 'Có lỗi xảy ra, vui lòng thử lại!';
-            // }
-            $this->data['sub_content']['textToTranslate'] = $_POST['textToTranslate'];
-        }
+        // if (isset($_POST['translate'])) {
+        //     $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
+        //     // if (!Helpers::translate($_POST['textToTranslate'], $from, $to)) {
+        //     //     $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
+        //     // } else {
+        //     //     $this->data['sub_content']['translated_text'] = 'Có lỗi xảy ra, vui lòng thử lại!';
+        //     // }
+        //     $this->data['sub_content']['textToTranslate'] = $_POST['textToTranslate'];
+        // }
         $this->data['content'] = 'home/translate';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function ajax_translate()
+    public function translate_ajax()
     {
-        echo 'Xin chào';
+        $inputVal = $_POST['inputVal'];
+        $type = $_POST['type'];
+        if ($type == 0) {
+            $from = 'vi';
+            $to = 'en';
+        }
+        else {
+            $from = 'en';
+            $to = 'vi';
+        }
+        $data = ['result' => Helpers::translate($inputVal, $from, $to)];
+        if (!$data['result']) {
+            $data['result'] = ' ';
+        }
+        echo json_encode($data);
     }
 }

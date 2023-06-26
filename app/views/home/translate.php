@@ -9,15 +9,39 @@
         }
         ?>
         <div class="row mt-2">
+            <input type="hidden" id="type_translate" value="<?php echo $type_translate; ?>">
             <div class="col-md-6 mb-2">
                 <form action="" method="post">
-                    <textarea name="textToTranslate" class="textToTranslate" rows="10"><?php echo (isset($textToTranslate) ? $textToTranslate : false); ?></textarea>
-                    <button type="submit" name="translate" id="button" class="btn btn-danger float-end w-25"><i class="fa-solid fa-arrow-right-arrow-left"></i> Dịch</button>
+                    <textarea name="textToTranslate" class="textToTranslate" id="input" rows="10"></textarea>
                 </form>
             </div>
             <div class="col-md-6">
-                <textarea rows="10" class="result" disabled><?php echo (isset($translated_text) ? $translated_text : false); ?></textarea>
+                <textarea rows="10" class="result" id="output" disabled></textarea>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function() {
+        var type = $('#type_translate').val();
+        console.log(type);
+        $('#input').on('input', function() {
+            // Xử lý sự kiện khi nội dung bị thay đổi
+            console.log($('#input').val());
+            var inputVal = $('#input').val();
+            $.ajax({
+                url: '/home/translate_ajax',
+                type: 'post',
+                data: {
+                    inputVal: inputVal,
+                    type: type
+                },
+                dataType: 'json',
+                success: function (data) { 
+                    $('#output').val(data.result);
+                }
+            });
+        });
+    });
+</script>

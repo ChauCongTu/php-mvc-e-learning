@@ -8,7 +8,7 @@
                         <div class="post__author">
                             <div class="__img mt-2"><img src="/public/Image/user/<?php echo $post['user']['avatar']; ?>" alt="" class="rounded-circle"></div>
                             <div>
-                                <div class="__name"><a href="/nguoi-dung/<?php echo Helpers::to_slug($post['user']['name']).'_'.$post['user']['user_id']; ?>.html" class="fw-bold"><?php echo $post['user']['name'] . ' <img src="/public/Image/icon/tich_xanh.png" width="15px"/> ' . Helpers::display_role($post['user']['role']); ?></a></div>
+                                <div class="__name"><a href="/nguoi-dung/<?php echo Helpers::to_slug($post['user']['name']) . '_' . $post['user']['user_id']; ?>.html" class="fw-bold"><?php echo $post['user']['name'] . ' ' . Helpers::display_role($post['user']['role']); ?></a></div>
                                 <div class="post__date ms-3"><i class="fa-solid fa-calendar-days"></i> <?php echo $post['created_at']; ?> &#8226; Cập nhật mới nhất <?php echo Helpers::displayTime($post['updated_at']); ?></div>
                             </div>
                         </div>
@@ -19,7 +19,7 @@
                         <div class="post__social">
                             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo Helpers::current_url(); ?>" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i> Share on Facebook</a>
                             <a href="https://twitter.com/intent/tweet?url=<?php echo Helpers::current_url(); ?>&text=<?php echo $post['title']; ?>" target="_blank" class="btn btn-info btn-sm"><i class="fab fa-twitter"></i> Share on Twitter</a>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo Helpers::current_url(); ?>&title=<?php echo $post['title']; ?>"target="_blank" class="btn btn-secondary btn-sm"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo Helpers::current_url(); ?>&title=<?php echo $post['title']; ?>" target="_blank" class="btn btn-secondary btn-sm"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
                         </div>
                         <?php
                         if (Session::data('User') != null) {
@@ -32,7 +32,6 @@
                         }
                         ?>
                         <div class="post__interact">
-                            <a href=""><i class="fa-solid fa-heart"></i>/<i class="fa-regular fa-heart"></i></a> 120
                             <a href="#comment"><i class="fa-solid fa-message"></i></a> <?php echo count($post['comment']) ?>
                         </div>
                     </div>
@@ -47,11 +46,13 @@
                             </form>
                         </div>
                     <?php } ?>
-                </div>
-                <!-- Mỗi bình luận -->
-                <?php
-                foreach ($post['comment'] as $value) {
-                    echo '<div class="modal fade" id="edit_cmt_' . $value['comment_id'] . '">
+                    <!-- Mỗi bình luận -->
+                    <hr>
+                    <div class="pt-2"></div>
+                    <?php
+                    $first = true;
+                    foreach ($post['comment'] as $value) {
+                        echo '<div class="modal fade" id="edit_cmt_' . $value['comment_id'] . '">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -75,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>';
-                    echo '<div class="modal fade" id="delete_cmt_' . $value['comment_id'] . '">
+                        echo '<div class="modal fade" id="delete_cmt_' . $value['comment_id'] . '">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -90,7 +91,7 @@
                                     </div>
                                 </div>
                             </div>';
-                    echo '<div class="content comment shadow mt-3 p-3">
+                        echo '<hr/><div class="content comment">
                             <div class="comment">
                                 <div class="comment-img">
                                     <img src="/public/Image/user/' . $value['user_id'] . '.png" class="rounded-circle" alt="">
@@ -98,29 +99,31 @@
                                 <div class="comment-content">
                                     <div class="comment__name">
                                         <a href=""> ' . $value['user_name'] . '</a>';
-                    if (Session::data('User') != null) {
-                        if ($value['user_id'] == Session::data('User')['user_id']) {
-                            echo '<small><a data-bs-toggle="modal" data-bs-target="#edit_cmt_' . $value['comment_id'] . '" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-pen"></i> Sửa ]</a></small>';
+                        if (Session::data('User') != null) {
+                            if ($value['user_id'] == Session::data('User')['user_id']) {
+                                echo '<small><a data-bs-toggle="modal" data-bs-target="#edit_cmt_' . $value['comment_id'] . '" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-pen"></i> Sửa ]</a></small>';
+                            }
+                            if ($value['user_id'] == Session::data('User')['user_id'] || Session::data('User')['role'] > 1) {
+                                echo '<small><a data-bs-toggle="modal" data-bs-target="#delete_cmt_' . $value['comment_id'] . '" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-trash"></i> Xóa ]</a></small>';
+                            }
                         }
-                        if ($value['user_id'] == Session::data('User')['user_id'] || Session::data('User')['role'] > 1) {
-                            echo '<small><a data-bs-toggle="modal" data-bs-target="#delete_cmt_' . $value['comment_id'] . '" style="cursor:pointer" class="fw-bold"> [ <i class="fa-solid fa-trash"></i> Xóa ]</a></small>';
-                        }
-                    }
-                    echo '</div>
+                        echo '</div>
                                     <div class="comment__content">
                                         ' . $value['content'] . '
                                     </div>
                                     <div class="comment__date">';
-                    if ($value['created_at'] != $value['updated_at']) {
-                        echo 'Chỉnh sửa gần nhất ' . Helpers::displayTime($value['updated_at']) . ' &#8226; ';
-                    }
-                    echo Helpers::displayTime($value['created_at']) . '
+                        if ($value['created_at'] != $value['updated_at']) {
+                            echo 'Chỉnh sửa gần nhất ' . Helpers::displayTime($value['updated_at']) . ' &#8226; ';
+                        }
+                        echo Helpers::displayTime($value['created_at']) . '
                                     </div>
                                 </div>
                             </div>
                         </div>';
-                }
-                ?>
+                    }
+                    ?>
+                </div>
+
 
             </div>
             <div class="col-sm-4">

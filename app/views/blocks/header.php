@@ -18,13 +18,13 @@
                         <i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '
                         </a>
                         <ul class="dropdown-menu">';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
-                            
-                            echo (Session::data('User')['role'] >= 1)?'<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>':false;
-                            
-                            echo '<hr/>
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
+
+                echo (Session::data('User')['role'] >= 1) ? '<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>' : false;
+
+                echo '<hr/>
                             <li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -45,13 +45,13 @@
                         <i class="fa-solid fa-user"></i> ' . Session::data('User')['name'] . '
                         </a>
                         <ul class="dropdown-menu">';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
-                            echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
-                            
-                            echo (Session::data('User')['role'] >= 1)?'<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>':false;
-                            
-                            echo '<hr/>
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
+
+                echo (Session::data('User')['role'] >= 1) ? '<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>' : false;
+
+                echo '<hr/>
                             <li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -114,22 +114,12 @@
         </form>
     </div>
 </div>
-<?php
-if (Session::data('User') != null && Session::data('User')['active'] == 0) {
-    echo '<div class="active p-3 container text-center">
-            <div class="active-line">Tài khoản của bạn vẫn chưa được an toàn, còn một bước nữa. Hãy <a class="text-danger fw-bold" href="/kich-hoat/' . Session::data('User')['user_id'] . '.html">kích hoạt tài khoản</a>!</div>
-        </div>';
-}
-?>
-<?php
-if (Session::data('User') != null){
-    if (Session::data('User')['phone_number'] == null) {
-        echo '<div class="active p-3 container text-center">
-            <div class="active-line">Tài khoản của bạn vẫn chưa hoàn tất, còn một bước nữa. Hãy <a class="text-danger fw-bold" href="/nguoi-dung/chinh-sua-thong-tin/'.Helpers::to_slug(Session::data('User')['name']).'_'.Session::data('User')['user_id'].'.html">hoàn tất hồ sơ</a> của mình!</div>
-        </div>';
-    }
-}
-?>
+<?php if (Session::data('User') != null && Session::data('User')['active'] == 0) { ?>
+    <div class="alert alert-danger"><div class="container"> Tài khoản của bạn chưa được kích hoạt. Hãy kích hoạt tài khoản để xác nhận Email dùng để lấy lại mật khẩu sau này! <a href="" class="fw-bold">Kích hoạt ngay</a></div></div>
+<?php } ?>
+<?php if (Session::data('User') != null && Session::data('User')['phone_number'] == null) { ?>
+    <div class="alert alert-danger"><div class="container"> Hoàn tất hồ sơ của bạn để được hỗ trợ tốt hơn từ trang web! <a href="" class="fw-bold">Hoàn tất ngay</a></div></div>
+<?php } ?>
 <!-- Modal Logout -->
 <div class="modal fade" id="logout">
     <div class="modal-dialog">

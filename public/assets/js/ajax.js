@@ -1,22 +1,22 @@
 $(document).ready(function () {
     var role = 0;
     $('#banned').click(function () {
-        role = -1; 
+        role = -1;
     });
     $('#member').click(function () {
-        role = 0; 
+        role = 0;
     });
     $('#mod').click(function () {
-        role = 1; 
+        role = 1;
     });
     $('#cm').click(function () {
-        role = 2; 
+        role = 2;
     });
     $('#admin').click(function () {
-        role = 3; 
+        role = 3;
     });
     $('#all').click(function () {
-        role = 4; 
+        role = 4;
     });
     $('.filter').click(function () {
         $.ajax({
