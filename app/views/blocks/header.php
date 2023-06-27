@@ -2,9 +2,9 @@
     <div class="container header">
         <div class="logo"><a href="/"><img src="/public/Image/icon/bg.png" width="80%" alt=""></a></div>
         <div class="search-bar">
-            <form action="" method="GET">
+            <form action="/home/search" method="GET">
                 <input type="text" name="key" placeholder="Tìm kiếm ...">
-                <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="authen">
@@ -81,9 +81,9 @@
         <a href="/dich/anh-viet">
             <li>Dịch</li>
         </a>
-        <form method="get" action="">
+        <form method="get" action="/home/search">
             <input type="text" name="key" placeholder="Tìm kiếm ...">
-            <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </ul>
 </nav>
@@ -108,9 +108,9 @@
         <a href="/dich/anh-viet">
             <li><i class="fa-solid fa-language"></i> dịch</li>
         </a>
-        <form method="get" action="" class="container">
+        <form method="get" action="/home/search" class="container">
             <input type="text" name="key" placeholder="Tìm kiếm ...">
-            <button name="seach"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
 </div>

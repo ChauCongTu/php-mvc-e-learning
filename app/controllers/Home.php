@@ -47,8 +47,7 @@ class Home extends Controller
         if ($type == 0) {
             $from = 'vi';
             $to = 'en';
-        }
-        else {
+        } else {
             $from = 'en';
             $to = 'vi';
         }
@@ -58,7 +57,8 @@ class Home extends Controller
         }
         echo json_encode($data);
     }
-    public function sendContact(){
+    public function sendContact()
+    {
         $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
         $mail = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
         $content = filter_var($_POST['content'], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -68,5 +68,28 @@ class Home extends Controller
             'content' => $content
         ];
         $this->db->table('contact')->insert($data);
+    }
+    public function search()
+    {
+        $postData = [];
+        $this->data['sub_content']['posts'] = [];
+        $this->data['sub_content']['users'] = [];
+        $this->data['sub_content']['vocabulary'] = [];
+        if ($_GET['key']) {
+            $key = filter_var($_GET['key'], FILTER_SANITIZE_SPECIAL_CHARS);
+            $this->data['sub_content']['keyword'] = $key;
+            $posts = $this->db->table('posts')->select('post_id')->where('title', 'LIKE', '%' . $key . '%')->orderBy('post_id', 'DESC')->get();
+            $users = $this->db->table('users')->where('name', 'LIKE', '%' . $key . '%')->orderBy('user_id', 'DESC')->get();
+            $vocabulary = $this->db->table('vocabulary')->where('vocab_id', 'LIKE', '%' . $key . '%')->orderBy('vocab_id', 'DESC')->get();
+            for ($i = 0; $i < count($posts); $i++) {
+                $postData[$i] = $this->model('ForumModel')->getFullPostById($posts[$i]['post_id']);
+            }
+            $this->data['sub_content']['posts'] = $postData;
+            $this->data['sub_content']['users'] = $users;
+            $this->data['sub_content']['vocabulary'] = $vocabulary;
+        }
+        $this->data['page_title'] = 'Tìm kiếm';
+        $this->data['content'] = 'home/search';
+        $this->render('layouts/client-layout', $this->data);
     }
 }
