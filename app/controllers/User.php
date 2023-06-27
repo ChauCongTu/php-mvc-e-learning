@@ -68,6 +68,23 @@ class User extends Controller
         $this->data['content'] = 'user/profile';
         $this->render('layouts/client-layout', $this->data);
     }
+    public function ChangePassword(){
+        $old_password = $_POST['old_password'];
+        $new_password = $_POST['new_password'];
+        $cfm_password = $_POST['cfm_password'];
+        $response = [];
+        if (Session::data('User') != null) {
+            $password = Session::data('User')['password'];
+            if ($password != hash('sha256', $old_password)) {
+                $response['error'] = true;
+            }
+            else {
+                $this->model($this->model)->changePassword(Session::data('User')['user_id'], $new_password);
+                $response['error'] = false;
+            }
+            echo json_encode($response);
+        }
+    }
     public function profileEdit($slug, $user_id)
     {
         $user = $this->model($this->model)->getUserByID($user_id);

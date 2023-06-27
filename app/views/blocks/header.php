@@ -19,7 +19,7 @@
                         </a>
                         <ul class="dropdown-menu">';
                 echo '<li><a class="dropdown-item" href="/nguoi-dung/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
-                echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                echo '<li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#changePassword"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
                 echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
 
                 echo (Session::data('User')['role'] >= 1) ? '<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>' : false;
@@ -46,7 +46,7 @@
                         </a>
                         <ul class="dropdown-menu">';
                 echo '<li><a class="dropdown-item" href="/nguoi-dung/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-circle-info"></i> Thông tin cá nhân</a></li>';
-                echo '<li><a class="dropdown-item" href="/nguoi-dung/doi-mat-khau/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
+                echo '<li><a class="dropdown-item" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#changePassword"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>';
                 echo '<li><a class="dropdown-item" href="/nguoi-dung/chinh-sua-thong-tin/' . Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id'] . '.html"><i class="fa-solid fa-gears"></i> Thiết lập</a></li>';
 
                 echo (Session::data('User')['role'] >= 1) ? '<li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-sliders"></i> Bảng điều khiển</a></li>' : false;
@@ -115,10 +115,14 @@
     </div>
 </div>
 <?php if (Session::data('User') != null && Session::data('User')['active'] == 0) { ?>
-    <div class="alert alert-danger"><div class="container"> Tài khoản của bạn chưa được kích hoạt. Hãy kích hoạt tài khoản để xác nhận Email dùng để lấy lại mật khẩu sau này! <a href="" class="fw-bold">Kích hoạt ngay</a></div></div>
+    <div class="alert alert-danger">
+        <div class="container"> Tài khoản của bạn chưa được kích hoạt. Hãy kích hoạt tài khoản để xác nhận Email dùng để lấy lại mật khẩu sau này! <a href="" class="fw-bold">Kích hoạt ngay</a></div>
+    </div>
 <?php } ?>
 <?php if (Session::data('User') != null && Session::data('User')['phone_number'] == null) { ?>
-    <div class="alert alert-danger"><div class="container"> Hoàn tất hồ sơ của bạn để được hỗ trợ tốt hơn từ trang web! <a href="" class="fw-bold">Hoàn tất ngay</a></div></div>
+    <div class="alert alert-danger">
+        <div class="container"> Hoàn tất hồ sơ của bạn để được hỗ trợ tốt hơn từ trang web! <a href="" class="fw-bold">Hoàn tất ngay</a></div>
+    </div>
 <?php } ?>
 <!-- Modal Logout -->
 <div class="modal fade" id="logout">
@@ -131,6 +135,39 @@
                     <a href="/dang-xuat.html" class="btn btn-danger btn-sm">Đăng xuất</a>
                     <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Hủy</button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Change Password Logout -->
+<div class="modal fade modal-mv" id="changePassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="cp_old_pwd" class="h5">Nhập mật khẩu cũ: </label>
+                    <input type="text" id="cp_old_pwd" class="form-control" />
+                    <div id="cp_err_1"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="cp_old_pwd" class="h5">Nhập mật khẩu mới: </label>
+                    <input type="text" id="cp_new_pwd" class="form-control" />
+                    <div id="cp_err_2"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="cp_old_pwd" class="h5">Xác nhận mật khẩu mới: </label>
+                    <input type="text" id="cp_new_pwd_cfm" class="form-control" />
+                    <div id="cp_err_3"></div>
+                </div>
+                <div id="cp_showmsg"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" id="cp_save" class="btn btn-primary">Lưu thay đổi</button>
             </div>
         </div>
     </div>

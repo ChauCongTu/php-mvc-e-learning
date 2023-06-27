@@ -25,6 +25,14 @@ class UserModel extends Model
         $data = $this->db->table($this->_table)->where('username', '=', $username)->where('password', '=', $password)->first();
         return $data;
     }
+    public function changePassword($user_id, $new_password){
+        $new_password = filter_var($new_password, FILTER_SANITIZE_SPECIAL_CHARS);
+        $new_password = hash('sha256', $new_password);
+        $data = [
+            'password' => $new_password
+        ];
+        $this->db->table('users')->where('user_id', '=', $user_id)->update($data);
+    }
 
     public function getUserByID($user_id)
     {
