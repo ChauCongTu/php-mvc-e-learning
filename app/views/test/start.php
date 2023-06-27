@@ -1,18 +1,24 @@
 <?php
 $minute = $test['time'];
 ?>
-<div class="container mt-3">
-    <form action="/thi-truc-tuyen/ket-qua" method="post">
-        <button class="btn btn-success btn-rectangle rounded-0 shadow float-end" name="submit_result">Nộp bài</button>
-    </form>
+<div class="bg-light p-3">
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <div class="bg-primary me-3 p-2 ps-3 pe-3 fw-bold text-light">
+                <span id="m"></span> :
+                <span id="s"></span>
+            </div>
+            <form action="/thi-truc-tuyen/ket-qua" method="post">
+                <div class="text-end">
+                    <button class="btn btn-success " name="submit_result">Nộp bài</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <body class="test" onload="start(<?php echo $minute; ?>)">
-    <div class="container shadow-lg mt-3 pt-5 pb-3">
-        <div class="clock">
-            <span id="m"></span> :
-            <span id="s"></span>
-        </div>
+    <div class="container mt-3 pt-5 pb-3">
         <div class="row">
             <div class="col-md-9">
                 <div class="question" id="questionInfo">
@@ -47,9 +53,8 @@ $minute = $test['time'];
                         </form>
                     </div>
                 </div>
-                <div class="mt-2">
-                    <button id="prevBtn" class="btn btn-danger btn-rectangle rounded-0">&#171; Trước</button>
-                    <button id="nextBtn" class="btn btn-danger btn-rectangle rounded-0">Tiếp &#187;</button>
+                <div class="mt-2 text-end">
+                    <button id="nextBtn" class="btn btn-danger">Xác nhận<i class="fa-solid fa-check ms-2"></i></button>
                 </div>
                 <div class="mt-2">
                     <span class="fw-bold">Lưu ý:</span>
@@ -59,10 +64,11 @@ $minute = $test['time'];
                 </div>
             </div>
             <div class="col-md-3 border-start">
+                <input type="hidden" value="<?php echo $test['size']; ?>" id="test_size">
                 <div class="question-selector">
                     <?php
                     for ($i = 1; $i <= $test['size']; $i++) {
-                        echo '<div><button id="' . $i . '" class="question__selector__done">' . $i . '</a></div>';
+                        echo '<div><button id="' . $i . '" class="question__selector">' . $i . '</a></div>';
                     }
                     ?>
                 </div>

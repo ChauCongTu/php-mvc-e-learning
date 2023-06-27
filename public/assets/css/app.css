@@ -996,23 +996,19 @@ nav ul form {
   display: flex;
   flex-wrap: wrap;
 }
-.question-selector .question__selector__done {
-  width: 30px;
-  height: 30px;
-  color: #fff;
-  background-color: #d70000;
-  border: none;
-  border-radius: 50%;
-  margin: 10px;
-}
 .question-selector .question__selector {
   width: 30px;
   height: 30px;
-  color: #000;
-  background-color: #f3f3f3;
+  color: #d70000;
+  background-color: #fff;
   border: 1px solid #d70000;
   border-radius: 50%;
   margin: 10px;
+}
+.question-selector .selected {
+  color: #fff;
+  background-color: #d70000;
+  border: none;
 }
 
 .r-member,
