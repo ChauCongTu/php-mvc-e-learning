@@ -42,6 +42,7 @@ $routes['nguoi-dung'] = 'user';
 $routes['nguoi-dung/(.+)_(\d+).html'] = 'user/profile/$1/$2';
 $routes['nguoi-dung/chinh-sua-thong-tin/(.+)_(\d+).html'] = 'user/profileEdit/$1/$2';
 $routes['kich-hoat/(\d+).html'] = 'user/active/$1';
+$routes['quen-mat-khau.html'] = 'user/forgotPassword';
 
 // Admin
 $routes['bang-dieu-khien'] = 'admin';

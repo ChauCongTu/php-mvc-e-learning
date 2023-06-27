@@ -345,4 +345,30 @@ class Admin extends Controller
         }
         echo json_encode($data);
     }
+    public function contact() {
+        if (Session::data('User') == null) {
+            echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+            exit;
+        } else {
+            if (Session::data('User')['role'] == 1 || Session::data('User')['role'] == 3) {
+                if (isset($_POST['delete'])){
+                    $this->db->table('contact')->where('id', '=', $_POST['id'])->delete();
+                }
+                if (isset($_POST['mark'])){
+                    $data = [ 'status' => 1];
+                    $this->db->table('contact')->where('id', '=', $_POST['id'])->update($data);
+                }
+                $contact = $this->db->table('contact')->orderBy('id', 'DESC')->get();
+                $paged = Helpers::handlePaged(10, $contact);
+                $this->data['sub_content']['pagedData'] = $paged['pagedData'];
+                $this->data['sub_content']['pagination'] = $paged['pagination'];
+                $this->data['page_title'] = 'Quản lý liên hệ';
+                $this->data['content'] = 'admin/contact/index';
+                $this->render('layouts/client-layout', $this->data);
+            } else {
+                echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+                exit;
+            }
+        }
+    }
 }

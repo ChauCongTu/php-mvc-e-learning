@@ -53,8 +53,7 @@ class User extends Controller
             $validate = $request->validate();
             if (!$validate) {
                 $this->data['sub_content']['errors'] = $request->errors();
-            }
-            else {
+            } else {
                 $reported_user_id = $_POST['reported_user_id'];
                 $user_id = Session::data('User')['user_id'];
                 $this->model('UserModel')->sendReport($_POST['title'], $_POST['type'], $_POST['content'], $reported_user_id, $user_id);
@@ -68,7 +67,8 @@ class User extends Controller
         $this->data['content'] = 'user/profile';
         $this->render('layouts/client-layout', $this->data);
     }
-    public function ChangePassword(){
+    public function ChangePassword()
+    {
         $old_password = $_POST['old_password'];
         $new_password = $_POST['new_password'];
         $cfm_password = $_POST['cfm_password'];
@@ -77,8 +77,7 @@ class User extends Controller
             $password = Session::data('User')['password'];
             if ($password != hash('sha256', $old_password)) {
                 $response['error'] = true;
-            }
-            else {
+            } else {
                 $this->model($this->model)->changePassword(Session::data('User')['user_id'], $new_password);
                 $response['error'] = false;
             }
@@ -143,7 +142,7 @@ class User extends Controller
                 } else {
                     $target_path = "./public/Image/user";
                     $img_path = $target_path . '/' . $img_name;
-                    move_uploaded_file($file['tmp_name'], $img_path); 
+                    move_uploaded_file($file['tmp_name'], $img_path);
                     // Copy original image to ..user/original
                     $target_path_img_full = "./public/Image/user/original";
                     $img_full_path = $target_path_img_full . '/' . $img_name;
@@ -187,6 +186,12 @@ class User extends Controller
     {
         Session::delete('User');
         Helpers::redirect_to('/');
+    }
+    public function forgotPassword()
+    {
+        $this->data['page_title'] = 'Quên mật khẩu';
+        $this->data['content'] = 'user/forgot_password';
+        $this->render('layouts/client-layout', $this->data);
     }
     public function login()
     {
