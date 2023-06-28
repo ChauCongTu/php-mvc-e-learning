@@ -1,36 +1,38 @@
-<div class="photo">
-    <div class="text">10th Grade Lesson</div>
-    <div class="photo-blur"></div>
-</div>
 <section class="container lesson">
+    <?php if (Session::data('User') != null) { ?>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <a href="/Lesson/Save/<?php echo $lesson['lesson_id']; ?>" class="btn btn-success"><i class="fa-solid fa-bookmark me-2"></i>Lưu bài học</a>
+        </div>
+    <?php } ?>
     <div class="row">
         <div class="col-md-8 bg-white">
             <div class="title"><?php echo $lesson['title']; ?></div>
             <div class="main">
-                <div class="sub_title">Từ vựng</div>
-                <div class="sub_content">
-                    <table class="table table-bordered">
-                        <thead class="fw-bold text-center">
-                            <td></td>
-                            <td>Từ vựng</td>
-                            <td>Phiên âm</td>
-                            <td>Nghĩa</td>
-                        </thead>
-                        <?php
-                        $index = 1;
-                        foreach ($lesson['vocabulary'] as $value) {
-                            echo '<tr class="text-center">
+                <button class="btn btn-light rounded-0 border mt-3" data-bs-toggle="collapse" data-bs-target="#vocabulary">XEM TỪ VỰNG</button>
+                <div class="collapse" id="vocabulary">
+                    <div class="sub_content bg-light">
+                        <table class="table table-bordered">
+                            <thead class="fw-bold text-center">
+                                <td></td>
+                                <td>Từ vựng</td>
+                                <td>Phiên âm</td>
+                                <td>Nghĩa</td>
+                            </thead>
+                            <?php
+                            $index = 1;
+                            foreach ($lesson['vocabulary'] as $value) {
+                                echo '<tr class="text-center">
                                     <td>' . $index++ . '</td>
                                     <td>' . $value['word'] . '</td>
                                     <td>' . $value['spelling'] . '</td>
                                     <td>' . $value['meaning'] . '</td>
                                 </tr>';
-                        }
-                        ?>
-                    </table>
-
+                            }
+                            ?>
+                        </table>
+                    </div>
+                    <button class="btn btn-light rounded-0 border" data-bs-toggle="collapse" data-bs-target="#vocabulary">[ĐÓNG]</button>
                 </div>
-                <hr />
                 <div class="sub_title">Ngữ pháp</div>
                 <?php
                 foreach ($lesson['grammar'] as $value) {
@@ -49,8 +51,8 @@
             </div>
             <?php
             if (!empty($lesson['content'])) {
-                echo '<div class="main">
-                        <div class="sub_title text-center p-3">Bài tập áp dụng</div>
+                echo '<div class="main border p-3">
+                        <div class="sub_title text-center mb-3">Bài tập áp dụng</div>
                         <div class="sub_content">
                             ' . $lesson['content'] . '
                         </div>
@@ -62,9 +64,9 @@
             <div class="title">Cùng khối lớp</div>
             <article class="mt-4">
                 <ul class="list-group list-group-light">
-                <?php
-                foreach ($other_lesson as $value) {
-                    echo '<li class="list-group-item d-flex justify-content-between align-items-center">
+                    <?php
+                    foreach ($other_lesson as $value) {
+                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="/public/Image/lesson/' . $value['thumb'] . '" alt="" style="width: 45px; height: 45px" />
                                 <div class="ms-3">
@@ -74,8 +76,8 @@
                             </div>
                             <a class="btn btn-link btn-rounded btn-sm" href="/bai-hoc/' . Helpers::to_slug($value['title']) . '_' . $value['lesson_id'] . '.html" role="button">Xem</a>
                         </li>';
-                }
-                ?>
+                    }
+                    ?>
                 </ul>
             </article>
         </div>

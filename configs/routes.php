@@ -53,6 +53,9 @@ $routes['bang-dieu-khien/quan-ly-bai-hoc/(.+)_(\d+).html'] = 'admin/lesson_detai
 $routes['bang-dieu-khien/quan-ly-lien-he.html'] = 'admin/contact';
 $routes['bang-dieu-khien/quan-ly-bao-cao.html'] = 'admin/report';
 
+$routes['bang-dieu-khien/quan-ly-de-thi.html'] = 'admin/test';
+$routes['bang-dieu-khien/quan-ly-de-thi/chinh-sua/(\d+)'] = 'admin/test_edit/$1';
+
 // Translate 
 $routes['dich/anh-viet'] = 'home/translate/anh-viet';
 $routes['dich/viet-anh'] = 'home/translate/viet-anh';
