@@ -371,4 +371,35 @@ class Admin extends Controller
             }
         }
     }
+    public function report() {
+        if (Session::data('User') == null) {
+            echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+            exit;
+        } else {
+            if (Session::data('User')['role'] == 1 || Session::data('User')['role'] == 3) {
+                if (isset($_POST['delete'])){
+                    $this->db->table('report')->where('report_id', '=', $_POST['report_id'])->delete();
+                }
+                if (isset($_POST['mark'])){
+                    $data = [ 'is_handled' => 1];
+                    $this->db->table('report')->where('report_id', '=', $_POST['report_id'])->update($data);
+                }
+                $report = $this->db->table('report')->orderBy('report_id', 'DESC')->get();
+                for($i = 0; $i < count($report); $i ++) {
+                    $report[$i]['reason'] = Helpers::display_type_report($report[$i]['type']);
+                    $report[$i]['name'] = $this->model('UserModel')->getUserByID($report[$i]['user_id'])['name'];
+                    $report[$i]['reported_name'] = $this->model('UserModel')->getUserByID($report[$i]['reported_user_id'])['name'];
+                }
+                $paged = Helpers::handlePaged(10, $report);
+                $this->data['sub_content']['pagedData'] = $paged['pagedData'];
+                $this->data['sub_content']['pagination'] = $paged['pagination'];
+                $this->data['page_title'] = 'Quản lý báo cáo';
+                $this->data['content'] = 'admin/report/index';
+                $this->render('layouts/client-layout', $this->data);
+            } else {
+                echo '<h1 style="text-align:center">Không đủ thẩm quyền</h1>';
+                exit;
+            }
+        }
+    }
 }

@@ -109,7 +109,7 @@
             echo Helpers::pagination($pagination['total_rows'], $pagination['recordsPerPage'], $pagination['currentPage']);
             ?>
         </div>
-
+        <a href="/bang-dieu-khien" class="btn btn-light border">Quay lại</a>
     </div>
 </section>
 

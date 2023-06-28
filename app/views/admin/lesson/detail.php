@@ -322,6 +322,7 @@
                 </tbody>
             </table>
         </div>
+        <a href="/bang-dieu-khien/quan-ly-bai-hoc.html" class="btn btn-light border">Quay lại</a>
     </div>
 </section>
 <!-- Add Grammar Modal -->

@@ -37,7 +37,7 @@
                 </a>
             </div>
             <div class="col-sm-4 mt-3">
-                <a href="">
+                <a href="/bang-dieu-khien/quan-ly-lien-he.html">
                     <div class="list-group list-group-item list-group-item-secondary text-center rounded-2">
                         <div class="icon"><i class="fa-solid fa-phone"></i></div>
                         <li class=""> Quản lý liên hệ</li>
@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="col-sm-4 mt-3">
-                <a href="">
+                <a href="/bang-dieu-khien/quan-ly-bao-cao.html">
                     <div class="list-group list-group-item list-group-item-danger text-center rounded-2">
                         <div class="icon"><i class="fa-solid fa-flag"></i></div>
                         <li class=""> Quản lý báo cáo</li>

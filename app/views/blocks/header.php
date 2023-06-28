@@ -116,25 +116,28 @@
 </div>
 <?php if (Session::data('User') != null && Session::data('User')['active'] == 0) { ?>
     <div class="alert alert-danger">
-        <div class="container"> Tài khoản của bạn chưa được kích hoạt. Hãy kích hoạt tài khoản để xác nhận Email dùng để lấy lại mật khẩu sau này! <a href="" class="fw-bold">Kích hoạt ngay</a></div>
+        <div class="container"> Tài khoản của bạn chưa được kích hoạt. Hãy kích hoạt tài khoản để xác nhận Email dùng để lấy lại mật khẩu sau này! <a href="/kich-hoat/<?php echo Session::data('User')['user_id']; ?>.html" class="fw-bold">Kích hoạt ngay</a></div>
     </div>
 <?php } ?>
 <?php if (Session::data('User') != null && Session::data('User')['phone_number'] == null) { ?>
     <div class="alert alert-danger">
-        <div class="container"> Hoàn tất hồ sơ của bạn để được hỗ trợ tốt hơn từ trang web! <a href="" class="fw-bold">Hoàn tất ngay</a></div>
+        <div class="container"> Hoàn tất hồ sơ của bạn để được hỗ trợ tốt hơn từ trang web! <a href="/nguoi-dung/chinh-sua-thong-tin/<?php echo Helpers::to_slug(Session::data('User')['name']) . '_' . Session::data('User')['user_id']; ?>.html" class="fw-bold">Hoàn tất ngay</a></div>
     </div>
 <?php } ?>
 <!-- Modal Logout -->
 <div class="modal fade" id="logout">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!-- Modal body -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng xuất</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
             <div class="modal-body">
-                <div class="p-3 h5 text-center">Bạn có chắc muốn đăng xuất?</div>
-                <div class="mt-2 text-center">
-                    <a href="/dang-xuat.html" class="btn btn-danger btn-sm">Đăng xuất</a>
-                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Hủy</button>
-                </div>
+                Bạn đang muốn thoát khỏi phiên đăng nhập hiện tại?
+            </div>
+            <div class="modal-footer">
+                <a href="/dang-xuat.html" class="btn btn-danger">Thoát</a>
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Hủy</button>
             </div>
         </div>
     </div>
