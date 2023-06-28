@@ -75,4 +75,17 @@ $minute = $test['time'];
             </div>
         </div>
     </div>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div class="toast test-warning">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto"><i class="fa-solid fa-warning"></i> Cảnh báo</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body bg-light">
+                <p>Thời gian chỉ còn lại <span id="timeleft"></span> phút. Hãy chuẩn bị nộp bài trước khi hết giờ, nếu không bài làm của bạn sẽ bị hủy
+                    bỏ
+                </p>
+            </div>
+        </div>
+    </div>
 </body>

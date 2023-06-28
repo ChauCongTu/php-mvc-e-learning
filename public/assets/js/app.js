@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     ClassicEditor
       .create(editorElements[i], {
         // Cấu hình cho trình soạn thảo CKEditor
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link'],
       })
       .catch(error => {
         console.error(error);
@@ -73,26 +73,31 @@ $('.slick-pane').slick({
   ]
 });
 
-
-$(document).ready(function () {
-  var s = $(".nav-bar-home");
-  var pos = s.position();
-  $(window).scroll(function () {
-    var windowpos = $(window).scrollTop();
-    if (windowpos >= pos.top) {
-      s.addClass("fixed-top");
-      s.addClass("shadow-sm");
-    } else {
-      s.removeClass("fixed-top");
-      s.removeClass("shadow-sm");
-    }
+function showToast($className, $minute = '') {
+  var toastElList = [].slice.call(document.querySelectorAll('.'+$className+''));
+  var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl);
   });
-});
-
+  $("#timeleft").text($minute.toString());
+  toastList.forEach(toast => toast.show());
+}
+// Handle Time to take the test in Client
 var h = null; // Giờ
 var m = null; // Phút
 var s = null; // Giây
 function start($minute) {
+  if (m === 15) {
+    showToast('toast', m);
+  }
+  if (m === 10) {
+    showToast('toast', m);
+  }
+  if (m === 5) {
+    showToast('toast', m);
+  }
+  if (m === 1) {
+    showToast('toast', m);
+  }
   if (h === null) {
     s = 0;
     m = $minute;
@@ -108,7 +113,8 @@ function start($minute) {
   }
   if (h == -1) {
     clearTimeout(timeout);
-    alert('Hết giờ');
+    alert('Thời gian làm bài đã hết! Bài làm của bạn sẽ bị hủy bỏ');
+    window.location = window.location.href;
     return false;
   }
 
@@ -120,13 +126,4 @@ function start($minute) {
     s--;
     start();
   }, 1000);
-}
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    const toast = new bootstrap.Toast(toastLiveExample)
-
-    toast.show()
-  })
 }

@@ -9,23 +9,23 @@
                 <form action="" method="post">
                     <div class="mb-2">
                         <input type="text" name="username" placeholder="Tên đăng nhập" class="form-control">
-                        <div class="text-danger"><?php echo (isset($errors['username']))?$errors['username']:false; ?></div>
+                        <div class="text-danger"><?php echo (isset($errors['username'])) ? $errors['username'] : false; ?></div>
                     </div>
-                    
+
                     <div class="mb-2">
                         <input type="password" name="password" placeholder="Mật khẩu" class="form-control">
-                        <div class="text-danger"><?php echo (isset($errors['password']))?$errors['password']:false; ?></div>
+                        <div class="text-danger"><?php echo (isset($errors['password'])) ? $errors['password'] : false; ?></div>
                     </div>
                     <div class="mb-2">
                         <input type="email" name="email" placeholder="Địa chỉ Email" class="form-control">
-                        <div class="text-danger"><?php echo (isset($errors['email']))?$errors['email']:false; ?></div>
+                        <div class="text-danger"><?php echo (isset($errors['email'])) ? $errors['email'] : false; ?></div>
                     </div>
                     <div class="mb-2">
                         <input type="name" name="name" placeholder="Họ tên" class="form-control">
-                        <div class="text-danger"><?php echo (isset($errors['name']))?$errors['name']:false; ?></div>
+                        <div class="text-danger"><?php echo (isset($errors['name'])) ? $errors['name'] : false; ?></div>
                     </div>
-                    <div class="mb-2">
-                        <a href="" class="action-theme">Quy định diễn đàn</a>
+                    <div class="mb-2 text-muted">
+                        <p>Bằng cách bấm vào nút đăng ký nghĩa là bạn đã đồng ý với <a href="" class="action-theme">Quy định diễn đàn</a></p>
                     </div>
                     <div class="mb-2">
                         <button class="btn btn-primary form-control">Đăng ký</button>

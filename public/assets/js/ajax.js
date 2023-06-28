@@ -168,6 +168,31 @@ $(document).ready(function () {
         });
     });
 });
+// Using Ajax to Send contact
+$(document).ready(function() {
+    $("#send_contact").click(function() {
+         var name = $("#ct_name").val();
+         var mail = $("#ct_email").val();
+         var content = $("#ct_content").val();
+         if (name == "" || mail == "" || content == "") {
+             $("#showmsg").html('<div class="alert alert-danger mt-2">Lỗi! Vui lòng nhập đẩy đủ thông tin</div>');
+         }
+         else{
+             $.ajax({
+                 url: '/home/sendContact',
+                 type: 'post',
+                 data: {
+                     name: name,
+                     mail: mail,
+                     content: content
+                 },
+                 success: function(){
+                     $("#showmsg").html('<div class="alert alert-success mt-2">Gửi liên hệ thành công! Chúng tôi sẽ phản hồi với bạn sớm nhất</div>');
+                 }
+             });
+         }
+    });
+ });
 // Using Ajax to Change Password
 $(document).ready(function () {
     $("#cp_save").click(function () {

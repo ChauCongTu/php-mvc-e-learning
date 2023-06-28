@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-5">
                 <p class="footer-title">Về chúng tôi</p>
-                <div class="footer-content mt-3">Chào mừng đến với trang web học tiếng Anh của chúng tôi! Trang web này được thiết kế để giúp các bạn học sinh THPT nâng cao khả năng tiếng anh của mình thông qua các bài học cơ bản, thi thử theo các loại đề từ thi học kì 10-11-12, THPTQG và cơ hội tham gia vào một cộng đồng học thuật tiếng anh nhộn nhịp. Chúc các bạn học tập tốt và đạt thành tích cao trong môn tiếng Anh nói riêng và các môn học khác nói chung!</div>
+                <div class="footer-content mt-3 text-light">Chào mừng đến với trang web học tiếng Anh của chúng tôi! Trang web này được thiết kế để giúp các bạn học sinh THPT nâng cao khả năng tiếng anh của mình thông qua các bài học cơ bản, thi thử theo các loại đề từ thi học kì 10-11-12, THPTQG và cơ hội tham gia vào một cộng đồng học thuật tiếng anh nhộn nhịp. Chúc các bạn học tập tốt và đạt thành tích cao trong môn tiếng Anh nói riêng và các môn học khác nói chung!</div>
                 <div class="mt-3">
                     <!-- Button Facebook -->
                     <a href="#" class="btn btn-primary btn-social" style="background-color: #1877f2">
@@ -25,19 +25,19 @@
             <div class="col-md-3">
                 <p class="footer-title">Chính sách - điều khoản</p>
                 <div class="faqs mt-3">
-                    <a href="">
+                    <a href="" class="text-light">
                         <li>Chính sách sử dụng</li>
                     </a>
-                    <a href="">
+                    <a href="" class="text-light">
                         <li>Quy định diễn đàn</li>
                     </a>
-                    <a href="">
+                    <a href="" class="text-light">
                         <li>Mô hình hoạt động</li>
                     </a>
-                    <a href="">
+                    <a href="" class="text-light">
                         <li>Bí quyết học TA hiệu quả</li>
                     </a>
-                    <a href="">
+                    <a href="" class="text-light">
                         <li>Liên kết khóa học</li>
                     </a>
                 </div>
@@ -62,29 +62,3 @@
         <p class="text-center pb-3">Copyright &copy; <?php echo date('Y'); ?> - Code by <a href="mailto:quenhon2002@gmail.com" class="text-white">Chau Que Nhon</a></p>
     </div>
 </footer>
-<script>
-    $(document).ready(function() {
-       $("#send_contact").click(function() {
-            var name = $("#ct_name").val();
-            var mail = $("#ct_email").val();
-            var content = $("#ct_content").val();
-            if (name == "" || mail == "" || content == "") {
-                $("#showmsg").html('<div class="alert alert-danger mt-2">Lỗi! Vui lòng nhập đẩy đủ thông tin</div>');
-            }
-            else{
-                $.ajax({
-                    url: '/home/sendContact',
-                    type: 'post',
-                    data: {
-                        name: name,
-                        mail: mail,
-                        content: content
-                    },
-                    success: function(){
-                        $("#showmsg").html('<div class="alert alert-success mt-2">Gửi liên hệ thành công! Chúng tôi sẽ phản hồi với bạn sớm nhất</div>');
-                    }
-                });
-            }
-       });
-    });
-</script>
