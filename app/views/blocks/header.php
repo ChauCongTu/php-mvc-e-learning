@@ -76,10 +76,10 @@
             <li>diễn đàn</li>
         </a>
         <a href="/thi-truc-tuyen">
-            <li>thi trục tuyến</li>
+            <li>thi trực tuyến</li>
         </a>
         <a href="/dich/anh-viet">
-            <li>Dịch</li>
+            <li>Dịch văn bản</li>
         </a>
         <form method="get" action="/home/search">
             <input type="text" name="key" placeholder="Tìm kiếm ...">
@@ -94,19 +94,19 @@
     </div>
     <div class="offcanvas-body">
         <a href="/">
-            <li><i class="fa-solid fa-house"></i> trang chủ</li>
+            <li><i class="fa-solid fa-house me-3"></i> trang chủ</li>
         </a>
         <a href="/bai-hoc">
-            <li><i class="fa-solid fa-book-open"></i> bài học</li>
+            <li><i class="fa-solid fa-book-open me-3"></i> bài học</li>
         </a>
         <a href="/dien-dan">
-            <li><i class="fa-solid fa-users"></i> diễn đàn</li>
+            <li><i class="fa-solid fa-users me-3"></i> diễn đàn</li>
         </a>
         <a href="/thi-truc-tuyen">
-            <li><i class="fa-solid fa-file-pen"></i> thi trực tuyến</li>
+            <li><i class="fa-solid fa-file-pen me-3"></i> thi trực tuyến</li>
         </a>
         <a href="/dich/anh-viet">
-            <li><i class="fa-solid fa-language"></i> dịch</li>
+            <li><i class="fa-solid fa-language me-3"></i> dịch văn bản</li>
         </a>
         <form method="get" action="/home/search" class="container">
             <input type="text" name="key" placeholder="Tìm kiếm ...">

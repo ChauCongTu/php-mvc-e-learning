@@ -3,14 +3,6 @@
         <h2>Bảng điều khiển</h2>
         <div class="row">
             <div class="col-sm-4 mt-3">
-                <a href="">
-                    <div class="list-group list-group-item list-group-item-primary text-center rounded-2">
-                        <div class="icon"><i class="fa-solid fa-gears"></i></div>
-                        <li class=""> Bảo trì trang web</li>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4 mt-3">
                 <div class="list-group">
                     <a href="bang-dieu-khien/quan-ly-dien-dan.html">
                         <div class="list-group list-group-item list-group-item-success text-center rounded-2">
@@ -25,6 +17,14 @@
                     <div class="list-group list-group-item list-group-item-warning text-center rounded-2">
                         <div class="icon"><i class="fa-solid fa-file"></i></div>
                         <li class=""> Quản lý bài học</li>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <a href="bang-dieu-khien/quan-ly-de-thi.html">
+                    <div class="list-group list-group-item list-group-item-primary text-center rounded-2">
+                        <div class="icon"><i class="fa-solid fa-list"></i></div>
+                        <li class=""> Quản lý đề thi</li>
                     </div>
                 </a>
             </div>

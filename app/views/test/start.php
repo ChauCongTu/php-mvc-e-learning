@@ -82,9 +82,7 @@ $minute = $test['time'];
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body bg-light">
-                <p>Thời gian chỉ còn lại <span id="timeleft"></span> phút. Hãy chuẩn bị nộp bài trước khi hết giờ, nếu không bài làm của bạn sẽ bị hủy
-                    bỏ
-                </p>
+                <p>Thời gian chỉ còn lại <span id="timeleft"></span> phút. Hãy chuẩn bị nộp bài trước khi hết giờ, nếu không bài làm của bạn sẽ không được công nhận</p>
             </div>
         </div>
     </div>
