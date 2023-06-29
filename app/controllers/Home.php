@@ -8,9 +8,6 @@ class Home extends Controller
         $this->data['sub_content']['lastest_posts'] = $this->model('ForumModel')->getLastestPosts();
         $this->data['sub_content']['categories'] = $this->model('ForumModel')->getCategories(10);
         $this->data['sub_content']['most_comment_posts'] = $this->model('ForumModel')->getMostCommentPosts();
-        // echo '<pre>';
-        // print_r($this->data['sub_content']['categories']);
-        // echo '</pre>';
         $this->data['page_title'] = 'Trang Web học Tiếng Anh trực tuyến';
         $this->data['content'] = 'home/index';
         $this->render('layouts/client-layout', $this->data);
@@ -28,15 +25,6 @@ class Home extends Controller
             $to = 'vi';
             $this->data['page_title'] = 'Công cụ dịch văn bản Anh - Việt';
         }
-        // if (isset($_POST['translate'])) {
-        //     $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
-        //     // if (!Helpers::translate($_POST['textToTranslate'], $from, $to)) {
-        //     //     $this->data['sub_content']['translated_text'] = Helpers::translate($_POST['textToTranslate'], $from, $to);
-        //     // } else {
-        //     //     $this->data['sub_content']['translated_text'] = 'Có lỗi xảy ra, vui lòng thử lại!';
-        //     // }
-        //     $this->data['sub_content']['textToTranslate'] = $_POST['textToTranslate'];
-        // }
         $this->data['content'] = 'home/translate';
         $this->render('layouts/client-layout', $this->data);
     }
