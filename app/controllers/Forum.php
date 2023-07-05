@@ -95,6 +95,7 @@ class Forum extends Controller
                     ]);
                     $this->db->table('posts')->insert($post[0]);
                     $this->data['sub_content']['msg'] = 'Đăng bài thành công';
+                    Helpers::redirect_to('/dien-dan');
                 }
             }
         }
@@ -143,6 +144,7 @@ class Forum extends Controller
         $post_id = filter_var($post_id, FILTER_SANITIZE_NUMBER_INT);
         $post = $this->model($this->model)->getFullPostById($post_id);
         if ($post != null) {
+            $this->db->table('comments')->where('post_id', '=', $post_id)->delete();
             $this->db->table('posts')->where('post_id', '=', $post_id)->delete();
             Helpers::redirect_to('/dien-dan/');
         }
@@ -198,7 +200,6 @@ class Forum extends Controller
                 $validate = $request->validate();
                 if (!$validate) {
                     $this->errors = $request->errors();
-                    echo 'Lỗi validate';
                 }
                 else {
                     $content = filter_var($_POST['content'], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -208,7 +209,6 @@ class Forum extends Controller
                     var_dump($data_cmt);
                     $this->db->table('comments')->where('comment_id', '=', $comment_id)->update($data_cmt);
                 }
-                echo 'Lỗi submit';
             }
         }
         Helpers::redirect_to('/dien-dan/'.Helpers::to_slug($post['title']).'_'.$post['post_id'].'.html');

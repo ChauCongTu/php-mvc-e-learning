@@ -1,15 +1,39 @@
 ## English Learning Website
 This is a web application for high school students to learn English, which provides the following features:
 
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126069037319847936/image.png" alt="homepage demo image" width="80%">
+</p>
+
 - Basic English lessons such as vocabulary, grammar, etc.
+
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126071805543718972/image.png" alt="lesson demo image" width="80%">
+</p>
 
 - A forum for users to help and exchange with each other.
 
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126072831436935228/image.png" alt="forum demo image" width="80%">
+</p>
+
 - Practice tests for high school exams and national exams.
+
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126072933614375063/image.png" alt="test demo image" width="80%">
+</p>
 
 - Leaderboard for users' practice exam results.
 
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126073370698600488/image.png" alt="ranking demo image" width="80%">
+</p>
+
 - Integration with Google Translate's text translation API.
+
+<p align="center">
+<img scr="https://cdn.discordapp.com/attachments/1100753623849377835/1126073455482253453/image.png" alt="translate tool demo image" width="80%">
+</p>
 
 ## Requirements
 
@@ -20,6 +44,8 @@ This is a web application for high school students to learn English, which provi
 - Apache/Nginx server
 
 ## Installation
+
+(If you need a more detailed guide in Vietnamese, please open the readme.docx file above)
 
 ### 1. Download and install Xampp
 
@@ -39,20 +65,18 @@ Xampp is a complete distribution of Apache, PHP, MySQL, and Perl, allowing you t
 
 - Create a new database with any name in phpMyAdmin.
 
-- Import sql file to database
+- Import file `data.sql` to database
 
 - To configure the database connection, modify the information in the `configs/database.php` file.
 
 
 ### 4. Run the project
 
-- Open Xampp and turn on Apache and MySQL services.
+- Open __Xampp__ and turn on __Apache__ and __MySQL__ services.
 
-- Access the `http://localhost/your-path-to-project-folder` address in the browser to open the website.
+- Access the __`http://localhost/your-path-to-project-folder`__ address in the browser to open the website.
 
 ## Contributors
 
 Chau Que Nhon (quenhon2002@gmail.com)
 
-## License
-This project is licensed under the MIT License.
